@@ -1,0 +1,6 @@
+/* Urgency Banner Section - External Styles (fallback) */
+/* Main styles are inline in urgency-banner.liquid */
+
+.urgency-banner {
+  position: relative;
+}

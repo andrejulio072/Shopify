@@ -435,6 +435,8 @@ Inspired by: Gymshark, MyProtein, Alphalete
               <img
                 src="{{ product.featured_image | image_url: width: 400 }}"
                 alt="{{ product.title }}"
+                width="400"
+                height="400"
                 class="product-image"
                 loading="lazy"
               >
@@ -691,7 +693,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
 
 {% schema %}
 {
-  "name": "Premium Featured Products V2",
+  "name": "Featured Products V2",
   "tag": "section",
   "class": "premium-featured-section",
   "settings": [

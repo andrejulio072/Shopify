@@ -17,8 +17,6 @@
 
 		<title>
 			{{ page_title }}
-			{%- if current_tags %} &ndash; {{ 'general.meta.tags' | t: tags: current_tags | join: ', ' }}{% endif -%}
-			{%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif -%}
 			{%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
 		</title>
 
@@ -106,7 +104,7 @@
 						justify-content: center;
 						flex-wrap: wrap;
 					">
-						<a href="/collections/all" style="
+						<a href="{{ routes.all_products_collection_url }}" style="
 							background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
 							color: white;
 							font-size: 1.125rem;
@@ -780,7 +778,7 @@
 						Experience our premium products and see why we're the #1 choice for fitness enthusiasts
 					</p>
 
-					<a href="/collections/all" style="
+					<a href="{{ routes.all_products_collection_url }}" style="
 						background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
 						color: white;
 						padding: 20px 40px;

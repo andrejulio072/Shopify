@@ -18,7 +18,19 @@
   }
 
   .premium-categories__title {
-    font-size: clamp(2rem, 4vw, 3rem);
+                    </h3>
+
+                <h3 class="category-card__title">
+                  {%- if block.settings.title != blank -%}
+                    {{ block.settings.title }}
+                  {%- elsif block.settings.collection != blank -%}
+                    {{ collections[block.settings.collection].title }}
+                  {%- else -%}
+                    Categoria
+                  {%- endif -%}
+                </h3>
+
+                {%- if block.settings.description != blank -%}amp(2rem, 4vw, 3rem);
     font-weight: 800;
     color: #000000;
     margin-bottom: 15px;
@@ -397,10 +409,10 @@
                     {{ collections[block.settings.collection].title }}
                   {%- else -%}
                     Categoria
-                  {%- endunless -%}
+                  {%- endif -%}
                 </h3>
 
-                {%- unless block.settings.description == blank -%}
+                {%- if block.settings.description != blank -%}
                   <p class="category-card__description">{{ block.settings.description }}</p>
                 {%- elsif block.settings.collection != blank and collections[block.settings.collection].description != blank -%}
                   <p class="category-card__description">{{ collections[block.settings.collection].description | truncate: 120 }}</p>

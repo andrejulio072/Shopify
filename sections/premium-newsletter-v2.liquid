@@ -1,0 +1,153 @@
+<!--
+========================================
+🚀 PREMIUM NEWSLETTER V2.0
+International Standards | Email Capture
+Advanced Subscription Form
+========================================
+-->
+
+<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+<style>
+  .premium-newsletter-v2 {
+    padding: var(--space-20) 0;
+    background: linear-gradient(135deg, var(--color-black) 0%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .newsletter-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-5);
+    text-align: center;
+  }
+
+  .newsletter-header {
+    margin-bottom: var(--space-10);
+  }
+
+  .newsletter-title {
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-4xl));
+    font-weight: var(--font-black);
+    color: var(--color-white);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .newsletter-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-gray-300);
+    line-height: 1.6;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: var(--space-3);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    padding: var(--space-4) var(--space-5);
+    border: 2px solid var(--color-gray-700);
+    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-white);
+    font-size: var(--text-base);
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-input:focus {
+    outline: none;
+    border-color: var(--color-electric-blue);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .newsletter-button {
+    padding: var(--space-4) var(--space-8);
+    background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
+    color: var(--color-white);
+    font-weight: var(--font-bold);
+    border: none;
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .newsletter-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 122, 255, 0.4);
+  }
+
+  @media (max-width: 640px) {
+    .newsletter-form {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<section class="premium-newsletter-v2">
+  <div class="newsletter-container">
+    <div class="newsletter-header">
+      <h2 class="newsletter-title">{{ section.settings.title | default: 'Join Our Community' }}</h2>
+      <p class="newsletter-subtitle">{{ section.settings.subtitle | default: 'Get exclusive deals, fitness tips, and product updates delivered to your inbox' }}</p>
+    </div>
+
+    {% form 'customer', class: 'newsletter-form' %}
+      <input 
+        type="email" 
+        name="contact[email]" 
+        placeholder="{{ section.settings.placeholder | default: 'Enter your email' }}"
+        class="newsletter-input"
+        required
+      >
+      <button type="submit" class="newsletter-button">
+        {{ section.settings.button_text | default: 'Subscribe' }}
+      </button>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter V2",
+  "tag": "section",
+  "class": "premium-newsletter-v2",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Join Our Community"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Get exclusive deals, fitness tips, and product updates delivered to your inbox"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input Placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Subscribe"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter V2"
+    }
+  ]
+}
+{% endschema %}

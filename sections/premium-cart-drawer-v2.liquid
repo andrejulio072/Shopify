@@ -1,0 +1,176 @@
+<!--
+========================================
+🚀 PREMIUM CART DRAWER V2.0
+International Standards | Shopping Cart
+Slide-out Cart Experience
+========================================
+-->
+
+<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+<style>
+  .cart-drawer {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 400px;
+    height: 100vh;
+    background: var(--color-white);
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cart-drawer.active {
+    right: 0;
+  }
+
+  .cart-drawer-header {
+    padding: var(--space-6);
+    border-bottom: 1px solid var(--color-gray-200);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .cart-drawer-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--color-black);
+  }
+
+  .cart-drawer-close {
+    background: none;
+    border: none;
+    font-size: var(--text-2xl);
+    cursor: pointer;
+    color: var(--color-gray-600);
+  }
+
+  .cart-drawer-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-6);
+  }
+
+  .cart-drawer-footer {
+    padding: var(--space-6);
+    border-top: 1px solid var(--color-gray-200);
+  }
+
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-4);
+  }
+
+  .cart-checkout-button {
+    width: 100%;
+    padding: var(--space-4);
+    background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
+    color: var(--color-white);
+    font-weight: var(--font-bold);
+    border: none;
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9998;
+  }
+
+  .cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h2 class="cart-drawer-title">{{ section.settings.title | default: 'Your Cart' }}</h2>
+    <button class="cart-drawer-close" id="cartClose">&times;</button>
+  </div>
+
+  <div class="cart-drawer-items" id="cartItems">
+    <!-- Cart items will be loaded dynamically -->
+  </div>
+
+  <div class="cart-drawer-footer">
+    <div class="cart-total">
+      <span>Total:</span>
+      <span id="cartTotal">$0.00</span>
+    </div>
+    <button class="cart-checkout-button">
+      {{ section.settings.checkout_text | default: 'Checkout' }}
+    </button>
+  </div>
+</div>
+
+<script>
+  // Cart drawer functionality
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartClose = document.getElementById('cartClose');
+
+  function openCart() {
+    cartDrawer.classList.add('active');
+    cartOverlay.classList.add('active');
+  }
+
+  function closeCart() {
+    cartDrawer.classList.remove('active');
+    cartOverlay.classList.remove('active');
+  }
+
+  cartClose.addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', closeCart);
+
+  // Listen for cart icon clicks
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('[href="/cart"]') || e.target.closest('.cart-icon')) {
+      e.preventDefault();
+      openCart();
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Cart Drawer V2",
+  "tag": "section",
+  "class": "cart-drawer-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Cart Title",
+      "default": "Your Cart"
+    },
+    {
+      "type": "text",
+      "id": "checkout_text",
+      "label": "Checkout Button Text",
+      "default": "Checkout"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cart Drawer V2"
+    }
+  ]
+}
+{% endschema %}

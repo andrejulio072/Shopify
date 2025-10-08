@@ -1,0 +1,208 @@
+<!--
+========================================
+🚀 PREMIUM QUICK VIEW V2.0
+International Standards | Product Preview
+Modal Quick View Experience
+========================================
+-->
+
+<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+<style>
+  .quick-view-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .quick-view-modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .quick-view-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .quick-view-content {
+    position: relative;
+    background: var(--color-white);
+    border-radius: var(--radius-2xl);
+    max-width: 1000px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: var(--space-8);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+  }
+
+  .quick-view-modal.active .quick-view-content {
+    transform: scale(1);
+  }
+
+  .quick-view-close {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: var(--color-gray-900);
+    color: var(--color-white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-xl);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .quick-view-close:hover {
+    background: var(--color-electric-blue);
+    transform: rotate(90deg);
+  }
+
+  .quick-view-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .quick-view-image {
+    width: 100%;
+    border-radius: var(--radius-xl);
+  }
+
+  .quick-view-info h2 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-black);
+    margin-bottom: var(--space-4);
+  }
+
+  .quick-view-price {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--color-electric-blue);
+    margin-bottom: var(--space-6);
+  }
+
+  .quick-view-description {
+    color: var(--color-gray-600);
+    line-height: 1.6;
+    margin-bottom: var(--space-6);
+  }
+
+  .quick-view-button {
+    width: 100%;
+    padding: var(--space-4);
+    background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
+    color: var(--color-white);
+    font-weight: var(--font-bold);
+    border: none;
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+  }
+
+  .quick-view-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 122, 255, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .quick-view-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="quick-view-modal" id="quickViewModal">
+  <div class="quick-view-overlay" id="quickViewOverlay"></div>
+  <div class="quick-view-content">
+    <button class="quick-view-close" id="quickViewClose">&times;</button>
+    
+    <div class="quick-view-grid">
+      <div class="quick-view-image-container">
+        <img src="" alt="" width="500" height="500" class="quick-view-image" id="quickViewImage">
+      </div>
+      
+      <div class="quick-view-info">
+        <h2 id="quickViewTitle"></h2>
+        <div class="quick-view-price" id="quickViewPrice"></div>
+        <div class="quick-view-description" id="quickViewDescription"></div>
+        <button class="quick-view-button" id="quickViewAddToCart">
+          {{ section.settings.button_text | default: 'Add to Cart' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Quick View functionality
+  const quickViewModal = document.getElementById('quickViewModal');
+  const quickViewOverlay = document.getElementById('quickViewOverlay');
+  const quickViewClose = document.getElementById('quickViewClose');
+
+  function openQuickView(product) {
+    document.getElementById('quickViewImage').src = product.featured_image;
+    document.getElementById('quickViewImage').alt = product.title;
+    document.getElementById('quickViewTitle').textContent = product.title;
+    document.getElementById('quickViewPrice').textContent = product.price;
+    document.getElementById('quickViewDescription').textContent = product.description;
+    
+    quickViewModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeQuickView() {
+    quickViewModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  quickViewClose.addEventListener('click', closeQuickView);
+  quickViewOverlay.addEventListener('click', closeQuickView);
+
+  // Listen for quick view button clicks
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.quick-view-btn')) {
+      e.preventDefault();
+      const productData = e.target.closest('.quick-view-btn').dataset;
+      openQuickView(productData);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Quick View V2",
+  "tag": "section",
+  "class": "quick-view-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Add to Cart Button Text",
+      "default": "Add to Cart"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quick View V2"
+    }
+  ]
+}
+{% endschema %}

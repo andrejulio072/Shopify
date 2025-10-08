@@ -1,0 +1,383 @@
+{{ 'section-fitness-collections.css' | asset_url | stylesheet_tag }}
+
+<div class="fitness-collections section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    {%- unless section.settings.title == blank -%}
+      <div class="fitness-collections__header">
+        <h2 class="fitness-collections__title h1">{{ section.settings.title }}</h2>
+        {%- unless section.settings.subtitle == blank -%}
+          <p class="fitness-collections__subtitle">{{ section.settings.subtitle }}</p>
+        {%- endunless -%}
+      </div>
+    {%- endunless -%}
+
+    <div class="fitness-collections__grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'collection' -%}
+            <div class="collection-card" {{ block.shopify_attributes }}>
+              {%- if block.settings.collection != blank -%}
+                {%- assign collection = collections[block.settings.collection] -%}
+
+                <a href="{{ collection.url }}" class="collection-card__link">
+                  <div class="collection-card__image-wrapper">
+                    {%- if block.settings.image != blank -%}
+                      {%- assign image = block.settings.image -%}
+                    {%- elsif collection.featured_image -%}
+                      {%- assign image = collection.featured_image -%}
+                    {%- endif -%}
+
+                    {%- if image -%}
+                      {{
+                        image
+                        | image_url: width: 600
+                        | image_tag:
+                          loading: 'lazy',
+                          class: 'collection-card__image',
+                          alt: collection.title | escape
+                      }}
+                    {%- else -%}
+                      <div class="collection-card__placeholder">
+                        <span>{{ collection.title | truncate: 1, '' | upcase }}</span>
+                      </div>
+                    {%- endif -%}
+
+                    <div class="collection-card__overlay"></div>
+                  </div>
+
+                  <div class="collection-card__content">
+                    <h3 class="collection-card__title">
+                      {%- unless block.settings.custom_title == blank -%}
+                        {{ block.settings.custom_title }}
+                      {%- else -%}
+                        {{ collection.title }}
+                      {%- endunless -%}
+                    </h3>
+
+                    {%- unless block.settings.description == blank -%}
+                      <p class="collection-card__description">{{ block.settings.description }}</p>
+                    {%- elsif collection.description != blank -%}
+                      <p class="collection-card__description">{{ collection.description | truncate: 100 }}</p>
+                    {%- endunless -%}
+
+                    <div class="collection-card__meta">
+                      <span class="collection-card__count">{{ collection.all_products_count }} produtos</span>
+                      <span class="collection-card__cta">{{ block.settings.button_text | default: 'Ver Produtos' }}</span>
+                    </div>
+                  </div>
+                </a>
+              {%- else -%}
+                <div class="collection-card collection-card--placeholder">
+                  <div class="collection-card__image-wrapper">
+                    <div class="collection-card__placeholder">
+                      <span>?</span>
+                    </div>
+                  </div>
+                  <div class="collection-card__content">
+                    <h3 class="collection-card__title">Selecione uma Coleção</h3>
+                    <p class="collection-card__description">Configure este bloco no painel de administração</p>
+                  </div>
+                </div>
+              {%- endif -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_view_all -%}
+      <div class="fitness-collections__footer">
+        <a href="{{ routes.collections_url }}" class="btn-fitness-secondary">
+          {{ section.settings.view_all_text | default: 'Ver Todas as Coleções' }}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .fitness-collections {
+    padding: 80px 0;
+  }
+
+  .fitness-collections__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .fitness-collections__title {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 800;
+  }
+
+  .fitness-collections__subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .fitness-collections__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .collection-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+
+  .collection-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+
+  .collection-card__link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .collection-card__image-wrapper {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .collection-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .collection-card:hover .collection-card__image {
+    transform: scale(1.1);
+  }
+
+  .collection-card__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FF6B35 0%, #E74C3C 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 4rem;
+    font-weight: 800;
+  }
+
+  .collection-card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .collection-card:hover .collection-card__overlay {
+    opacity: 1;
+  }
+
+  .collection-card__content {
+    padding: 25px;
+  }
+
+  .collection-card__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .collection-card__description {
+    color: #6c757d;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+
+  .collection-card__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .collection-card__count {
+    color: #6c757d;
+    font-size: 0.9rem;
+  }
+
+  .collection-card__cta {
+    background: linear-gradient(135deg, #FF6B35 0%, #E74C3C 100%);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .collection-card:hover .collection-card__cta {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+  }
+
+  .collection-card--placeholder {
+    border: 2px dashed #e9ecef;
+    opacity: 0.7;
+  }
+
+  .fitness-collections__footer {
+    text-align: center;
+  }
+
+  @media screen and (max-width: 990px) {
+    .fitness-collections {
+      padding: 60px 0;
+    }
+
+    .fitness-collections__grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .collection-card__image-wrapper {
+      height: 220px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .fitness-collections {
+      padding: 50px 0;
+    }
+
+    .fitness-collections__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .collection-card__content {
+      padding: 20px;
+    }
+
+    .collection-card__meta {
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Coleções Fitness",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Escolha Sua Categoria",
+      "label": "Título da seção"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "default": "Encontre os melhores suplementos para seus objetivos fitness",
+      "label": "Subtítulo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "Mostrar botão 'Ver Todas'"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "default": "Ver Todas as Coleções",
+      "label": "Texto do botão 'Ver Todas'"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Coleção",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Coleção"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagem personalizada"
+        },
+        {
+          "type": "text",
+          "id": "custom_title",
+          "label": "Título personalizado"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Descrição personalizada"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "default": "Ver Produtos",
+          "label": "Texto do botão"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Coleções Fitness",
+      "blocks": [
+        {
+          "type": "collection",
+          "settings": {
+            "custom_title": "Proteínas",
+            "description": "Whey, Caseína, Plant Protein para ganho de massa magra",
+            "button_text": "Ver Proteínas"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "custom_title": "Pré-Treino",
+            "description": "Energia, foco e resistência para treinos intensos",
+            "button_text": "Ver Pré-Treinos"
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "custom_title": "Creatina",
+            "description": "Força, potência e recuperação muscular",
+            "button_text": "Ver Creatinas"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

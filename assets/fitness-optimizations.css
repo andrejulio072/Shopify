@@ -1,0 +1,411 @@
+/* Otimizações Globais para Loja Fitness */
+
+/* === CORES FITNESS === */
+:root {
+  --fitness-primary: #FF6B35;    /* Laranja energia */
+  --fitness-secondary: #2E8B57;  /* Verde saúde */
+  --fitness-accent: #E74C3C;     /* Vermelho urgência */
+  --fitness-dark: #2C3E50;       /* Azul escuro */
+  --fitness-light: #F8F9FA;      /* Cinza claro */
+  --fitness-success: #28A745;    /* Verde sucesso */
+  --fitness-warning: #FFC107;    /* Amarelo atenção */
+}
+
+/* === TIPOGRAFIA FITNESS === */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* === BOTÕES OTIMIZADOS === */
+.btn-fitness-primary {
+  background: linear-gradient(135deg, var(--fitness-primary) 0%, var(--fitness-accent) 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-fitness-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+  color: white;
+}
+
+.btn-fitness-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-fitness-primary:hover::before {
+  left: 100%;
+}
+
+.btn-fitness-secondary {
+  background: transparent;
+  color: var(--fitness-dark);
+  border: 2px solid var(--fitness-dark);
+  padding: 13px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-fitness-secondary:hover {
+  background: var(--fitness-dark);
+  color: white;
+}
+
+/* === CARTÃO DE PRODUTO OTIMIZADO === */
+.product-card-fitness {
+  border: 1px solid #e9ecef;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: white;
+  position: relative;
+}
+
+.product-card-fitness:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.product-card-fitness__badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--fitness-accent);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.product-card-fitness__image {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card-fitness__image img {
+  transition: transform 0.5s ease;
+}
+
+.product-card-fitness:hover .product-card-fitness__image img {
+  transform: scale(1.05);
+}
+
+.product-card-fitness__content {
+  padding: 20px;
+}
+
+.product-card-fitness__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--fitness-dark);
+}
+
+.product-card-fitness__price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--fitness-primary);
+  margin-bottom: 15px;
+}
+
+.product-card-fitness__rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.product-card-fitness__stars {
+  color: #FFC107;
+}
+
+/* === ELEMENTOS DE CONFIANÇA === */
+.trust-indicators {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+}
+
+.trust-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--fitness-dark);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.trust-indicator__icon {
+  font-size: 1.2rem;
+}
+
+/* === BADGES E SELOS === */
+.fitness-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--fitness-light);
+  color: var(--fitness-dark);
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #e9ecef;
+}
+
+.fitness-badge--success {
+  background: #d4edda;
+  color: #155724;
+  border-color: #c3e6cb;
+}
+
+.fitness-badge--warning {
+  background: #fff3cd;
+  color: #856404;
+  border-color: #ffeaa7;
+}
+
+.fitness-badge--primary {
+  background: var(--fitness-primary);
+  color: white;
+  border-color: var(--fitness-primary);
+}
+
+/* === CONTADORES E NÚMEROS === */
+.fitness-counter {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, var(--fitness-primary) 0%, var(--fitness-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === FORMULÁRIOS OTIMIZADOS === */
+.form-fitness input[type="email"],
+.form-fitness input[type="text"],
+.form-fitness input[type="tel"],
+.form-fitness select,
+.form-fitness textarea {
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  width: 100%;
+}
+
+.form-fitness input:focus,
+.form-fitness select:focus,
+.form-fitness textarea:focus {
+  border-color: var(--fitness-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+/* === PROGRESS BAR === */
+.progress-fitness {
+  background: #e9ecef;
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-fitness__bar {
+  background: linear-gradient(135deg, var(--fitness-primary) 0%, var(--fitness-accent) 100%);
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+/* === ALERTAS === */
+.alert-fitness {
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border-left: 4px solid;
+}
+
+.alert-fitness--success {
+  background: #d4edda;
+  color: #155724;
+  border-left-color: #28a745;
+}
+
+.alert-fitness--warning {
+  background: #fff3cd;
+  color: #856404;
+  border-left-color: #ffc107;
+}
+
+.alert-fitness--danger {
+  background: #f8d7da;
+  color: #721c24;
+  border-left-color: #dc3545;
+}
+
+/* === ANIMAÇÕES === */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+/* === RESPONSIVIDADE === */
+@media screen and (max-width: 990px) {
+  .fitness-counter {
+    font-size: 2rem;
+  }
+
+  .trust-indicators {
+    gap: 20px;
+  }
+
+  .btn-fitness-primary,
+  .btn-fitness-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .fitness-counter {
+    font-size: 1.8rem;
+  }
+
+  .trust-indicators {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .product-card-fitness__content {
+    padding: 15px;
+  }
+}
+
+/* === OTIMIZAÇÕES DE PERFORMANCE === */
+.lazyload {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lazyloaded {
+  opacity: 1;
+}
+
+/* === MELHORIAS DE ACESSIBILIDADE === */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* === HOVER STATES MELHORADOS === */
+a, button {
+  transition: all 0.2s ease;
+}
+
+a:hover, button:hover {
+  text-decoration: none;
+}
+
+/* === FOCO PARA TECLADO === */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid var(--fitness-primary);
+  outline-offset: 2px;
+}
+
+/* === CUSTOMIZAÇÕES SHOPIFY === */
+.shopify-challenge__container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.shopify-challenge__button {
+  background: linear-gradient(135deg, var(--fitness-primary) 0%, var(--fitness-accent) 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* === OTIMIZAÇÕES MOBILE === */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .btn-fitness-primary,
+  .btn-fitness-secondary {
+    padding: 12px 25px;
+    font-size: 0.9rem;
+  }
+}

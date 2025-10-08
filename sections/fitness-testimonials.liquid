@@ -1,0 +1,396 @@
+{{ 'section-fitness-testimonials.css' | asset_url | stylesheet_tag }}
+
+<div class="fitness-testimonials section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- unless section.settings.title == blank -%}
+      <div class="fitness-testimonials__header">
+        <h2 class="fitness-testimonials__title h1">{{ section.settings.title }}</h2>
+        {%- unless section.settings.subtitle == blank -%}
+          <p class="fitness-testimonials__subtitle">{{ section.settings.subtitle }}</p>
+        {%- endunless -%}
+      </div>
+    {%- endunless -%}
+
+    <div class="fitness-testimonials__grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'testimonial' -%}
+            <div class="testimonial-card" {{ block.shopify_attributes }}>
+              <div class="testimonial-card__stars">
+                {%- for i in (1..5) -%}
+                  ⭐
+                {%- endfor -%}
+              </div>
+
+              {%- unless block.settings.quote == blank -%}
+                <blockquote class="testimonial-card__quote">
+                  "{{ block.settings.quote }}"
+                </blockquote>
+              {%- endunless -%}
+
+              <div class="testimonial-card__author">
+                {%- if block.settings.image != blank -%}
+                  <div class="testimonial-card__image">
+                    {{
+                      block.settings.image
+                      | image_url: width: 80
+                      | image_tag:
+                        loading: 'lazy',
+                        width: 80,
+                        height: 80,
+                        alt: block.settings.author_name | escape
+                    }}
+                  </div>
+                {%- endif -%}
+
+                <div class="testimonial-card__details">
+                  {%- unless block.settings.author_name == blank -%}
+                    <cite class="testimonial-card__name">{{ block.settings.author_name }}</cite>
+                  {%- endunless -%}
+
+                  {%- unless block.settings.author_location == blank -%}
+                    <span class="testimonial-card__location">{{ block.settings.author_location }}</span>
+                  {%- endunless -%}
+
+                  {%- unless block.settings.result == blank -%}
+                    <span class="testimonial-card__result">{{ block.settings.result }}</span>
+                  {%- endunless -%}
+                </div>
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_stats -%}
+      <div class="fitness-testimonials__stats">
+        <div class="stat-item">
+          <span class="stat-number">{{ section.settings.stat_1_number }}</span>
+          <span class="stat-label">{{ section.settings.stat_1_label }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">{{ section.settings.stat_2_number }}</span>
+          <span class="stat-label">{{ section.settings.stat_2_label }}</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">{{ section.settings.stat_3_number }}</span>
+          <span class="stat-label">{{ section.settings.stat_3_label }}</span>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .fitness-testimonials {
+    background: #f8f9fa;
+    padding: 80px 0;
+  }
+
+  .fitness-testimonials__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .fitness-testimonials__title {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  .fitness-testimonials__subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .fitness-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  .testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  }
+
+  .testimonial-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(135deg, #FF6B35 0%, #E74C3C 100%);
+    border-radius: 15px 15px 0 0;
+  }
+
+  .testimonial-card__stars {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .testimonial-card__quote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #2c3e50;
+    margin: 0 0 25px 0;
+    font-style: italic;
+    position: relative;
+  }
+
+  .testimonial-card__author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .testimonial-card__image {
+    flex-shrink: 0;
+  }
+
+  .testimonial-card__image img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .testimonial-card__name {
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 1rem;
+    display: block;
+    font-style: normal;
+  }
+
+  .testimonial-card__location {
+    color: #6c757d;
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .testimonial-card__result {
+    background: linear-gradient(135deg, #FF6B35 0%, #E74C3C 100%);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 8px;
+  }
+
+  .fitness-testimonials__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+    padding: 40px 0;
+    border-top: 1px solid #e9ecef;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FF6B35 0%, #E74C3C 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .stat-label {
+    color: #6c757d;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+  }
+
+  @media screen and (max-width: 990px) {
+    .fitness-testimonials__grid {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .fitness-testimonials__stats {
+      gap: 30px;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .fitness-testimonials {
+      padding: 60px 0;
+    }
+
+    .testimonial-card {
+      padding: 25px;
+    }
+
+    .testimonial-card__author {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Depoimentos Fitness",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "O Que Nossos Clientes Dizem",
+      "label": "Título da seção"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "default": "Mais de 50.000 pessoas já transformaram seus corpos com nossos suplementos",
+      "label": "Subtítulo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stats",
+      "default": true,
+      "label": "Mostrar estatísticas"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "default": "+50k",
+      "label": "Estatística 1 - Número"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "default": "Clientes Satisfeitos",
+      "label": "Estatística 1 - Label"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "default": "98%",
+      "label": "Estatística 2 - Número"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "default": "Recomendam",
+      "label": "Estatística 2 - Label"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_number",
+      "default": "4.9★",
+      "label": "Estatística 3 - Número"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "default": "Avaliação Média",
+      "label": "Estatística 3 - Label"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Depoimento",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "default": "Ganhei 8kg de massa magra em 3 meses! O whey é muito saboroso e a entrega foi super rápida.",
+          "label": "Depoimento"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "default": "João Silva",
+          "label": "Nome do cliente"
+        },
+        {
+          "type": "text",
+          "id": "author_location",
+          "default": "São Paulo, SP",
+          "label": "Localização"
+        },
+        {
+          "type": "text",
+          "id": "result",
+          "default": "+8kg massa magra",
+          "label": "Resultado obtido"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Foto do cliente"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Depoimentos Fitness",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Ganhei 8kg de massa magra em 3 meses! O whey é muito saboroso e a entrega foi super rápida.",
+            "author_name": "João Silva",
+            "author_location": "São Paulo, SP",
+            "result": "+8kg massa magra"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Melhor pré-treino que já usei! Energia para treinar pesado sem tremor nem ansiedade.",
+            "author_name": "Maria Santos",
+            "author_location": "Rio de Janeiro, RJ",
+            "result": "+40% performance"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Produto original, entrega rápida e atendimento nota 10! Já sou cliente há 2 anos.",
+            "author_name": "Carlos Oliveira",
+            "author_location": "Belo Horizonte, MG",
+            "result": "Cliente fiel há 2 anos"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,500 @@
+{{ 'premium-header.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .premium-header {
+    background: #ffffff;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .premium-header__promo-bar {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    color: #ffffff;
+    text-align: center;
+    padding: 8px 0;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .premium-header__promo-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .premium-header__main {
+    padding: 15px 0;
+  }
+
+  .premium-header__container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .premium-header__logo {
+    flex-shrink: 0;
+  }
+
+  .premium-header__logo img {
+    height: 45px;
+    width: auto;
+    transition: opacity 0.3s ease;
+  }
+
+  .premium-header__logo:hover img {
+    opacity: 0.8;
+  }
+
+  .premium-header__nav {
+    display: none;
+  }
+
+  .premium-header__menu {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .premium-header__menu-item {
+    position: relative;
+  }
+
+  .premium-header__menu-link {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .premium-header__menu-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #000000;
+    transition: width 0.3s ease;
+  }
+
+  .premium-header__menu-link:hover {
+    color: #000000;
+  }
+
+  .premium-header__menu-link:hover::after {
+    width: 100%;
+  }
+
+  .premium-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .premium-header__search {
+    position: relative;
+  }
+
+  .premium-header__search-input {
+    background: #f8f9fa;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 40px 10px 20px;
+    width: 200px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .premium-header__search-input:focus {
+    outline: none;
+    background: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+  }
+
+  .premium-header__search-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+  }
+
+  .premium-header__account,
+  .premium-header__cart {
+    color: #2c3e50;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .premium-header__account:hover,
+  .premium-header__cart:hover {
+    background: #f8f9fa;
+    color: #000000;
+  }
+
+  .premium-header__cart-count {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #000000;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .premium-header__mobile-toggle {
+    display: block;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .premium-header__mobile-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #2c3e50;
+    margin: 5px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+  }
+
+  /* Mobile Navigation */
+  .premium-header__mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    z-index: 1001;
+    overflow-y: auto;
+  }
+
+  .premium-header__mobile-nav.active {
+    left: 0;
+  }
+
+  .premium-header__mobile-header {
+    padding: 20px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .premium-header__mobile-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6c757d;
+  }
+
+  .premium-header__mobile-menu {
+    padding: 20px 0;
+  }
+
+  .premium-header__mobile-menu-item {
+    list-style: none;
+  }
+
+  .premium-header__mobile-menu-link {
+    display: block;
+    padding: 15px 20px;
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    border-bottom: 1px solid #f8f9fa;
+    transition: background 0.3s ease;
+  }
+
+  .premium-header__mobile-menu-link:hover {
+    background: #f8f9fa;
+    color: #000000;
+  }
+
+  .premium-header__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .premium-header__overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Desktop Navigation */
+  @media screen and (min-width: 990px) {
+    .premium-header__nav {
+      display: block;
+    }
+
+    .premium-header__mobile-toggle {
+      display: none;
+    }
+
+    .premium-header__search-input {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .premium-header__search {
+      display: none;
+    }
+
+    .premium-header__container {
+      padding: 0 15px;
+    }
+
+    .premium-header__actions {
+      gap: 10px;
+    }
+
+    .premium-header__promo-bar {
+      font-size: 11px;
+      padding: 6px 0;
+    }
+  }
+
+  /* Scroll Effect */
+  .premium-header.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .premium-header.scrolled .premium-header__logo img {
+    height: 38px;
+  }
+</style>
+
+<header class="premium-header" id="premiumHeader">
+  <!-- Promo Bar -->
+  {%- if section.settings.show_promo_bar -%}
+    <div class="premium-header__promo-bar">
+      <div class="premium-header__promo-text">
+        <span>🔥</span>
+        <span>{{ section.settings.promo_text | default: "FRETE GRÁTIS acima de R$ 99 | Entrega expressa em todo Brasil" }}</span>
+      </div>
+    </div>
+  {%- endif -%}
+
+  <!-- Main Header -->
+  <div class="premium-header__main">
+    <div class="premium-header__container">
+      
+      <!-- Logo -->
+      <div class="premium-header__logo">
+        <a href="{{ routes.root_url }}">
+          {%- if settings.logo != blank -%}
+            {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+            {{
+              settings.logo
+              | image_url: width: 200
+              | image_tag:
+                alt: logo_alt,
+                preload: true
+            }}
+          {%- else -%}
+            <span style="font-size: 24px; font-weight: 800; color: #000000;">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="premium-header__nav">
+        <ul class="premium-header__menu">
+          {%- for link in section.settings.menu.links limit: 5 -%}
+            <li class="premium-header__menu-item">
+              <a href="{{ link.url }}" class="premium-header__menu-link">
+                {{ link.title }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+
+      <!-- Actions -->
+      <div class="premium-header__actions">
+        
+        <!-- Search -->
+        <div class="premium-header__search">
+          <input type="text" class="premium-header__search-input" placeholder="Buscar produtos...">
+          <span class="premium-header__search-icon">🔍</span>
+        </div>
+
+        <!-- Account -->
+        {%- if shop.customer_accounts_enabled -%}
+          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" 
+             class="premium-header__account">
+            👤
+          </a>
+        {%- endif -%}
+
+        <!-- Cart -->
+        <a href="{{ routes.cart_url }}" class="premium-header__cart" id="cart-icon-bubble">
+          🛒
+          {%- if cart != empty -%}
+            <span class="premium-header__cart-count">{{ cart.item_count }}</span>
+          {%- endif -%}
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="premium-header__mobile-toggle" id="mobileToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation -->
+  <nav class="premium-header__mobile-nav" id="mobileNav">
+    <div class="premium-header__mobile-header">
+      <div class="premium-header__logo">
+        {%- if settings.logo != blank -%}
+          {{
+            settings.logo
+            | image_url: width: 120
+            | image_tag:
+              alt: shop.name
+          }}
+        {%- else -%}
+          <span style="font-size: 18px; font-weight: 800;">{{ shop.name }}</span>
+        {%- endif -%}
+      </div>
+      <button class="premium-header__mobile-close" id="mobileClose">✕</button>
+    </div>
+    
+    <ul class="premium-header__mobile-menu">
+      {%- for link in section.settings.menu.links -%}
+        <li class="premium-header__mobile-menu-item">
+          <a href="{{ link.url }}" class="premium-header__mobile-menu-link">
+            {{ link.title }}
+          </a>
+        </li>
+      {%- endfor -%}
+      
+      {%- if shop.customer_accounts_enabled -%}
+        <li class="premium-header__mobile-menu-item">
+          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" 
+             class="premium-header__mobile-menu-link">
+            {%- if customer -%}Minha Conta{%- else -%}Entrar{%- endif -%}
+          </a>
+        </li>
+      {%- endif -%}
+    </ul>
+  </nav>
+
+  <!-- Mobile Overlay -->
+  <div class="premium-header__overlay" id="mobileOverlay"></div>
+</header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.getElementById('premiumHeader');
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileClose = document.getElementById('mobileClose');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+
+  // Scroll effect
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu toggle
+  function toggleMobileMenu() {
+    mobileNav.classList.toggle('active');
+    mobileOverlay.classList.toggle('active');
+    document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+  }
+
+  function closeMobileMenu() {
+    mobileNav.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  mobileToggle.addEventListener('click', toggleMobileMenu);
+  mobileClose.addEventListener('click', closeMobileMenu);
+  mobileOverlay.addEventListener('click', closeMobileMenu);
+
+  // Close mobile menu on resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 989) {
+      closeMobileMenu();
+    }
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Header Premium",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_promo_bar",
+      "default": true,
+      "label": "Mostrar barra promocional"
+    },
+    {
+      "type": "text",
+      "id": "promo_text",
+      "default": "FRETE GRÁTIS acima de R$ 99 | Entrega expressa em todo Brasil",
+      "label": "Texto promocional"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "Menu de navegação"
+    }
+  ]
+}
+{% endschema %}

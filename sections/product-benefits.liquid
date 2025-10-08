@@ -1,0 +1,263 @@
+{{ 'section-product-benefits.css' | asset_url | stylesheet_tag }}
+
+<div class="product-benefits section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- unless section.settings.title == blank -%}
+      <h2 class="product-benefits__title h3">{{ section.settings.title }}</h2>
+    {%- endunless -%}
+
+    <div class="product-benefits__grid">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'benefit' -%}
+            <div class="benefit-item" {{ block.shopify_attributes }}>
+              {%- unless block.settings.icon == blank -%}
+                <div class="benefit-item__icon">
+                  {{ block.settings.icon }}
+                </div>
+              {%- endunless -%}
+
+              <div class="benefit-item__content">
+                {%- unless block.settings.title == blank -%}
+                  <h3 class="benefit-item__title">{{ block.settings.title }}</h3>
+                {%- endunless -%}
+
+                {%- unless block.settings.description == blank -%}
+                  <p class="benefit-item__description">{{ block.settings.description }}</p>
+                {%- endunless -%}
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.show_guarantee -%}
+      <div class="product-benefits__guarantee">
+        <div class="guarantee-badge">
+          <span class="guarantee-badge__icon">🛡️</span>
+          <span class="guarantee-badge__text">{{ section.settings.guarantee_text }}</span>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .product-benefits {
+    background: #fff;
+    border-top: 1px solid #e9ecef;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .product-benefits__title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    font-weight: 700;
+  }
+
+  .product-benefits__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .benefit-item:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+  }
+
+  .benefit-item__icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #FF6B35 0%, #E74C3C 100%);
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+  }
+
+  .benefit-item__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+
+  .benefit-item__description {
+    color: #6c757d;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .product-benefits__guarantee {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #e9ecef;
+  }
+
+  .guarantee-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    color: #155724;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    border: 2px solid #c3e6cb;
+  }
+
+  .guarantee-badge__icon {
+    font-size: 1.5rem;
+  }
+
+  @media screen and (max-width: 990px) {
+    .product-benefits__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .benefit-item {
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .benefit-item__icon {
+      width: 50px;
+      height: 50px;
+      font-size: 2rem;
+    }
+
+    .guarantee-badge {
+      padding: 12px 25px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Benefícios do Produto",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Por Que Escolher Este Produto?",
+      "label": "Título da seção"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guarantee",
+      "default": true,
+      "label": "Mostrar garantia"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "default": "Garantia de 30 dias ou seu dinheiro de volta",
+      "label": "Texto da garantia"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefício",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "default": "💪",
+          "label": "Ícone (emoji ou texto)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Aumenta Massa Magra",
+          "label": "Título do benefício"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "default": "25g de proteína de alta qualidade por dose para máximo ganho de massa muscular.",
+          "label": "Descrição do benefício"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefícios do Produto",
+      "blocks": [
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "💪",
+            "title": "Aumenta Massa Magra",
+            "description": "25g de proteína de alta qualidade por dose para máximo ganho de massa muscular."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "⚡",
+            "title": "Absorção Rápida",
+            "description": "Fórmula desenvolvida para absorção ultra-rápida no pós-treino."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "🎯",
+            "title": "Zero Açúcar",
+            "description": "Sabor incrível sem adição de açúcar, perfeito para sua dieta."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "🏆",
+            "title": "Marca #1",
+            "description": "A marca de suplementos mais vendida e confiável do Brasil."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "🔬",
+            "title": "Testado em Lab",
+            "description": "Todos os produtos são testados para garantir pureza e qualidade."
+          }
+        },
+        {
+          "type": "benefit",
+          "settings": {
+            "icon": "✅",
+            "title": "Aprovado ANVISA",
+            "description": "Registro na ANVISA e seguindo todas as normas de segurança."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

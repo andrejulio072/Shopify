@@ -1,0 +1,153 @@
+{{ 'component-fitness-promo-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="fitness-promo-banner">
+  <div class="fitness-promo-banner__content page-width">
+    {%- if section.settings.show_promo_text -%}
+      <div class="fitness-promo-banner__text">
+        <span class="fitness-promo-banner__icon">🔥</span>
+        <span class="fitness-promo-banner__message">
+          {{ section.settings.promo_text | default: "FRETE GRÁTIS acima de R$ 99 | 💪 GANHE 15% OFF na primeira compra" }}
+        </span>
+        {%- if section.settings.show_whatsapp -%}
+          <a href="https://wa.me/{{ section.settings.whatsapp_number }}"
+             class="fitness-promo-banner__whatsapp"
+             target="_blank"
+             rel="noopener">
+            📱 WhatsApp
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.show_trust_badges -%}
+      <div class="fitness-promo-banner__badges">
+        <span class="trust-badge">🔒 Compra Segura</span>
+        <span class="trust-badge">🚚 Entrega Rápida</span>
+        <span class="trust-badge">⚡ +50k Clientes</span>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  .fitness-promo-banner {
+    background: linear-gradient(135deg, #FF6B35 0%, #E74C3C 100%);
+    color: white;
+    padding: 8px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fitness-promo-banner__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .fitness-promo-banner__text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .fitness-promo-banner__icon {
+    font-size: 16px;
+    animation: pulse 2s infinite;
+  }
+
+  .fitness-promo-banner__whatsapp {
+    background: #25D366;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+  }
+
+  .fitness-promo-banner__whatsapp:hover {
+    transform: scale(1.05);
+    color: white;
+  }
+
+  .fitness-promo-banner__badges {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .trust-badge {
+    font-size: 12px;
+    opacity: 0.9;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  @media screen and (max-width: 749px) {
+    .fitness-promo-banner__content {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .fitness-promo-banner__badges {
+      gap: 8px;
+    }
+
+    .trust-badge {
+      font-size: 11px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Banner Promocional Fitness",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_promo_text",
+      "default": true,
+      "label": "Mostrar texto promocional"
+    },
+    {
+      "type": "text",
+      "id": "promo_text",
+      "default": "FRETE GRÁTIS acima de R$ 99 | 💪 GANHE 15% OFF na primeira compra",
+      "label": "Texto promocional"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_whatsapp",
+      "default": true,
+      "label": "Mostrar botão WhatsApp"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "default": "5511999999999",
+      "label": "Número WhatsApp (com código do país)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_badges",
+      "default": true,
+      "label": "Mostrar selos de confiança"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Promocional Fitness"
+    }
+  ]
+}
+{% endschema %}

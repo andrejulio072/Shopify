@@ -1,0 +1,419 @@
+{{ 'section-fitness-hero.css' | asset_url | stylesheet_tag }}
+
+<div class="fitness-hero gradient color-{{ section.settings.color_scheme }}">
+  <div class="fitness-hero__content page-width">
+    <div class="fitness-hero__text-wrapper">
+      {%- unless section.settings.heading == blank -%}
+        <h1 class="fitness-hero__heading h0">
+          {{ section.settings.heading }}
+        </h1>
+      {%- endunless -%}
+
+      {%- unless section.settings.subheading == blank -%}
+        <p class="fitness-hero__subheading">
+          {{ section.settings.subheading }}
+        </p>
+      {%- endunless -%}
+
+      {%- if section.settings.show_guarantee -%}
+        <div class="fitness-hero__guarantee">
+          <span class="guarantee-icon">✅</span>
+          <span>{{ section.settings.guarantee_text }}</span>
+        </div>
+      {%- endif -%}
+
+      <div class="fitness-hero__buttons">
+        {%- unless section.settings.button_primary_text == blank -%}
+          <a href="{{ section.settings.button_primary_link }}"
+             class="fitness-hero__button fitness-hero__button--primary">
+            {{ section.settings.button_primary_text }}
+          </a>
+        {%- endunless -%}
+
+        {%- unless section.settings.button_secondary_text == blank -%}
+          <a href="{{ section.settings.button_secondary_link }}"
+             class="fitness-hero__button fitness-hero__button--secondary">
+            {{ section.settings.button_secondary_text }}
+          </a>
+        {%- endunless -%}
+      </div>
+
+      {%- if section.settings.show_social_proof -%}
+        <div class="fitness-hero__social-proof">
+          <div class="social-proof__stars">⭐⭐⭐⭐⭐</div>
+          <span class="social-proof__text">{{ section.settings.social_proof_text }}</span>
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.image != blank -%}
+      <div class="fitness-hero__image-wrapper">
+        {%- assign image_height = section.settings.image.width | divided_by: section.settings.image.aspect_ratio -%}
+        {{
+          section.settings.image
+          | image_url: width: 800
+          | image_tag:
+            loading: 'eager',
+            width: section.settings.image.width,
+            height: image_height,
+            class: 'fitness-hero__image',
+            alt: section.settings.image.alt | escape
+        }}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.show_countdown -%}
+    <div class="fitness-hero__countdown">
+      <div class="page-width">
+        <span class="countdown__label">{{ section.settings.countdown_text }}</span>
+        <div class="countdown__timer" data-countdown="{{ section.settings.countdown_date }}">
+          <span class="countdown__item">
+            <span class="countdown__number" data-days>00</span>
+            <span class="countdown__label">Dias</span>
+          </span>
+          <span class="countdown__item">
+            <span class="countdown__number" data-hours>00</span>
+            <span class="countdown__label">Horas</span>
+          </span>
+          <span class="countdown__item">
+            <span class="countdown__number" data-minutes>00</span>
+            <span class="countdown__label">Min</span>
+          </span>
+          <span class="countdown__item">
+            <span class="countdown__number" data-seconds>00</span>
+            <span class="countdown__label">Seg</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
+
+<style>
+  .fitness-hero {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fitness-hero__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    min-height: 500px;
+  }
+
+  .fitness-hero__heading {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+
+  .fitness-hero__subheading {
+    font-size: 1.3rem;
+    color: #6c757d;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+
+  .fitness-hero__guarantee {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+  }
+
+  .guarantee-icon {
+    font-size: 20px;
+  }
+
+  .fitness-hero__buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+
+  .fitness-hero__button {
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    text-align: center;
+  }
+
+  .fitness-hero__button--primary {
+    background: linear-gradient(135deg, #FF6B35 0%, #E74C3C 100%);
+    color: white;
+    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.3);
+  }
+
+  .fitness-hero__button--primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(231, 76, 60, 0.4);
+    color: white;
+  }
+
+  .fitness-hero__button--secondary {
+    background: transparent;
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
+  }
+
+  .fitness-hero__button--secondary:hover {
+    background: #2c3e50;
+    color: white;
+  }
+
+  .fitness-hero__social-proof {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .social-proof__stars {
+    font-size: 20px;
+  }
+
+  .social-proof__text {
+    color: #6c757d;
+    font-weight: 500;
+  }
+
+  .fitness-hero__image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  .fitness-hero__countdown {
+    background: #2c3e50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .countdown__timer {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 10px;
+  }
+
+  .countdown__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .countdown__number {
+    font-size: 2rem;
+    font-weight: 700;
+    display: block;
+  }
+
+  .countdown__label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  @media screen and (max-width: 990px) {
+    .fitness-hero__content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .fitness-hero__heading {
+      font-size: 2.5rem;
+    }
+
+    .fitness-hero__buttons {
+      justify-content: center;
+    }
+
+    .countdown__timer {
+      gap: 20px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .fitness-hero {
+      padding: 40px 0;
+    }
+
+    .fitness-hero__heading {
+      font-size: 2rem;
+    }
+
+    .fitness-hero__button {
+      padding: 15px 30px;
+      font-size: 1rem;
+      min-width: 180px;
+    }
+
+    .countdown__timer {
+      gap: 15px;
+    }
+
+    .countdown__number {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const countdownElement = document.querySelector('[data-countdown]');
+
+  if (countdownElement) {
+    const targetDate = new Date(countdownElement.dataset.countdown).getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "Oferta Expirada";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      const daysEl = countdownElement.querySelector('[data-days]');
+      const hoursEl = countdownElement.querySelector('[data-hours]');
+      const minutesEl = countdownElement.querySelector('[data-minutes]');
+      const secondsEl = countdownElement.querySelector('[data-seconds]');
+
+      if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+      if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Hero Fitness Otimizado",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagem do Hero"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "Transforme Seu Corpo em 30 Dias",
+      "label": "Título Principal"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "default": "Os suplementos mais vendidos do Brasil agora com FRETE GRÁTIS e desconto especial para novos clientes.",
+      "label": "Subtítulo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guarantee",
+      "default": true,
+      "label": "Mostrar garantia"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "default": "Resultados em 30 dias ou seu dinheiro de volta",
+      "label": "Texto da garantia"
+    },
+    {
+      "type": "text",
+      "id": "button_primary_text",
+      "default": "QUERO MEU DESCONTO",
+      "label": "Texto botão primário"
+    },
+    {
+      "type": "url",
+      "id": "button_primary_link",
+      "label": "Link botão primário"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_text",
+      "default": "Ver Produtos",
+      "label": "Texto botão secundário"
+    },
+    {
+      "type": "url",
+      "id": "button_secondary_link",
+      "label": "Link botão secundário"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social_proof",
+      "default": true,
+      "label": "Mostrar prova social"
+    },
+    {
+      "type": "text",
+      "id": "social_proof_text",
+      "default": "+50.000 clientes transformaram seus corpos conosco",
+      "label": "Texto prova social"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown",
+      "default": false,
+      "label": "Mostrar countdown"
+    },
+    {
+      "type": "text",
+      "id": "countdown_text",
+      "default": "Oferta especial termina em:",
+      "label": "Texto do countdown"
+    },
+    {
+      "type": "text",
+      "id": "countdown_date",
+      "default": "2025-12-31T23:59:59",
+      "label": "Data limite (YYYY-MM-DDTHH:MM:SS)"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "background-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Fitness Otimizado"
+    }
+  ]
+}
+{% endschema %}

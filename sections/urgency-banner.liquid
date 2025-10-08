@@ -1,0 +1,224 @@
+{{ 'section-urgency-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="urgency-banner {% if section.settings.sticky %}urgency-banner--sticky{% endif %}">
+  <div class="page-width">
+    <div class="urgency-banner__content">
+      {%- if section.settings.show_fire_icon -%}
+        <span class="urgency-banner__icon">🔥</span>
+      {%- endif -%}
+
+      <div class="urgency-banner__text">
+        {%- unless section.settings.urgency_text == blank -%}
+          <span class="urgency-banner__message">{{ section.settings.urgency_text }}</span>
+        {%- endunless -%}
+
+        {%- if section.settings.show_countdown -%}
+          <span class="urgency-banner__countdown" data-countdown="{{ section.settings.countdown_date }}">
+            <span data-hours>00</span>:<span data-minutes>00</span>:<span data-seconds>00</span>
+          </span>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_stock -%}
+        <div class="urgency-banner__stock">
+          <span class="stock-indicator">
+            <span class="stock-dot"></span>
+            {{ section.settings.stock_text }}
+          </span>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .urgency-banner {
+    background: linear-gradient(135deg, #E74C3C 0%, #C0392B 100%);
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 2px 10px rgba(231, 76, 60, 0.3);
+    z-index: 100;
+    position: relative;
+  }
+
+  .urgency-banner--sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .urgency-banner__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .urgency-banner__icon {
+    font-size: 1.5rem;
+    animation: pulse 1.5s infinite;
+  }
+
+  .urgency-banner__message {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .urgency-banner__countdown {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .urgency-banner__stock {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .stock-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+  }
+
+  .stock-dot {
+    width: 8px;
+    height: 8px;
+    background: #ff6b35;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+  }
+
+  @media screen and (max-width: 749px) {
+    .urgency-banner {
+      padding: 12px 0;
+    }
+
+    .urgency-banner__content {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .urgency-banner__message {
+      font-size: 0.9rem;
+    }
+
+    .urgency-banner__countdown {
+      font-size: 1rem;
+      padding: 4px 12px;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const countdownElement = document.querySelector('[data-countdown]');
+
+  if (countdownElement) {
+    const targetDate = new Date(countdownElement.dataset.countdown).getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdownElement.textContent = "OFERTA EXPIRADA";
+        return;
+      }
+
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      const hoursEl = countdownElement.querySelector('[data-hours]');
+      const minutesEl = countdownElement.querySelector('[data-minutes]');
+      const secondsEl = countdownElement.querySelector('[data-seconds]');
+
+      if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+      if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+      if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Banner de Urgência",
+  "settings": [
+    {
+      "type": "text",
+      "id": "urgency_text",
+      "default": "OFERTA LIMITADA: Últimas unidades disponíveis!",
+      "label": "Texto de urgência"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_fire_icon",
+      "default": true,
+      "label": "Mostrar ícone de fogo"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_countdown",
+      "default": true,
+      "label": "Mostrar countdown"
+    },
+    {
+      "type": "text",
+      "id": "countdown_date",
+      "default": "2025-12-31T23:59:59",
+      "label": "Data limite (YYYY-MM-DDTHH:MM:SS)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stock",
+      "default": true,
+      "label": "Mostrar estoque"
+    },
+    {
+      "type": "text",
+      "id": "stock_text",
+      "default": "Restam apenas 7 unidades",
+      "label": "Texto do estoque"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "default": false,
+      "label": "Banner fixo no topo"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner de Urgência"
+    }
+  ]
+}
+{% endschema %}

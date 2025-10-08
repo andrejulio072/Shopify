@@ -27,7 +27,7 @@
   };
 
   const fadeElements = document.querySelectorAll('.fade-in, .slide-up');
-  
+
   if (fadeElements.length > 0) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {

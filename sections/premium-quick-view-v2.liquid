@@ -133,12 +133,12 @@ Modal Quick View Experience
   <div class="quick-view-overlay" id="quickViewOverlay"></div>
   <div class="quick-view-content">
     <button class="quick-view-close" id="quickViewClose">&times;</button>
-    
+
     <div class="quick-view-grid">
       <div class="quick-view-image-container">
         <img src="" alt="" width="500" height="500" class="quick-view-image" id="quickViewImage">
       </div>
-      
+
       <div class="quick-view-info">
         <h2 id="quickViewTitle"></h2>
         <div class="quick-view-price" id="quickViewPrice"></div>
@@ -163,7 +163,7 @@ Modal Quick View Experience
     document.getElementById('quickViewTitle').textContent = product.title;
     document.getElementById('quickViewPrice').textContent = product.price;
     document.getElementById('quickViewDescription').textContent = product.description;
-    
+
     quickViewModal.classList.add('active');
     document.body.style.overflow = 'hidden';
   }

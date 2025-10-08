@@ -6,7 +6,7 @@ Criamos **6 seções premium** inspiradas em marcas internacionais como **Gymsha
 
 ### ✅ Seções Desenvolvidas:
 1. **Premium Header** (`premium-header.liquid`)
-2. **Premium Hero** (`premium-hero.liquid`) 
+2. **Premium Hero** (`premium-hero.liquid`)
 3. **Premium Categories** (`premium-categories.liquid`)
 4. **Premium Featured Products** (`premium-featured-products.liquid`)
 5. **Premium Social Proof** (`premium-social-proof.liquid`)
@@ -311,7 +311,7 @@ Antes de publicar, verifique:
 Com essas implementações você terá:
 
 ✅ **Layout Premium** estilo marcas internacionais
-✅ **Conversão Otimizada** com elementos estratégicos  
+✅ **Conversão Otimizada** com elementos estratégicos
 ✅ **Mobile Perfect** experiência mobile perfeita
 ✅ **Professional Look** visual profissional e limpo
 ✅ **User Experience** navegação intuitiva

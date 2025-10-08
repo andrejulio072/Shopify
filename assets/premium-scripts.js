@@ -82,14 +82,14 @@ Modern Interactions & UX Enhancements
   // ===============================
   function initQuickAdd() {
     const quickAddButtons = document.querySelectorAll('.quick-add-btn');
-    
+
     quickAddButtons.forEach(button => {
       button.addEventListener('click', function(e) {
         e.preventDefault();
-        
+
         const productId = this.dataset.productId;
         const variantId = this.dataset.variantId;
-        
+
         if (!variantId) {
           // Redirect to product page if no variant specified
           const productUrl = this.dataset.productUrl;
@@ -123,13 +123,13 @@ Modern Interactions & UX Enhancements
     .then(data => {
       button.textContent = '✓ Adicionado';
       button.classList.add('success');
-      
+
       // Update cart count
       updateCartCount();
-      
+
       // Show success notification
       showNotification('Produto adicionado ao carrinho!', 'success');
-      
+
       // Reset button after 2 seconds
       setTimeout(() => {
         button.textContent = originalText;
@@ -141,13 +141,13 @@ Modern Interactions & UX Enhancements
       console.error('Error:', error);
       button.textContent = 'Erro - Tente novamente';
       button.classList.add('error');
-      
+
       setTimeout(() => {
         button.textContent = originalText;
         button.disabled = false;
         button.classList.remove('error');
       }, 3000);
-      
+
       showNotification('Erro ao adicionar produto. Tente novamente.', 'error');
     });
   }
@@ -177,7 +177,7 @@ Modern Interactions & UX Enhancements
 
     function handleScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      
+
       // Add/remove scrolled class
       if (scrollTop > scrollThreshold) {
         header.classList.add('scrolled');
@@ -238,7 +238,7 @@ Modern Interactions & UX Enhancements
   function initLazyLoading() {
     if ('IntersectionObserver' in window) {
       const lazyImages = document.querySelectorAll('img[data-src]');
-      
+
       const imageObserver = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -260,15 +260,15 @@ Modern Interactions & UX Enhancements
   // ===============================
   function initNewsletterForm() {
     const newsletterForms = document.querySelectorAll('.newsletter-form, .premium-footer__newsletter-form');
-    
+
     newsletterForms.forEach(form => {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
         const email = form.querySelector('input[type="email"]').value;
         const button = form.querySelector('button[type="submit"]');
         const originalText = button.textContent;
-        
+
         if (!email || !isValidEmail(email)) {
           showNotification('Por favor, insira um e-mail válido.', 'error');
           return;
@@ -282,7 +282,7 @@ Modern Interactions & UX Enhancements
           button.textContent = '✓ Inscrito';
           form.querySelector('input[type="email"]').value = '';
           showNotification('Obrigado! Você foi inscrito na newsletter.', 'success');
-          
+
           setTimeout(() => {
             button.textContent = originalText;
             button.disabled = false;
@@ -302,21 +302,21 @@ Modern Interactions & UX Enhancements
   // ===============================
   function initProductTabs() {
     const tabContainers = document.querySelectorAll('.product-tabs');
-    
+
     tabContainers.forEach(container => {
       const tabs = container.querySelectorAll('.tab-button');
       const contents = container.querySelectorAll('.tab-content');
-      
+
       tabs.forEach(tab => {
         tab.addEventListener('click', function(e) {
           e.preventDefault();
-          
+
           const targetId = this.dataset.tab;
-          
+
           // Remove active class from all tabs and contents
           tabs.forEach(t => t.classList.remove('active'));
           contents.forEach(c => c.classList.remove('active'));
-          
+
           // Add active class to clicked tab and corresponding content
           this.classList.add('active');
           const targetContent = container.querySelector(`[data-tab-content="${targetId}"]`);
@@ -333,19 +333,19 @@ Modern Interactions & UX Enhancements
   // ===============================
   function initSmoothScroll() {
     const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
-    
+
     smoothScrollLinks.forEach(link => {
       link.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           e.preventDefault();
-          
+
           const headerHeight = document.querySelector('.premium-header')?.offsetHeight || 0;
           const targetPosition = targetElement.offsetTop - headerHeight - 20;
-          
+
           window.scrollTo({
             top: targetPosition,
             behavior: 'smooth'
@@ -457,7 +457,7 @@ Modern Interactions & UX Enhancements
   // ===============================
   function initTooltips() {
     const tooltipElements = document.querySelectorAll('[data-tooltip]');
-    
+
     tooltipElements.forEach(element => {
       element.addEventListener('mouseenter', showTooltip);
       element.addEventListener('mouseleave', hideTooltip);
@@ -492,11 +492,11 @@ Modern Interactions & UX Enhancements
   // ===============================
   function initLoadingStates() {
     const loadingElements = document.querySelectorAll('.loading-trigger');
-    
+
     loadingElements.forEach(element => {
       element.addEventListener('click', function() {
         this.classList.add('loading');
-        
+
         // Remove loading class after action completes
         setTimeout(() => {
           this.classList.remove('loading');
@@ -606,7 +606,7 @@ Modern Interactions & UX Enhancements
   // ===============================
   // UTILITY FUNCTIONS
   // ===============================
-  
+
   // Debounce function
   function debounce(func, wait) {
     let timeout;

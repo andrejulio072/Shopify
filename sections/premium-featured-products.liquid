@@ -426,14 +426,14 @@
 
 <section class="premium-featured-products">
   <div class="premium-featured-products__container">
-    
+
     {%- unless section.settings.title == blank -%}
       <div class="premium-featured-products__header">
         <h2 class="premium-featured-products__title">{{ section.settings.title }}</h2>
         {%- unless section.settings.subtitle == blank -%}
           <p class="premium-featured-products__subtitle">{{ section.settings.subtitle }}</p>
         {%- endunless -%}
-        
+
         {%- if section.settings.show_tabs -%}
           <div class="premium-featured-products__tabs">
             <button class="premium-featured-products__tab active" data-tab="all">Todos</button>
@@ -450,7 +450,7 @@
         {%- assign collection = collections[section.settings.collection] -%}
         {%- for product in collection.products limit: section.settings.products_to_show -%}
           <div class="product-card-premium" data-product-id="{{ product.id }}">
-            
+
             <!-- Image -->
             <div class="product-card-premium__image-wrapper">
               <a href="{{ product.url }}">
@@ -530,7 +530,7 @@
                 <div class="product-card-premium__variants">
                   {%- for variant in product.variants limit: 5 -%}
                     {%- if variant.option1 contains 'color' or variant.option1 contains 'cor' -%}
-                      <div class="product-card-premium__variant" 
+                      <div class="product-card-premium__variant"
                            style="--variant-color: {{ variant.option1 | downcase | replace: ' ', '' }}"
                            title="{{ variant.option1 }}"></div>
                     {%- endif -%}
@@ -567,7 +567,7 @@
 
     {%- if section.settings.show_view_all -%}
       <div class="premium-featured-products__footer">
-        <a href="{{ collections[section.settings.collection].url | default: collections.all.url }}" 
+        <a href="{{ collections[section.settings.collection].url | default: collections.all.url }}"
            class="premium-featured-products__view-all">
           {{ section.settings.view_all_text | default: 'Ver Todos os Produtos' }}
           <span>→</span>
@@ -591,7 +591,7 @@ document.addEventListener('DOMContentLoaded', function() {
       this.classList.add('active');
 
       const filter = this.getAttribute('data-tab');
-      
+
       products.forEach(product => {
         if (filter === 'all') {
           product.style.display = 'block';

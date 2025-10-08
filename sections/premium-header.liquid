@@ -313,7 +313,7 @@
     <div class="premium-header__promo-bar">
       <div class="premium-header__promo-text">
         <span>🔥</span>
-        <span>{{ section.settings.promo_text | default: "FRETE GRÁTIS acima de R$ 99 | Entrega expressa em todo Brasil" }}</span>
+        <span>{{ section.settings.promo_text | default: "FREE SHIPPING over $50 | Express delivery worldwide" }}</span>
       </div>
     </div>
   {%- endif -%}
@@ -321,7 +321,7 @@
   <!-- Main Header -->
   <div class="premium-header__main">
     <div class="premium-header__container">
-      
+
       <!-- Logo -->
       <div class="premium-header__logo">
         <a href="{{ routes.root_url }}">
@@ -355,16 +355,16 @@
 
       <!-- Actions -->
       <div class="premium-header__actions">
-        
+
         <!-- Search -->
         <div class="premium-header__search">
-          <input type="text" class="premium-header__search-input" placeholder="Buscar produtos...">
+          <input type="text" class="premium-header__search-input" placeholder="Search products...">
           <span class="premium-header__search-icon">🔍</span>
         </div>
 
         <!-- Account -->
         {%- if shop.customer_accounts_enabled -%}
-          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" 
+          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
              class="premium-header__account">
             👤
           </a>
@@ -405,7 +405,7 @@
       </div>
       <button class="premium-header__mobile-close" id="mobileClose">✕</button>
     </div>
-    
+
     <ul class="premium-header__mobile-menu">
       {%- for link in section.settings.menu.links -%}
         <li class="premium-header__mobile-menu-item">
@@ -414,12 +414,12 @@
           </a>
         </li>
       {%- endfor -%}
-      
+
       {%- if shop.customer_accounts_enabled -%}
         <li class="premium-header__mobile-menu-item">
-          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" 
+          <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
              class="premium-header__mobile-menu-link">
-            {%- if customer -%}Minha Conta{%- else -%}Entrar{%- endif -%}
+            {%- if customer -%}My Account{%- else -%}Sign In{%- endif -%}
           </a>
         </li>
       {%- endif -%}
@@ -475,25 +475,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 {% schema %}
 {
-  "name": "Header Premium",
+  "name": "Premium Header",
   "settings": [
     {
       "type": "checkbox",
       "id": "show_promo_bar",
       "default": true,
-      "label": "Mostrar barra promocional"
+      "label": "Show promotional bar"
     },
     {
       "type": "text",
       "id": "promo_text",
-      "default": "FRETE GRÁTIS acima de R$ 99 | Entrega expressa em todo Brasil",
-      "label": "Texto promocional"
+      "default": "FREE SHIPPING over $50 | Express delivery worldwide",
+      "label": "Promotional text"
     },
     {
       "type": "link_list",
       "id": "menu",
       "default": "main-menu",
-      "label": "Menu de navegação"
+      "label": "Navigation menu"
     }
   ]
 }

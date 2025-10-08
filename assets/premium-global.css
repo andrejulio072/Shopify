@@ -1,4 +1,4 @@
-/* 
+/*
 ========================================
 🚀 PREMIUM SHOPIFY STYLES
 International Fitness Brand Inspired
@@ -28,7 +28,7 @@ Clean, Unisex, Commercial Design
   --color-gray-700: #495057;
   --color-gray-800: #343a40;
   --color-gray-900: #212529;
-  
+
   /* Accent Colors */
   --color-primary: #000000;
   --color-secondary: #6c757d;
@@ -36,7 +36,7 @@ Clean, Unisex, Commercial Design
   --color-warning: #ffc107;
   --color-danger: #dc3545;
   --color-info: #17a2b8;
-  
+
   /* Spacing */
   --spacing-xs: 5px;
   --spacing-sm: 10px;
@@ -47,7 +47,7 @@ Clean, Unisex, Commercial Design
   --spacing-3xl: 60px;
   --spacing-4xl: 80px;
   --spacing-5xl: 100px;
-  
+
   /* Borders */
   --border-radius-sm: 4px;
   --border-radius-md: 6px;
@@ -55,25 +55,25 @@ Clean, Unisex, Commercial Design
   --border-radius-xl: 12px;
   --border-radius-xxl: 16px;
   --border-radius-round: 50%;
-  
+
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
   --shadow-xl: 0 15px 40px rgba(0, 0, 0, 0.1);
-  
+
   /* Typography */
   --font-family-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-weight-normal: 400;
   --font-weight-medium: 600;
   --font-weight-bold: 700;
   --font-weight-black: 800;
-  
+
   /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
-  
+
   /* Z-index */
   --z-dropdown: 1000;
   --z-sticky: 1020;
@@ -437,13 +437,13 @@ h6 { font-size: clamp(1rem, 1.5vw, 1.25rem); }
 @media screen and (max-width: 768px) {
   .hidden-mobile { display: none; }
   .visible-mobile { display: block; }
-  
+
   .grid--2,
   .grid--3,
   .grid--4 {
     grid-template-columns: 1fr;
   }
-  
+
   .container {
     padding: 0 var(--spacing-md);
   }
@@ -535,14 +535,14 @@ html {
 /* PRINT STYLES */
 @media print {
   .no-print { display: none; }
-  
+
   body {
     font-size: 12pt;
     line-height: 1.4;
     color: black;
     background: white;
   }
-  
+
   .btn {
     border: 1px solid black;
     background: white;

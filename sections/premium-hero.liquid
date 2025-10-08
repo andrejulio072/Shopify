@@ -337,10 +337,10 @@
 
 <section class="premium-hero">
   <div class="premium-hero__container">
-    
+
     <!-- Content -->
     <div class="premium-hero__content">
-      
+
       {%- unless section.settings.badge_text == blank -%}
         <div class="premium-hero__badge">
           <span class="premium-hero__badge-icon">{{ section.settings.badge_icon | default: "🔥" }}</span>
@@ -416,15 +416,15 @@
         }}
       {%- else -%}
         <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #6c757d; font-size: 18px;">
-          Adicione uma imagem ou vídeo
+          Add an image or video
         </div>
       {%- endif -%}
 
       {%- if section.settings.show_floating_cards -%}
         <!-- Floating Cards -->
         <div class="premium-hero__floating-card premium-hero__floating-card--top">
-          <p class="premium-hero__floating-text" style="margin: 0; font-weight: 600;">{{ section.settings.floating_card1_text | default: "Frete Grátis" }}</p>
-          <p class="premium-hero__floating-text" style="margin: 0; font-size: 12px;">{{ section.settings.floating_card1_subtext | default: "Acima de R$ 99" }}</p>
+          <p class="premium-hero__floating-text" style="margin: 0; font-weight: 600;">{{ section.settings.floating_card1_text | default: "Free Shipping" }}</p>
+          <p class="premium-hero__floating-text" style="margin: 0; font-size: 12px;">{{ section.settings.floating_card1_subtext | default: "Orders over $50" }}</p>
         </div>
 
         <div class="premium-hero__floating-card premium-hero__floating-card--bottom">
@@ -440,7 +440,7 @@
             <div style="width: 40px; height: 40px; background: #e9ecef; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
           {%- endif -%}
           <div>
-            <p class="premium-hero__floating-text">{{ section.settings.floating_card2_text | default: "João transformou seu corpo" }}</p>
+            <p class="premium-hero__floating-text">{{ section.settings.floating_card2_text | default: "John transformed his body" }}</p>
             <div class="premium-hero__floating-stars">⭐⭐⭐⭐⭐</div>
           </div>
         </div>

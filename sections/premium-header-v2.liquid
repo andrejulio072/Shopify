@@ -16,20 +16,20 @@ Inspired by: Gymshark, MyProtein, Alphalete
     backdrop-filter: blur(20px);
     z-index: var(--z-sticky);
   }
-  
+
   .sticky-header {
     position: sticky;
     top: 0;
     transition: var(--transition-normal);
   }
-  
+
   .announcement-bar {
     background: linear-gradient(90deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
     padding: var(--space-2) 0;
     text-align: center;
     overflow: hidden;
   }
-  
+
   .announcement-text {
     color: var(--color-white);
     font-size: var(--text-sm);
@@ -38,24 +38,24 @@ Inspired by: Gymshark, MyProtein, Alphalete
     letter-spacing: 0.05em;
     animation: slide-in-right 1s ease-out;
   }
-  
+
   .header-main {
     padding: var(--space-4) 0;
   }
-  
+
   .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-8);
   }
-  
+
   .logo-section {
     display: flex;
     align-items: center;
     flex-shrink: 0;
   }
-  
+
   .logo {
     font-size: var(--text-2xl);
     font-weight: var(--font-black);
@@ -65,18 +65,18 @@ Inspired by: Gymshark, MyProtein, Alphalete
     letter-spacing: -0.02em;
     transition: var(--transition-normal);
   }
-  
+
   .logo:hover {
     color: var(--color-electric-blue);
     transform: scale(1.05);
   }
-  
+
   .nav-menu {
     display: none;
     flex: 1;
     justify-content: center;
   }
-  
+
   .nav-list {
     display: flex;
     list-style: none;
@@ -84,11 +84,11 @@ Inspired by: Gymshark, MyProtein, Alphalete
     padding: 0;
     gap: var(--space-8);
   }
-  
+
   .nav-item {
     position: relative;
   }
-  
+
   .nav-link {
     color: var(--color-white);
     font-size: var(--text-sm);
@@ -104,7 +104,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     align-items: center;
     gap: var(--space-1);
   }
-  
+
   .nav-link::after {
     content: '';
     position: absolute;
@@ -116,22 +116,22 @@ Inspired by: Gymshark, MyProtein, Alphalete
     transition: var(--transition-normal);
     transform: translateX(-50%);
   }
-  
+
   .nav-link:hover::after {
     width: 100%;
   }
-  
+
   .nav-link:hover {
     color: var(--color-electric-blue);
     background-color: rgba(255, 255, 255, 0.05);
   }
-  
+
   .header-actions {
     display: flex;
     align-items: center;
     gap: var(--space-4);
   }
-  
+
   .search-toggle,
   .account-link,
   .cart-link {
@@ -144,7 +144,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     border: none;
     cursor: pointer;
   }
-  
+
   .search-toggle:hover,
   .account-link:hover,
   .cart-link:hover {
@@ -152,7 +152,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     color: var(--color-electric-blue);
     transform: scale(1.1);
   }
-  
+
   .cart-count {
     position: absolute;
     top: -4px;
@@ -169,7 +169,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     font-weight: var(--font-bold);
     animation: pulse 2s infinite;
   }
-  
+
   .mobile-menu-toggle {
     display: flex;
     background: transparent;
@@ -180,12 +180,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
     cursor: pointer;
     transition: var(--transition-normal);
   }
-  
+
   .mobile-menu-toggle:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--color-electric-blue);
   }
-  
+
   /* MEGA MENU */
   .mega-menu {
     position: absolute;
@@ -201,23 +201,23 @@ Inspired by: Gymshark, MyProtein, Alphalete
     transition: var(--transition-normal);
     z-index: var(--z-dropdown);
   }
-  
+
   .nav-item:hover .mega-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
-  
+
   .mega-menu-content {
     padding: var(--space-8) 0;
   }
-  
+
   .mega-menu-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-8);
   }
-  
+
   .mega-menu-section h3 {
     color: var(--color-black);
     font-size: var(--text-lg);
@@ -226,17 +226,17 @@ Inspired by: Gymshark, MyProtein, Alphalete
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  
+
   .mega-menu-links {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  
+
   .mega-menu-links li {
     margin-bottom: var(--space-2);
   }
-  
+
   .mega-menu-links a {
     color: var(--color-gray-600);
     font-size: var(--text-sm);
@@ -245,12 +245,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
     display: block;
     padding: var(--space-1) 0;
   }
-  
+
   .mega-menu-links a:hover {
     color: var(--color-electric-blue);
     transform: translateX(4px);
   }
-  
+
   .mega-menu-feature {
     background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
     border-radius: var(--radius-xl);
@@ -258,19 +258,19 @@ Inspired by: Gymshark, MyProtein, Alphalete
     color: var(--color-white);
     text-align: center;
   }
-  
+
   .mega-menu-feature h4 {
     color: var(--color-white);
     font-size: var(--text-xl);
     font-weight: var(--font-bold);
     margin-bottom: var(--space-2);
   }
-  
+
   .mega-menu-feature p {
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: var(--space-4);
   }
-  
+
   /* SEARCH OVERLAY */
   .search-overlay {
     position: fixed;
@@ -285,12 +285,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
     visibility: hidden;
     transition: var(--transition-normal);
   }
-  
+
   .search-overlay.active {
     opacity: 1;
     visibility: visible;
   }
-  
+
   .search-content {
     position: absolute;
     top: 20%;
@@ -299,11 +299,11 @@ Inspired by: Gymshark, MyProtein, Alphalete
     width: 90%;
     max-width: 600px;
   }
-  
+
   .search-form {
     position: relative;
   }
-  
+
   .search-input {
     width: 100%;
     padding: var(--space-5) var(--space-6);
@@ -314,11 +314,11 @@ Inspired by: Gymshark, MyProtein, Alphalete
     color: var(--color-black);
     box-shadow: var(--shadow-2xl);
   }
-  
+
   .search-input::placeholder {
     color: var(--color-gray-400);
   }
-  
+
   /* MOBILE MENU */
   .mobile-menu {
     position: fixed;
@@ -332,11 +332,11 @@ Inspired by: Gymshark, MyProtein, Alphalete
     transition: var(--transition-slow);
     overflow-y: auto;
   }
-  
+
   .mobile-menu.active {
     right: 0;
   }
-  
+
   .mobile-menu-header {
     display: flex;
     justify-content: between;
@@ -344,7 +344,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     padding: var(--space-6);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-  
+
   .mobile-menu-close {
     background: transparent;
     border: none;
@@ -354,17 +354,17 @@ Inspired by: Gymshark, MyProtein, Alphalete
     cursor: pointer;
     margin-left: auto;
   }
-  
+
   .mobile-nav-list {
     list-style: none;
     margin: 0;
     padding: var(--space-6);
   }
-  
+
   .mobile-nav-item {
     margin-bottom: var(--space-4);
   }
-  
+
   .mobile-nav-link {
     color: var(--color-white);
     font-size: var(--text-lg);
@@ -377,23 +377,23 @@ Inspired by: Gymshark, MyProtein, Alphalete
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  
+
   .mobile-nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--color-electric-blue);
   }
-  
+
   /* RESPONSIVE */
   @media (min-width: 1024px) {
     .nav-menu {
       display: flex;
     }
-    
+
     .mobile-menu-toggle {
       display: none;
     }
   }
-  
+
   @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.1); }
@@ -414,7 +414,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
   <div class="header-main">
     <div class="container container-premium">
       <div class="header-content">
-        
+
         <!-- LOGO -->
         <div class="logo-section">
           <a href="{{ routes.root_url }}" class="logo">
@@ -425,7 +425,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
             {% endif %}
           </a>
         </div>
-        
+
         <!-- NAVIGATION MENU -->
         <nav class="nav-menu">
           <ul class="nav-list">
@@ -439,7 +439,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
                     </svg>
                   {% endif %}
                 </a>
-                
+
                 {% if link.links.size > 0 %}
                   <div class="mega-menu">
                     <div class="container container-premium">
@@ -447,12 +447,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
                         <div class="mega-menu-grid">
                           {% assign link_count = link.links.size %}
                           {% assign links_per_column = link_count | divided_by: 3.0 | ceil %}
-                          
+
                           {% for i in (1..3) %}
                             <div class="mega-menu-section">
                               {% assign start_index = forloop.index0 | times: links_per_column %}
                               {% assign end_index = start_index | plus: links_per_column | minus: 1 %}
-                              
+
                               {% if i == 1 %}
                                 <h3>{{ section.settings.menu_title_1 | default: "SUPPLEMENTS" }}</h3>
                               {% elsif i == 2 %}
@@ -460,7 +460,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
                               {% else %}
                                 <h3>{{ section.settings.menu_title_3 | default: "ACCESSORIES" }}</h3>
                               {% endif %}
-                              
+
                               <ul class="mega-menu-links">
                                 {% for child_link in link.links limit: links_per_column offset: start_index %}
                                   <li><a href="{{ child_link.url }}">{{ child_link.title }}</a></li>
@@ -468,7 +468,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
                               </ul>
                             </div>
                           {% endfor %}
-                          
+
                           <!-- FEATURED SECTION -->
                           <div class="mega-menu-feature">
                             <h4>{{ section.settings.feature_title | default: "NEW ARRIVALS" }}</h4>
@@ -486,7 +486,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
             {% endfor %}
           </ul>
         </nav>
-        
+
         <!-- HEADER ACTIONS -->
         <div class="header-actions">
           <!-- Search -->
@@ -496,7 +496,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
               <path d="m21 21-4.35-4.35"></path>
             </svg>
           </button>
-          
+
           <!-- Account -->
           <a href="{{ routes.account_url }}" class="account-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -504,7 +504,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
               <circle cx="12" cy="7" r="4"></circle>
             </svg>
           </a>
-          
+
           <!-- Cart -->
           <a href="{{ routes.cart_url }}" class="cart-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -516,7 +516,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
               <span class="cart-count">{{ cart.item_count }}</span>
             {% endif %}
           </a>
-          
+
           <!-- Mobile Menu Toggle -->
           <button type="button" class="mobile-menu-toggle" onclick="toggleMobileMenu()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -535,10 +535,10 @@ Inspired by: Gymshark, MyProtein, Alphalete
 <div class="search-overlay" id="searchOverlay">
   <div class="search-content">
     <form action="{{ routes.search_url }}" method="get" class="search-form">
-      <input 
-        type="search" 
-        name="q" 
-        class="search-input" 
+      <input
+        type="search"
+        name="q"
+        class="search-input"
         placeholder="Search products, brands, categories..."
         autocomplete="off"
         id="searchInput"
@@ -558,7 +558,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
       </svg>
     </button>
   </div>
-  
+
   <ul class="mobile-nav-list">
     {% for link in linklists.main-menu.links %}
       <li class="mobile-nav-item">
@@ -572,20 +572,20 @@ Inspired by: Gymshark, MyProtein, Alphalete
   function toggleSearch() {
     const overlay = document.getElementById('searchOverlay');
     const input = document.getElementById('searchInput');
-    
+
     overlay.classList.toggle('active');
-    
+
     if (overlay.classList.contains('active')) {
       setTimeout(() => input.focus(), 100);
     }
   }
-  
+
   function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     menu.classList.toggle('active');
     document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
   }
-  
+
   // Close search with Escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
@@ -594,7 +594,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
       document.body.style.overflow = '';
     }
   });
-  
+
   // Close search when clicking outside
   document.getElementById('searchOverlay').addEventListener('click', function(e) {
     if (e.target === this) {

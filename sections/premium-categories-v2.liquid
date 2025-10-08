@@ -15,12 +15,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
     position: relative;
     overflow: hidden;
   }
-  
+
   .categories-header {
     text-align: center;
     margin-bottom: var(--space-16);
   }
-  
+
   .section-badge {
     display: inline-flex;
     align-items: center;
@@ -36,7 +36,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     margin-bottom: var(--space-6);
     animation: slide-up 0.8s ease-out;
   }
-  
+
   .section-title {
     font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
     font-weight: var(--font-black);
@@ -46,7 +46,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     letter-spacing: -0.02em;
     animation: slide-up 0.8s ease-out 0.2s both;
   }
-  
+
   .section-subtitle {
     font-size: var(--text-lg);
     color: var(--color-gray-600);
@@ -55,14 +55,14 @@ Inspired by: Gymshark, MyProtein, Alphalete
     line-height: 1.6;
     animation: slide-up 0.8s ease-out 0.4s both;
   }
-  
+
   .categories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: var(--space-6);
     margin-bottom: var(--space-12);
   }
-  
+
   .category-card {
     position: relative;
     background: var(--color-white);
@@ -74,30 +74,30 @@ Inspired by: Gymshark, MyProtein, Alphalete
     height: 400px;
     animation: fade-in 0.8s ease-out;
   }
-  
+
   .category-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: var(--shadow-2xl);
   }
-  
+
   .category-image {
     position: relative;
     width: 100%;
     height: 70%;
     overflow: hidden;
   }
-  
+
   .category-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: var(--transition-slow);
   }
-  
+
   .category-card:hover .category-image img {
     transform: scale(1.1);
   }
-  
+
   .category-overlay {
     position: absolute;
     top: 0;
@@ -113,11 +113,11 @@ Inspired by: Gymshark, MyProtein, Alphalete
     opacity: 0;
     transition: var(--transition-normal);
   }
-  
+
   .category-card:hover .category-overlay {
     opacity: 1;
   }
-  
+
   .category-content {
     padding: var(--space-6);
     height: 30%;
@@ -127,7 +127,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     text-align: center;
     position: relative;
   }
-  
+
   .category-title {
     font-size: var(--text-xl);
     font-weight: var(--font-bold);
@@ -137,18 +137,18 @@ Inspired by: Gymshark, MyProtein, Alphalete
     letter-spacing: 0.05em;
     transition: var(--transition-normal);
   }
-  
+
   .category-card:hover .category-title {
     color: var(--color-electric-blue);
   }
-  
+
   .category-description {
     font-size: var(--text-sm);
     color: var(--color-gray-600);
     margin-bottom: var(--space-4);
     line-height: 1.5;
   }
-  
+
   .category-cta {
     display: inline-flex;
     align-items: center;
@@ -160,12 +160,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
     letter-spacing: 0.05em;
     transition: var(--transition-normal);
   }
-  
+
   .category-card:hover .category-cta {
     color: var(--color-neon-green);
     transform: translateX(4px);
   }
-  
+
   .category-badge {
     position: absolute;
     top: var(--space-4);
@@ -180,7 +180,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     letter-spacing: 0.05em;
     animation: pulse 2s infinite;
   }
-  
+
   /* FEATURED CATEGORIES LAYOUT */
   .featured-categories {
     display: grid;
@@ -188,7 +188,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     gap: var(--space-6);
     margin-bottom: var(--space-16);
   }
-  
+
   .featured-card {
     position: relative;
     background: var(--color-black);
@@ -198,11 +198,11 @@ Inspired by: Gymshark, MyProtein, Alphalete
     cursor: pointer;
     transition: var(--transition-normal);
   }
-  
+
   .featured-card:hover {
     transform: scale(1.02);
   }
-  
+
   .featured-background {
     position: absolute;
     top: 0;
@@ -211,7 +211,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     height: 100%;
     z-index: 1;
   }
-  
+
   .featured-background img {
     width: 100%;
     height: 100%;
@@ -219,12 +219,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
     opacity: 0.7;
     transition: var(--transition-slow);
   }
-  
+
   .featured-card:hover .featured-background img {
     transform: scale(1.05);
     opacity: 0.8;
   }
-  
+
   .featured-overlay {
     position: absolute;
     top: 0;
@@ -234,7 +234,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 122, 255, 0.3) 100%);
     z-index: 2;
   }
-  
+
   .featured-content {
     position: relative;
     z-index: 3;
@@ -245,7 +245,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     justify-content: center;
     color: var(--color-white);
   }
-  
+
   .featured-title {
     font-size: var(--text-3xl);
     font-weight: var(--font-black);
@@ -253,14 +253,14 @@ Inspired by: Gymshark, MyProtein, Alphalete
     text-transform: uppercase;
     letter-spacing: -0.02em;
   }
-  
+
   .featured-description {
     font-size: var(--text-lg);
     margin-bottom: var(--space-6);
     opacity: 0.9;
     line-height: 1.5;
   }
-  
+
   .featured-btn {
     background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
     color: var(--color-white);
@@ -277,12 +277,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
     transition: var(--transition-normal);
     align-self: flex-start;
   }
-  
+
   .featured-btn:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-xl);
   }
-  
+
   /* VIEW ALL SECTION */
   .view-all-section {
     text-align: center;
@@ -291,20 +291,20 @@ Inspired by: Gymshark, MyProtein, Alphalete
     border-radius: var(--radius-2xl);
     color: var(--color-white);
   }
-  
+
   .view-all-title {
     font-size: var(--text-2xl);
     font-weight: var(--font-bold);
     margin-bottom: var(--space-4);
     text-transform: uppercase;
   }
-  
+
   .view-all-text {
     font-size: var(--text-lg);
     margin-bottom: var(--space-6);
     opacity: 0.9;
   }
-  
+
   .view-all-btn {
     background: transparent;
     color: var(--color-white);
@@ -321,40 +321,40 @@ Inspired by: Gymshark, MyProtein, Alphalete
     gap: var(--space-3);
     transition: var(--transition-normal);
   }
-  
+
   .view-all-btn:hover {
     background: var(--color-electric-blue);
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
   }
-  
+
   /* RESPONSIVE */
   @media (min-width: 768px) {
     .categories-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .featured-categories {
       grid-template-columns: 2fr 1fr;
     }
   }
-  
+
   @media (min-width: 1024px) {
     .categories-grid {
       grid-template-columns: repeat(3, 1fr);
     }
-    
+
     .featured-categories {
       grid-template-columns: 2fr 1fr 1fr;
     }
   }
-  
+
   /* ANIMATIONS */
   @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
   }
-  
+
   /* FLOATING PARTICLES */
   .floating-particle {
     position: absolute;
@@ -363,7 +363,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     opacity: 0.1;
     animation: float-particle 8s infinite linear;
   }
-  
+
   .floating-particle:nth-child(1) {
     width: 20px;
     height: 20px;
@@ -371,7 +371,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     left: 20%;
     animation-delay: 0s;
   }
-  
+
   .floating-particle:nth-child(2) {
     width: 15px;
     height: 15px;
@@ -379,7 +379,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     right: 15%;
     animation-delay: 3s;
   }
-  
+
   .floating-particle:nth-child(3) {
     width: 25px;
     height: 25px;
@@ -387,7 +387,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     left: 10%;
     animation-delay: 6s;
   }
-  
+
   @keyframes float-particle {
     0% {
       transform: translateY(0px) rotate(0deg);
@@ -409,7 +409,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
   <div class="floating-particle"></div>
   <div class="floating-particle"></div>
   <div class="floating-particle"></div>
-  
+
   <div class="container container-premium">
     <!-- Section Header -->
     <div class="categories-header">
@@ -421,14 +421,14 @@ Inspired by: Gymshark, MyProtein, Alphalete
           {{ section.settings.section_badge }}
         </div>
       {% endif %}
-      
+
       <h2 class="section-title">{{ section.settings.section_title | default: "SHOP BY CATEGORY" }}</h2>
-      
+
       {% if section.settings.section_subtitle %}
         <p class="section-subtitle">{{ section.settings.section_subtitle }}</p>
       {% endif %}
     </div>
-    
+
     <!-- Featured Categories -->
     {% if section.settings.show_featured %}
       <div class="featured-categories">
@@ -437,7 +437,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
             <a href="{{ block.settings.category_link | default: '/collections/all' }}" class="featured-card">
               <div class="featured-background">
                 {% if block.settings.category_image %}
-                  {{ block.settings.category_image | image_url: width: 800 | image_tag: 
+                  {{ block.settings.category_image | image_url: width: 800 | image_tag:
                      loading: 'lazy',
                      alt: block.settings.category_title,
                      sizes: '(max-width: 768px) 100vw, 50vw'
@@ -462,7 +462,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
         {% endfor %}
       </div>
     {% endif %}
-    
+
     <!-- Regular Categories Grid -->
     <div class="categories-grid">
       {% for block in section.blocks %}
@@ -470,7 +470,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
           <a href="{{ block.settings.category_link | default: '/collections/all' }}" class="category-card">
             <div class="category-image">
               {% if block.settings.category_image %}
-                {{ block.settings.category_image | image_url: width: 600 | image_tag: 
+                {{ block.settings.category_image | image_url: width: 600 | image_tag:
                    loading: 'lazy',
                    alt: block.settings.category_title,
                    sizes: '(max-width: 768px) 100vw, 33vw'
@@ -479,12 +479,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
                 <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--color-gray-200) 0%, var(--color-gray-300) 100%);"></div>
               {% endif %}
               <div class="category-overlay"></div>
-              
+
               {% if block.settings.show_badge %}
                 <div class="category-badge">{{ block.settings.badge_text | default: "NEW" }}</div>
               {% endif %}
             </div>
-            
+
             <div class="category-content">
               <h3 class="category-title">{{ block.settings.category_title | default: "Category Name" }}</h3>
               {% if block.settings.category_description %}
@@ -501,7 +501,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
         {% endif %}
       {% endfor %}
     </div>
-    
+
     <!-- View All Section -->
     {% if section.settings.show_view_all %}
       <div class="view-all-section">
@@ -526,7 +526,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver(function(entries) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -535,7 +535,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
         }
       });
     }, observerOptions);
-    
+
     // Observe category cards
     document.querySelectorAll('.category-card, .featured-card').forEach(card => {
       card.style.opacity = '0';
@@ -544,7 +544,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
       observer.observe(card);
     });
   });
-  
+
   // Add hover sound effect (optional)
   document.querySelectorAll('.category-card, .featured-card').forEach(card => {
     card.addEventListener('mouseenter', function() {

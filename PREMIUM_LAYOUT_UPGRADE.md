@@ -51,7 +51,7 @@
 ```css
 /* Container Sizes */
 --container-xs: 480px     /* Mobile small */
---container-sm: 640px     /* Mobile large */  
+--container-sm: 640px     /* Mobile large */
 --container-md: 768px     /* Tablet */
 --container-lg: 1024px    /* Desktop small */
 --container-xl: 1280px    /* Desktop */

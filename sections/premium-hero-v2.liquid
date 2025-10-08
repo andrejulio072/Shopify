@@ -17,7 +17,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     overflow: hidden;
     background: linear-gradient(135deg, var(--color-black) 0%, var(--color-charcoal) 100%);
   }
-  
+
   .hero-background {
     position: absolute;
     top: 0;
@@ -26,14 +26,14 @@ Inspired by: Gymshark, MyProtein, Alphalete
     height: 100%;
     z-index: 1;
   }
-  
+
   .hero-background img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0.7;
   }
-  
+
   .hero-overlay {
     position: absolute;
     top: 0;
@@ -48,7 +48,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     );
     z-index: 2;
   }
-  
+
   .hero-content {
     position: relative;
     z-index: 3;
@@ -56,20 +56,20 @@ Inspired by: Gymshark, MyProtein, Alphalete
     width: 100%;
     padding: var(--space-20) 0;
   }
-  
+
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-12);
     align-items: center;
   }
-  
+
   .hero-text {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
   }
-  
+
   .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -84,7 +84,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     margin-bottom: var(--space-6);
     animation: slide-up 0.8s ease-out;
   }
-  
+
   .hero-title {
     font-size: clamp(var(--text-4xl), 8vw, var(--text-6xl));
     font-weight: var(--font-black);
@@ -94,14 +94,14 @@ Inspired by: Gymshark, MyProtein, Alphalete
     text-transform: uppercase;
     animation: slide-up 0.8s ease-out 0.2s both;
   }
-  
+
   .hero-title-gradient {
     background: linear-gradient(135deg, var(--color-white) 0%, var(--color-electric-blue) 50%, var(--color-neon-green) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .hero-subtitle {
     font-size: var(--text-xl);
     font-weight: var(--font-medium);
@@ -113,7 +113,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     line-height: 1.6;
     animation: slide-up 0.8s ease-out 0.4s both;
   }
-  
+
   .hero-actions {
     display: flex;
     flex-direction: column;
@@ -121,7 +121,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     align-items: center;
     animation: slide-up 0.8s ease-out 0.6s both;
   }
-  
+
   .hero-primary-btn {
     background: linear-gradient(135deg, var(--color-electric-blue) 0%, #0056CC 100%);
     color: var(--color-white);
@@ -140,7 +140,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     position: relative;
     overflow: hidden;
   }
-  
+
   .hero-primary-btn::before {
     content: '';
     position: absolute;
@@ -151,16 +151,16 @@ Inspired by: Gymshark, MyProtein, Alphalete
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: var(--transition-slow);
   }
-  
+
   .hero-primary-btn:hover::before {
     left: 100%;
   }
-  
+
   .hero-primary-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(0, 122, 255, 0.4);
   }
-  
+
   .hero-secondary-btn {
     background: transparent;
     color: var(--color-white);
@@ -178,13 +178,13 @@ Inspired by: Gymshark, MyProtein, Alphalete
     transition: var(--transition-normal);
     backdrop-filter: blur(10px);
   }
-  
+
   .hero-secondary-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--color-white);
     transform: translateY(-2px);
   }
-  
+
   .hero-stats {
     display: flex;
     gap: var(--space-8);
@@ -192,11 +192,11 @@ Inspired by: Gymshark, MyProtein, Alphalete
     margin-top: var(--space-12);
     animation: fade-in 1s ease-out 0.8s both;
   }
-  
+
   .stat-item {
     text-align: center;
   }
-  
+
   .stat-number {
     font-size: var(--text-3xl);
     font-weight: var(--font-black);
@@ -204,7 +204,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     display: block;
     line-height: 1;
   }
-  
+
   .stat-label {
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
@@ -213,7 +213,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
     letter-spacing: 0.05em;
     margin-top: var(--space-1);
   }
-  
+
   .hero-scroll-indicator {
     position: absolute;
     bottom: var(--space-8);
@@ -222,12 +222,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
     z-index: 3;
     animation: bounce 2s infinite;
   }
-  
+
   .scroll-arrow {
     color: var(--color-white);
     opacity: 0.7;
   }
-  
+
   /* FLOATING ELEMENTS */
   .floating-element {
     position: absolute;
@@ -235,54 +235,54 @@ Inspired by: Gymshark, MyProtein, Alphalete
     opacity: 0.1;
     animation: float 6s ease-in-out infinite;
   }
-  
+
   .floating-element:nth-child(1) {
     top: 20%;
     left: 10%;
     animation-delay: 0s;
   }
-  
+
   .floating-element:nth-child(2) {
     top: 60%;
     right: 15%;
     animation-delay: 2s;
   }
-  
+
   .floating-element:nth-child(3) {
     bottom: 30%;
     left: 20%;
     animation-delay: 4s;
   }
-  
+
   /* RESPONSIVE */
   @media (min-width: 768px) {
     .hero-actions {
       flex-direction: row;
       justify-content: center;
     }
-    
+
     .hero-stats {
       gap: var(--space-12);
     }
   }
-  
+
   @media (min-width: 1024px) {
     .hero-grid {
       grid-template-columns: 1fr 1fr;
       gap: var(--space-16);
       text-align: left;
     }
-    
+
     .hero-text {
       text-align: left;
       margin: 0;
     }
-    
+
     .hero-actions {
       justify-content: flex-start;
     }
   }
-  
+
   /* ANIMATIONS */
   @keyframes bounce {
     0%, 20%, 53%, 80%, 100% {
@@ -298,7 +298,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
       transform: translate(-50%, -2px);
     }
   }
-  
+
   @keyframes float {
     0%, 100% {
       transform: translateY(0px);
@@ -307,7 +307,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
       transform: translateY(-20px);
     }
   }
-  
+
   .parallax-bg {
     will-change: transform;
     transition: transform 0.1s ease-out;
@@ -318,7 +318,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
   <!-- Background Image -->
   <div class="hero-background parallax-bg">
     {% if section.settings.background_image %}
-      {{ section.settings.background_image | image_url: width: 1920 | image_tag: 
+      {{ section.settings.background_image | image_url: width: 1920 | image_tag:
          loading: 'eager',
          alt: section.settings.hero_title,
          sizes: '100vw'
@@ -327,10 +327,10 @@ Inspired by: Gymshark, MyProtein, Alphalete
       <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--color-black) 0%, var(--color-charcoal) 100%);"></div>
     {% endif %}
   </div>
-  
+
   <!-- Overlay -->
   <div class="hero-overlay"></div>
-  
+
   <!-- Floating Elements -->
   <div class="floating-element">
     <svg width="60" height="60" viewBox="0 0 24 24" fill="var(--color-electric-blue)">
@@ -347,7 +347,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
       <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
     </svg>
   </div>
-  
+
   <!-- Main Content -->
   <div class="hero-content">
     <div class="container container-premium">
@@ -362,7 +362,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
               {{ section.settings.hero_badge }}
             </div>
           {% endif %}
-          
+
           <!-- Title -->
           <h1 class="hero-title">
             {% if section.settings.title_highlight %}
@@ -371,12 +371,12 @@ Inspired by: Gymshark, MyProtein, Alphalete
               {{ section.settings.hero_title | default: "FUEL YOUR <span class='hero-title-gradient'>GREATNESS</span>" }}
             {% endif %}
           </h1>
-          
+
           <!-- Subtitle -->
           {% if section.settings.hero_subtitle %}
             <p class="hero-subtitle">{{ section.settings.hero_subtitle }}</p>
           {% endif %}
-          
+
           <!-- Action Buttons -->
           <div class="hero-actions">
             {% if section.settings.primary_button_text %}
@@ -387,7 +387,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
                 </svg>
               </a>
             {% endif %}
-            
+
             {% if section.settings.secondary_button_text %}
               <a href="{{ section.settings.secondary_button_link | default: '/pages/about' }}" class="hero-secondary-btn">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -397,7 +397,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
               </a>
             {% endif %}
           </div>
-          
+
           <!-- Stats -->
           {% if section.settings.show_stats %}
             <div class="hero-stats">
@@ -416,7 +416,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
             </div>
           {% endif %}
         </div>
-        
+
         <!-- Optional: Product Showcase or Additional Content -->
         {% if section.settings.featured_product %}
           <div class="hero-product">
@@ -436,7 +436,7 @@ Inspired by: Gymshark, MyProtein, Alphalete
       </div>
     </div>
   </div>
-  
+
   <!-- Scroll Indicator -->
   <div class="hero-scroll-indicator">
     <svg class="scroll-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -450,13 +450,13 @@ Inspired by: Gymshark, MyProtein, Alphalete
   document.addEventListener('scroll', function() {
     const scrolled = window.pageYOffset;
     const parallaxBg = document.querySelector('.parallax-bg');
-    
+
     if (parallaxBg) {
       const speed = scrolled * 0.5;
       parallaxBg.style.transform = `translateY(${speed}px)`;
     }
   });
-  
+
   // Enhanced scroll indicator interaction
   document.querySelector('.hero-scroll-indicator')?.addEventListener('click', function() {
     window.scrollTo({
@@ -464,15 +464,15 @@ Inspired by: Gymshark, MyProtein, Alphalete
       behavior: 'smooth'
     });
   });
-  
+
   // Add loading animations on page load
   document.addEventListener('DOMContentLoaded', function() {
     const heroElements = document.querySelectorAll('.hero-badge, .hero-title, .hero-subtitle, .hero-actions, .hero-stats');
-    
+
     heroElements.forEach((el, index) => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(30px)';
-      
+
       setTimeout(() => {
         el.style.transition = 'all 0.8s ease-out';
         el.style.opacity = '1';

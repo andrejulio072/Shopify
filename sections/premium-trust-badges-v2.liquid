@@ -1,0 +1,513 @@
+<!--
+========================================
+🚀 PREMIUM TRUST BADGES V2.0
+International Standards | Conversion Optimized
+Security, Guarantees & Trust Signals
+========================================
+-->
+
+<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+<style>
+  .premium-trust-badges-v2 {
+    padding: var(--space-12) 0;
+    background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-white) 100%);
+    border-top: 1px solid var(--color-gray-100);
+    border-bottom: 1px solid var(--color-gray-100);
+  }
+  
+  .trust-badges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+    align-items: center;
+  }
+  
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: var(--color-white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-normal);
+    text-align: left;
+  }
+  
+  .trust-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .trust-badge-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-size: 24px;
+  }
+  
+  .trust-badge-content {
+    flex: 1;
+  }
+  
+  .trust-badge-title {
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    color: var(--color-black);
+    margin-bottom: var(--space-1);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .trust-badge-text {
+    font-size: var(--text-xs);
+    color: var(--color-gray-600);
+    line-height: 1.4;
+  }
+  
+  /* Guarantee Section */
+  .guarantee-section {
+    margin-top: var(--space-16);
+    text-align: center;
+    padding: var(--space-12);
+    background: linear-gradient(135deg, var(--color-black) 0%, var(--color-charcoal) 100%);
+    border-radius: var(--radius-2xl);
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .guarantee-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(0,122,255,0.1)"/></svg>') repeat;
+    opacity: 0.3;
+    animation: float 20s linear infinite;
+  }
+  
+  .guarantee-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: linear-gradient(135deg, var(--color-neon-green) 0%, #28B946 100%);
+    color: var(--color-white);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-6);
+  }
+  
+  .guarantee-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-black);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  
+  .guarantee-subtitle {
+    font-size: var(--text-lg);
+    opacity: 0.9;
+    margin-bottom: var(--space-8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  
+  .guarantee-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-8);
+  }
+  
+  .guarantee-feature {
+    text-align: center;
+  }
+  
+  .guarantee-feature-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-3);
+    font-size: 28px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .guarantee-feature-title {
+    font-size: var(--text-base);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-2);
+    color: var(--color-white);
+  }
+  
+  .guarantee-feature-text {
+    font-size: var(--text-sm);
+    opacity: 0.8;
+    line-height: 1.5;
+  }
+  
+  /* Security Badges */
+  .security-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-6);
+    margin-top: var(--space-12);
+    flex-wrap: wrap;
+  }
+  
+  .security-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .security-badge-icon {
+    font-size: 20px;
+  }
+  
+  .security-badge-text {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .trust-badges-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    
+    .guarantee-features {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    
+    .security-badges {
+      gap: var(--space-3);
+    }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+</style>
+
+<section class="premium-trust-badges-v2 premium-section">
+  <div class="container container-premium">
+    
+    <!-- Trust Badges Grid -->
+    <div class="trust-badges-grid">
+      
+      <!-- Free Shipping -->
+      <div class="trust-badge">
+        <div class="trust-badge-icon">
+          🚚
+        </div>
+        <div class="trust-badge-content">
+          <div class="trust-badge-title">{{ section.settings.shipping_title | default: "Frete Grátis" }}</div>
+          <div class="trust-badge-text">{{ section.settings.shipping_text | default: "Pedidos acima de R$ 99" }}</div>
+        </div>
+      </div>
+      
+      <!-- Secure Payment -->
+      <div class="trust-badge">
+        <div class="trust-badge-icon">
+          🔒
+        </div>
+        <div class="trust-badge-content">
+          <div class="trust-badge-title">{{ section.settings.security_title | default: "Compra Segura" }}</div>
+          <div class="trust-badge-text">{{ section.settings.security_text | default: "SSL 256-bit criptografado" }}</div>
+        </div>
+      </div>
+      
+      <!-- Fast Delivery -->
+      <div class="trust-badge">
+        <div class="trust-badge-icon">
+          ⚡
+        </div>
+        <div class="trust-badge-content">
+          <div class="trust-badge-title">{{ section.settings.delivery_title | default: "Entrega Rápida" }}</div>
+          <div class="trust-badge-text">{{ section.settings.delivery_text | default: "1-3 dias úteis" }}</div>
+        </div>
+      </div>
+      
+      <!-- Customer Support -->
+      <div class="trust-badge">
+        <div class="trust-badge-icon">
+          💬
+        </div>
+        <div class="trust-badge-content">
+          <div class="trust-badge-title">{{ section.settings.support_title | default: "Suporte 24/7" }}</div>
+          <div class="trust-badge-text">{{ section.settings.support_text | default: "WhatsApp e email" }}</div>
+        </div>
+      </div>
+      
+      <!-- Money Back Guarantee -->
+      <div class="trust-badge">
+        <div class="trust-badge-icon">
+          ✅
+        </div>
+        <div class="trust-badge-content">
+          <div class="trust-badge-title">{{ section.settings.guarantee_title | default: "Garantia Total" }}</div>
+          <div class="trust-badge-text">{{ section.settings.guarantee_text | default: "30 dias para trocar" }}</div>
+        </div>
+      </div>
+      
+      <!-- Quality Certified -->
+      <div class="trust-badge">
+        <div class="trust-badge-icon">
+          🏆
+        </div>
+        <div class="trust-badge-content">
+          <div class="trust-badge-title">{{ section.settings.quality_title | default: "Qualidade Premium" }}</div>
+          <div class="trust-badge-text">{{ section.settings.quality_text | default: "Testado em laboratório" }}</div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Guarantee Section -->
+    {% if section.settings.show_guarantee_section %}
+      <div class="guarantee-section">
+        <div class="guarantee-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9l-5 4.87 1.18 6.88L12 17.77l-6.18 2.98L7 14.87 2 9l6.91-1.74L12 2z"/>
+          </svg>
+          {{ section.settings.guarantee_badge_text | default: "GARANTIA PREMIUM" }}
+        </div>
+        
+        <h2 class="guarantee-title">
+          {{ section.settings.guarantee_main_title | default: "SATISFAÇÃO GARANTIDA" }}
+        </h2>
+        
+        <p class="guarantee-subtitle">
+          {{ section.settings.guarantee_subtitle | default: "Sua satisfação é nossa prioridade. Se não ficar 100% satisfeito, devolvemos seu dinheiro sem perguntas." }}
+        </p>
+        
+        <div class="guarantee-features">
+          <div class="guarantee-feature">
+            <div class="guarantee-feature-icon">🛡️</div>
+            <div class="guarantee-feature-title">{{ section.settings.feature_1_title | default: "30 Dias de Garantia" }}</div>
+            <div class="guarantee-feature-text">{{ section.settings.feature_1_text | default: "Teste por 30 dias completos" }}</div>
+          </div>
+          
+          <div class="guarantee-feature">
+            <div class="guarantee-feature-icon">💰</div>
+            <div class="guarantee-feature-title">{{ section.settings.feature_2_title | default: "Dinheiro de Volta" }}</div>
+            <div class="guarantee-feature-text">{{ section.settings.feature_2_text | default: "Reembolso total garantido" }}</div>
+          </div>
+          
+          <div class="guarantee-feature">
+            <div class="guarantee-feature-icon">📞</div>
+            <div class="guarantee-feature-title">{{ section.settings.feature_3_title | default: "Suporte Premium" }}</div>
+            <div class="guarantee-feature-text">{{ section.settings.feature_3_text | default: "Atendimento especializado" }}</div>
+          </div>
+        </div>
+        
+        <!-- Security Badges -->
+        <div class="security-badges">
+          <div class="security-badge">
+            <div class="security-badge-icon">🔐</div>
+            <div class="security-badge-text">SSL Secure</div>
+          </div>
+          
+          <div class="security-badge">
+            <div class="security-badge-icon">💳</div>
+            <div class="security-badge-text">Payments Protected</div>
+          </div>
+          
+          <div class="security-badge">
+            <div class="security-badge-icon">🏛️</div>
+            <div class="security-badge-text">ANVISA Approved</div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+    
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Premium Trust Badges V2",
+  "tag": "section",
+  "class": "premium-trust-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Trust Badges"
+    },
+    {
+      "type": "text",
+      "id": "shipping_title",
+      "label": "Shipping Title",
+      "default": "Frete Grátis"
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping Text",
+      "default": "Pedidos acima de R$ 99"
+    },
+    {
+      "type": "text",
+      "id": "security_title",
+      "label": "Security Title",
+      "default": "Compra Segura"
+    },
+    {
+      "type": "text",
+      "id": "security_text",
+      "label": "Security Text",
+      "default": "SSL 256-bit criptografado"
+    },
+    {
+      "type": "text",
+      "id": "delivery_title",
+      "label": "Delivery Title",
+      "default": "Entrega Rápida"
+    },
+    {
+      "type": "text",
+      "id": "delivery_text",
+      "label": "Delivery Text",
+      "default": "1-3 dias úteis"
+    },
+    {
+      "type": "text",
+      "id": "support_title",
+      "label": "Support Title",
+      "default": "Suporte 24/7"
+    },
+    {
+      "type": "text",
+      "id": "support_text",
+      "label": "Support Text",
+      "default": "WhatsApp e email"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_title",
+      "label": "Guarantee Title",
+      "default": "Garantia Total"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_text",
+      "label": "Guarantee Text",
+      "default": "30 dias para trocar"
+    },
+    {
+      "type": "text",
+      "id": "quality_title",
+      "label": "Quality Title",
+      "default": "Qualidade Premium"
+    },
+    {
+      "type": "text",
+      "id": "quality_text",
+      "label": "Quality Text",
+      "default": "Testado em laboratório"
+    },
+    {
+      "type": "header",
+      "content": "Guarantee Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_guarantee_section",
+      "label": "Show Guarantee Section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "guarantee_badge_text",
+      "label": "Guarantee Badge Text",
+      "default": "GARANTIA PREMIUM"
+    },
+    {
+      "type": "text",
+      "id": "guarantee_main_title",
+      "label": "Main Guarantee Title",
+      "default": "SATISFAÇÃO GARANTIDA"
+    },
+    {
+      "type": "textarea",
+      "id": "guarantee_subtitle",
+      "label": "Guarantee Subtitle",
+      "default": "Sua satisfação é nossa prioridade. Se não ficar 100% satisfeito, devolvemos seu dinheiro sem perguntas."
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Feature 1 Title",
+      "default": "30 Dias de Garantia"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_text",
+      "label": "Feature 1 Text",
+      "default": "Teste por 30 dias completos"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Feature 2 Title",
+      "default": "Dinheiro de Volta"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_text",
+      "label": "Feature 2 Text",
+      "default": "Reembolso total garantido"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Feature 3 Title",
+      "default": "Suporte Premium"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_text",
+      "label": "Feature 3 Text",
+      "default": "Atendimento especializado"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Trust Badges V2"
+    }
+  ]
+}
+{% endschema %}

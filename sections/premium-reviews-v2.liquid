@@ -1,0 +1,798 @@
+<!--
+========================================
+🚀 PREMIUM REVIEWS V2.0
+International Standards | Social Proof
+Advanced Rating & Review System
+========================================
+-->
+
+<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+<style>
+  .premium-reviews-v2 {
+    padding: var(--space-20) 0;
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-50) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .reviews-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
+    border-radius: var(--radius-full);
+    color: var(--color-white);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-6);
+    animation: slide-up 0.8s ease-out;
+  }
+  
+  .section-title {
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: var(--font-black);
+    color: var(--color-black);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    animation: slide-up 0.8s ease-out 0.2s both;
+  }
+  
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-gray-600);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    animation: slide-up 0.8s ease-out 0.4s both;
+  }
+  
+  /* Stats Overview */
+  .reviews-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-16);
+    padding: var(--space-8);
+    background: var(--color-white);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .stat-item {
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-black);
+    color: var(--color-electric-blue);
+    display: block;
+    line-height: 1;
+  }
+  
+  .stat-label {
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--color-gray-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: var(--space-2);
+  }
+  
+  .star-rating-large {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-1);
+    margin: var(--space-2) 0;
+  }
+  
+  .star-large {
+    color: var(--color-warning-orange);
+    font-size: var(--text-xl);
+  }
+  
+  /* Reviews Grid */
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+  }
+  
+  .review-card {
+    background: var(--color-white);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .review-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
+  }
+  
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-2xl);
+  }
+  
+  .review-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+  
+  .reviewer-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    flex-shrink: 0;
+  }
+  
+  .reviewer-info {
+    flex: 1;
+  }
+  
+  .reviewer-name {
+    font-size: var(--text-base);
+    font-weight: var(--font-bold);
+    color: var(--color-black);
+    margin-bottom: var(--space-1);
+  }
+  
+  .reviewer-location {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+    margin-bottom: var(--space-2);
+  }
+  
+  .review-rating {
+    display: flex;
+    gap: var(--space-1);
+  }
+  
+  .star {
+    color: var(--color-warning-orange);
+    font-size: var(--text-sm);
+  }
+  
+  .star.empty {
+    color: var(--color-gray-300);
+  }
+  
+  .review-content {
+    margin-bottom: var(--space-4);
+  }
+  
+  .review-title {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--color-black);
+    margin-bottom: var(--space-3);
+    line-height: 1.3;
+  }
+  
+  .review-text {
+    font-size: var(--text-base);
+    color: var(--color-gray-700);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+  }
+  
+  .review-product {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    background: var(--color-gray-50);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-4);
+  }
+  
+  .review-product-image {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+  }
+  
+  .review-product-info {
+    flex: 1;
+  }
+  
+  .review-product-name {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-black);
+    margin-bottom: var(--space-1);
+  }
+  
+  .review-product-variant {
+    font-size: var(--text-xs);
+    color: var(--color-gray-500);
+  }
+  
+  .review-footer {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    font-size: var(--text-xs);
+    color: var(--color-gray-500);
+  }
+  
+  .review-date {
+    font-weight: var(--font-medium);
+  }
+  
+  .review-verified {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    background: var(--color-neon-green);
+    color: var(--color-white);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Photo Reviews */
+  .photo-reviews {
+    margin-top: var(--space-16);
+  }
+  
+  .photo-reviews-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-black);
+    text-align: center;
+    margin-bottom: var(--space-8);
+    text-transform: uppercase;
+  }
+  
+  .photo-reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-4);
+  }
+  
+  .photo-review {
+    position: relative;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    aspect-ratio: 1;
+    cursor: pointer;
+    transition: var(--transition-normal);
+  }
+  
+  .photo-review:hover {
+    transform: scale(1.05);
+  }
+  
+  .photo-review img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .photo-review-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: var(--space-4);
+    color: var(--color-white);
+  }
+  
+  .photo-review-stars {
+    display: flex;
+    gap: var(--space-1);
+    margin-bottom: var(--space-2);
+  }
+  
+  .photo-review-name {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+  }
+  
+  /* CTA Section */
+  .reviews-cta {
+    text-align: center;
+    padding: var(--space-12);
+    background: linear-gradient(135deg, var(--color-black) 0%, var(--color-charcoal) 100%);
+    border-radius: var(--radius-2xl);
+    color: var(--color-white);
+    margin-top: var(--space-16);
+  }
+  
+  .cta-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-black);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+  }
+  
+  .cta-subtitle {
+    font-size: var(--text-lg);
+    opacity: 0.9;
+    margin-bottom: var(--space-8);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  
+  .cta-button {
+    background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
+    color: var(--color-white);
+    padding: var(--space-5) var(--space-10);
+    border-radius: var(--radius-xl);
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    transition: var(--transition-normal);
+  }
+  
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 122, 255, 0.4);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .reviews-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .reviews-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .photo-reviews-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+<section class="premium-reviews-v2 premium-section">
+  <div class="container container-premium">
+    
+    <!-- Section Header -->
+    <div class="reviews-header">
+      {% if section.settings.section_badge %}
+        <div class="section-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9l-5 4.87 1.18 6.88L12 17.77l-6.18 2.98L7 14.87 2 9l6.91-1.74L12 2z"/>
+          </svg>
+          {{ section.settings.section_badge }}
+        </div>
+      {% endif %}
+      
+      <h2 class="section-title">{{ section.settings.section_title | default: "O QUE NOSSOS CLIENTES DIZEM" }}</h2>
+      
+      {% if section.settings.section_subtitle %}
+        <p class="section-subtitle">{{ section.settings.section_subtitle }}</p>
+      {% endif %}
+    </div>
+    
+    <!-- Reviews Stats -->
+    <div class="reviews-stats">
+      <div class="stat-item">
+        <span class="stat-number">{{ section.settings.total_reviews | default: "15,847" }}</span>
+        <span class="stat-label">Avaliações</span>
+      </div>
+      
+      <div class="stat-item">
+        <span class="stat-number">{{ section.settings.average_rating | default: "4.9" }}</span>
+        <div class="star-rating-large">
+          <span class="star-large">★</span>
+          <span class="star-large">★</span>
+          <span class="star-large">★</span>
+          <span class="star-large">★</span>
+          <span class="star-large">★</span>
+        </div>
+        <span class="stat-label">Média de Estrelas</span>
+      </div>
+      
+      <div class="stat-item">
+        <span class="stat-number">{{ section.settings.satisfaction_rate | default: "98%" }}</span>
+        <span class="stat-label">Satisfação</span>
+      </div>
+      
+      <div class="stat-item">
+        <span class="stat-number">{{ section.settings.recommendation_rate | default: "96%" }}</span>
+        <span class="stat-label">Recomendam</span>
+      </div>
+    </div>
+    
+    <!-- Reviews Grid -->
+    <div class="reviews-grid">
+      
+      {% for block in section.blocks %}
+        {% if block.type == 'review' %}
+          <div class="review-card">
+            <div class="review-header">
+              <div class="reviewer-avatar">
+                {% if block.settings.reviewer_image %}
+                  {{ block.settings.reviewer_image | image_url: width: 120 | image_tag: loading: 'lazy' }}
+                {% else %}
+                  {{ block.settings.reviewer_name | slice: 0 }}
+                {% endif %}
+              </div>
+              
+              <div class="reviewer-info">
+                <div class="reviewer-name">{{ block.settings.reviewer_name | default: "Cliente Verificado" }}</div>
+                <div class="reviewer-location">{{ block.settings.reviewer_location | default: "São Paulo, SP" }}</div>
+                
+                <div class="review-rating">
+                  {% assign rating = block.settings.rating | default: 5 %}
+                  {% for i in (1..5) %}
+                    {% if i <= rating %}
+                      <span class="star">★</span>
+                    {% else %}
+                      <span class="star empty">★</span>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+            
+            <div class="review-content">
+              {% if block.settings.review_title %}
+                <h3 class="review-title">{{ block.settings.review_title }}</h3>
+              {% endif %}
+              
+              <p class="review-text">{{ block.settings.review_text | default: "Produto excelente, superou minhas expectativas!" }}</p>
+              
+              {% if block.settings.product_image %}
+                <div class="review-product">
+                  {{ block.settings.product_image | image_url: width: 100 | image_tag: loading: 'lazy', class: 'review-product-image' }}
+                  <div class="review-product-info">
+                    <div class="review-product-name">{{ block.settings.product_name | default: "Whey Protein" }}</div>
+                    <div class="review-product-variant">{{ block.settings.product_variant | default: "Sabor Chocolate" }}</div>
+                  </div>
+                </div>
+              {% endif %}
+            </div>
+            
+            <div class="review-footer">
+              <span class="review-date">{{ block.settings.review_date | default: "Há 2 dias" }}</span>
+              {% if block.settings.verified %}
+                <span class="review-verified">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                  Verificado
+                </span>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+      
+    </div>
+    
+    <!-- Photo Reviews -->
+    {% if section.settings.show_photo_reviews %}
+      <div class="photo-reviews">
+        <h3 class="photo-reviews-title">{{ section.settings.photo_reviews_title | default: "RESULTADOS REAIS DOS NOSSOS CLIENTES" }}</h3>
+        
+        <div class="photo-reviews-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'photo_review' %}
+              <div class="photo-review">
+                {% if block.settings.photo %}
+                  {{ block.settings.photo | image_url: width: 400 | image_tag: loading: 'lazy' }}
+                {% endif %}
+                
+                <div class="photo-review-overlay">
+                  <div class="photo-review-stars">
+                    {% assign rating = block.settings.photo_rating | default: 5 %}
+                    {% for i in (1..rating) %}
+                      <span class="star">★</span>
+                    {% endfor %}
+                  </div>
+                  <div class="photo-review-name">{{ block.settings.photo_reviewer_name | default: "Cliente" }}</div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    
+    <!-- CTA Section -->
+    {% if section.settings.show_cta %}
+      <div class="reviews-cta">
+        <h3 class="cta-title">{{ section.settings.cta_title | default: "JUNTE-SE A MILHARES DE CLIENTES SATISFEITOS" }}</h3>
+        <p class="cta-subtitle">{{ section.settings.cta_subtitle | default: "Experimente nossos produtos premium e veja por que somos a escolha número 1" }}</p>
+        
+        <a href="{{ section.settings.cta_link | default: '/collections/all' }}" class="cta-button">
+          {{ section.settings.cta_text | default: "COMPRAR AGORA" }}
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    {% endif %}
+    
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Premium Reviews V2",
+  "tag": "section",
+  "class": "premium-reviews-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "section_badge",
+      "label": "Section Badge",
+      "default": "AVALIAÇÕES"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "O QUE NOSSOS CLIENTES DIZEM"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Mais de 15 mil clientes já transformaram suas vidas com nossos produtos premium"
+    },
+    {
+      "type": "header",
+      "content": "Statistics"
+    },
+    {
+      "type": "text",
+      "id": "total_reviews",
+      "label": "Total Reviews",
+      "default": "15,847"
+    },
+    {
+      "type": "text",
+      "id": "average_rating",
+      "label": "Average Rating",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "satisfaction_rate",
+      "label": "Satisfaction Rate",
+      "default": "98%"
+    },
+    {
+      "type": "text",
+      "id": "recommendation_rate",
+      "label": "Recommendation Rate",
+      "default": "96%"
+    },
+    {
+      "type": "header",
+      "content": "Photo Reviews"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_photo_reviews",
+      "label": "Show Photo Reviews",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "photo_reviews_title",
+      "label": "Photo Reviews Title",
+      "default": "RESULTADOS REAIS DOS NOSSOS CLIENTES"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta",
+      "label": "Show CTA Section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "label": "CTA Title",
+      "default": "JUNTE-SE A MILHARES DE CLIENTES SATISFEITOS"
+    },
+    {
+      "type": "text",
+      "id": "cta_subtitle",
+      "label": "CTA Subtitle",
+      "default": "Experimente nossos produtos premium e veja por que somos a escolha número 1"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Button Text",
+      "default": "COMPRAR AGORA"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "reviewer_image",
+          "label": "Reviewer Photo"
+        },
+        {
+          "type": "text",
+          "id": "reviewer_name",
+          "label": "Reviewer Name",
+          "default": "João Silva"
+        },
+        {
+          "type": "text",
+          "id": "reviewer_location",
+          "label": "Reviewer Location",
+          "default": "São Paulo, SP"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "text",
+          "id": "review_title",
+          "label": "Review Title",
+          "default": "Produto incrível!"
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "Produto excelente, superou minhas expectativas! Recomendo a todos."
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name",
+          "default": "Whey Protein"
+        },
+        {
+          "type": "text",
+          "id": "product_variant",
+          "label": "Product Variant",
+          "default": "Sabor Chocolate"
+        },
+        {
+          "type": "text",
+          "id": "review_date",
+          "label": "Review Date",
+          "default": "Há 2 dias"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Verified Purchase",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "photo_review",
+      "name": "Photo Review",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "photo",
+          "label": "Review Photo"
+        },
+        {
+          "type": "text",
+          "id": "photo_reviewer_name",
+          "label": "Reviewer Name",
+          "default": "Cliente"
+        },
+        {
+          "type": "range",
+          "id": "photo_rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Reviews V2",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "reviewer_name": "Maria Santos",
+            "reviewer_location": "Rio de Janeiro, RJ",
+            "review_title": "Melhor investimento que fiz!",
+            "review_text": "Comecei a usar há 3 meses e os resultados são incríveis. Ganhei 4kg de massa magra e me sinto muito mais disposta nos treinos."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "reviewer_name": "Carlos Silva",
+            "reviewer_location": "Belo Horizonte, MG",
+            "review_title": "Produto de qualidade premium",
+            "review_text": "Já testei várias marcas e essa é disparada a melhor. Sabor incrível, mixabilidade perfeita e resultados visíveis."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "reviewer_name": "Ana Costa",
+            "reviewer_location": "Porto Alegre, RS",
+            "review_title": "Recomendo de olhos fechados!",
+            "review_text": "Produto chegou rapidinho, embalagem impecável. Tomando há 2 meses e já vejo diferença no corpo e na disposição."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

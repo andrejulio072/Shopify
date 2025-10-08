@@ -1,0 +1,82 @@
+<!-- 
+========================================
+🚀 MAIN TEMPLATE V2.0 - PREMIUM FITNESS
+International Standards | High Conversion
+Complete integration of all V2.0 sections
+========================================
+-->
+
+{%- comment -%}
+  Main index template using all Premium V2.0 sections
+  Optimized for fitness/supplement stores
+  Mobile-first responsive design
+{%- endcomment -%}
+
+<!-- HEADER V2.0 -->
+{% section 'premium-header-v2' %}
+
+<!-- HERO SECTION V2.0 -->
+{% section 'premium-hero-v2' %}
+
+<!-- TRUST BADGES -->
+{% section 'premium-trust-badges-v2' %}
+
+<!-- FEATURED CATEGORIES V2.0 -->
+{% section 'premium-categories-v2' %}
+
+<!-- FEATURED PRODUCTS V2.0 -->
+{% section 'premium-featured-products-v2' %}
+
+<!-- SOCIAL PROOF & REVIEWS V2.0 -->
+{% section 'premium-reviews-v2' %}
+
+<!-- NEWSLETTER SIGNUP V2.0 -->
+{% section 'premium-newsletter-v2' %}
+
+<!-- FOOTER V2.0 -->
+{% section 'premium-footer-v2' %}
+
+<!-- CART DRAWER V2.0 -->
+{% section 'premium-cart-drawer-v2' %}
+
+<!-- QUICK VIEW MODAL V2.0 -->
+{% section 'premium-quick-view-v2' %}
+
+<!-- SCRIPTS V2.0 -->
+<script src="{{ 'premium-v2-interactions.js' | asset_url }}" defer></script>
+
+<style>
+  /* Ensure V2.0 sections work together seamlessly */
+  .premium-section + .premium-section {
+    margin-top: 0;
+  }
+  
+  /* Smooth scrolling for better UX */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Loading state for better perceived performance */
+  .premium-section {
+    opacity: 0;
+    animation: fadeInSection 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeInSection {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+  
+  /* Stagger animation delays */
+  .premium-section:nth-child(1) { animation-delay: 0.1s; }
+  .premium-section:nth-child(2) { animation-delay: 0.2s; }
+  .premium-section:nth-child(3) { animation-delay: 0.3s; }
+  .premium-section:nth-child(4) { animation-delay: 0.4s; }
+  .premium-section:nth-child(5) { animation-delay: 0.5s; }
+</style>

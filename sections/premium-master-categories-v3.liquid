@@ -1,0 +1,667 @@
+<!--
+========================================
+🏆 PREMIUM MASTER CATEGORIES V3.0
+World-Class Category Showcase
+Inspired by: Nike, Gymshark, Lululemon
+Ultra-Premium Grid Layout | Interactive Hover
+========================================
+-->
+
+<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+<style>
+  /* ========================================
+     🎨 PREMIUM CATEGORIES VARIABLES
+  ======================================== */
+  :root {
+    --categories-spacing: 120px;
+    --category-radius: 24px;
+    --category-overlay: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  }
+
+  /* ========================================
+     💎 MAIN SECTION
+  ======================================== */
+  .premium-master-categories {
+    padding: var(--categories-spacing) 40px;
+    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative Background */
+  .categories-bg-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image:
+      radial-gradient(circle at 30% 40%, rgba(0, 122, 255, 0.15) 0%, transparent 60%),
+      radial-gradient(circle at 70% 60%, rgba(48, 209, 88, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .categories-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ========================================
+     📝 SECTION HEADER
+  ======================================== */
+  .categories-header {
+    text-align: center;
+    margin-bottom: 80px;
+    animation: fade-slide-up 1s ease-out;
+  }
+
+  .categories-badge {
+    display: inline-block;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
+    border: 1px solid rgba(0, 122, 255, 0.3);
+    border-radius: 50px;
+    color: #007AFF;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+  }
+
+  .categories-heading {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 900;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .categories-heading-highlight {
+    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .categories-description {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ========================================
+     🎯 CATEGORIES GRID
+  ======================================== */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  /* Category Card */
+  .category-card {
+    position: relative;
+    height: 500px;
+    border-radius: var(--category-radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fade-slide-up 1s ease-out backwards;
+  }
+
+  .category-card:nth-child(1) { animation-delay: 0.1s; }
+  .category-card:nth-child(2) { animation-delay: 0.2s; }
+  .category-card:nth-child(3) { animation-delay: 0.3s; }
+  .category-card:nth-child(4) { animation-delay: 0.4s; }
+  .category-card:nth-child(5) { animation-delay: 0.5s; }
+  .category-card:nth-child(6) { animation-delay: 0.6s; }
+
+  .category-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 30px 80px rgba(0, 122, 255, 0.4);
+  }
+
+  /* Featured Card (First Item - Larger) */
+  .category-card.featured {
+    grid-column: span 2;
+    height: 600px;
+  }
+
+  /* Background Image */
+  .category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .category-card:hover .category-image {
+    transform: scale(1.1);
+  }
+
+  /* Gradient Overlay */
+  .category-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--category-overlay);
+    transition: opacity 0.5s ease;
+  }
+
+  .category-card:hover .category-overlay {
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(0, 122, 255, 0.3) 50%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+  }
+
+  /* Content */
+  .category-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    z-index: 2;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .category-card:hover .category-content {
+    padding-bottom: 50px;
+  }
+
+  /* Category Icon */
+  .category-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.3) 0%, rgba(48, 209, 88, 0.3) 100%);
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin-bottom: 24px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .category-card:hover .category-icon {
+    transform: scale(1.1) rotate(5deg);
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.5) 0%, rgba(48, 209, 88, 0.5) 100%);
+    box-shadow: 0 12px 40px rgba(0, 122, 255, 0.5);
+  }
+
+  /* Category Name */
+  .category-name {
+    font-size: 32px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+  }
+
+  .category-card:hover .category-name {
+    transform: translateX(10px);
+    color: #007AFF;
+  }
+
+  /* Category Description */
+  .category-description {
+    font-size: 15px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .category-card:hover .category-description {
+    max-height: 100px;
+    opacity: 1;
+    margin-bottom: 24px;
+  }
+
+  /* Product Count */
+  .category-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .category-card:hover .category-count {
+    background: rgba(0, 122, 255, 0.3);
+    border-color: rgba(0, 122, 255, 0.5);
+    color: white;
+  }
+
+  /* CTA Arrow */
+  .category-arrow {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: white;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 30px rgba(0, 122, 255, 0.5);
+  }
+
+  .category-card:hover .category-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* ========================================
+     🚀 VIEW ALL BUTTON
+  ======================================== */
+  .categories-footer {
+    text-align: center;
+    margin-top: 60px;
+    animation: fade-slide-up 1s ease-out 0.8s backwards;
+  }
+
+  .view-all-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 50px;
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
+    border: 2px solid rgba(0, 122, 255, 0.5);
+    border-radius: 14px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .view-all-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .view-all-button:hover::before {
+    opacity: 1;
+  }
+
+  .view-all-button:hover {
+    transform: translateY(-4px) scale(1.05);
+    border-color: transparent;
+    box-shadow: 0 15px 50px rgba(0, 122, 255, 0.6);
+  }
+
+  .view-all-button span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .view-all-arrow {
+    font-size: 20px;
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  .view-all-button:hover .view-all-arrow {
+    transform: translateX(8px);
+  }
+
+  /* ========================================
+     📱 RESPONSIVE DESIGN
+  ======================================== */
+  @media (max-width: 1200px) {
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .category-card.featured {
+      grid-column: span 2;
+      height: 500px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .premium-master-categories {
+      padding: 80px 20px;
+    }
+
+    .categories-header {
+      margin-bottom: 50px;
+    }
+
+    .categories-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .category-card,
+    .category-card.featured {
+      height: 400px;
+      grid-column: span 1;
+    }
+
+    .category-content {
+      padding: 30px;
+    }
+
+    .category-icon {
+      width: 55px;
+      height: 55px;
+      font-size: 26px;
+    }
+
+    .category-name {
+      font-size: 26px;
+    }
+
+    .category-description {
+      display: none;
+    }
+
+    .category-arrow {
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+    }
+
+    .view-all-button {
+      width: 100%;
+      max-width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* ========================================
+     ✨ ANIMATIONS
+  ======================================== */
+  @keyframes fade-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<!-- ========================================
+     🏆 PREMIUM CATEGORIES HTML
+======================================== -->
+
+<section class="premium-master-categories">
+  <div class="categories-bg-pattern"></div>
+
+  <div class="categories-container">
+
+    <!-- Section Header -->
+    <div class="categories-header">
+      {% if section.settings.badge_text != blank %}
+        <span class="categories-badge">{{ section.settings.badge_text }}</span>
+      {% endif %}
+
+      <h2 class="categories-heading">
+        {{ section.settings.heading | default: 'SHOP BY' }}
+        <span class="categories-heading-highlight">{{ section.settings.heading_highlight | default: 'CATEGORY' }}</span>
+      </h2>
+
+      {% if section.settings.description != blank %}
+        <p class="categories-description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Categories Grid -->
+    <div class="categories-grid">
+      {% for block in section.blocks %}
+        <a
+          href="{{ block.settings.collection.url | default: '/collections/all' }}"
+          class="category-card {% if forloop.first and section.settings.featured_first %}featured{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          <!-- Background Image -->
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | image_url: width: 800 }}"
+              alt="{{ block.settings.title }}"
+              width="800"
+              height="600"
+              loading="lazy"
+              class="category-image"
+            >
+          {% else %}
+            <div style="
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            "></div>
+          {% endif %}
+
+          <!-- Overlay -->
+          <div class="category-overlay"></div>
+
+          <!-- Content -->
+          <div class="category-content">
+            {% if block.settings.icon != blank %}
+              <div class="category-icon">{{ block.settings.icon }}</div>
+            {% endif %}
+
+            <h3 class="category-name">{{ block.settings.title | default: 'Category Name' }}</h3>
+
+            {% if block.settings.description != blank %}
+              <p class="category-description">{{ block.settings.description }}</p>
+            {% endif %}
+
+            {% if block.settings.collection != blank %}
+              <span class="category-count">
+                {{ block.settings.collection.products_count }} Products
+              </span>
+            {% endif %}
+          </div>
+
+          <!-- CTA Arrow -->
+          <div class="category-arrow">→</div>
+        </a>
+      {% endfor %}
+    </div>
+
+    <!-- View All Button -->
+    {% if section.settings.show_view_all %}
+      <div class="categories-footer">
+        <a href="{{ section.settings.view_all_link | default: '/collections' }}" class="view-all-button">
+          <span>{{ section.settings.view_all_text | default: 'View All Categories' }}</span>
+          <span class="view-all-arrow">→</span>
+        </a>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Premium Master Categories",
+  "tag": "section",
+  "class": "premium-master-categories-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Explore"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "SHOP BY"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Heading Highlight",
+      "default": "CATEGORY"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Discover our premium collections designed for peak performance"
+    },
+    {
+      "type": "header",
+      "content": "Layout Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "featured_first",
+      "label": "Make first item featured (larger)",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "View All Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show View All Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Button Text",
+      "default": "View All Categories"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Emoji)",
+          "default": "💪"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title",
+          "default": "Category Name"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Category Description",
+          "default": "Premium products for your fitness journey"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Link to Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Master Categories",
+      "blocks": [
+        {
+          "type": "category",
+          "settings": {
+            "icon": "💪",
+            "title": "Strength Training",
+            "description": "Build muscle and increase power"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "icon": "🏃",
+            "title": "Cardio & Running",
+            "description": "Boost endurance and stamina"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "icon": "🧘",
+            "title": "Yoga & Flexibility",
+            "description": "Improve mobility and balance"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "icon": "👕",
+            "title": "Apparel",
+            "description": "Premium athletic wear"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,258 @@
+{
+  "sections": {
+    "premium-master-navbar": {
+      "type": "premium-master-navbar-v3",
+      "settings": {
+        "announcement_text": "🔥 FREE SHIPPING ON ORDERS OVER $75 | NEW ARRIVALS WEEKLY ⚡",
+        "menu": "main-menu"
+      }
+    },
+    "premium-master-hero": {
+      "type": "premium-master-hero-v3",
+      "settings": {
+        "enable_animated_gradient": true,
+        "enable_particles": true,
+        "badge_text": "New Collection 2025",
+        "badge_icon": "🔥",
+        "heading": "TRANSFORM YOUR",
+        "heading_highlight": "FITNESS JOURNEY",
+        "subheading": "Premium athletic wear engineered for peak performance. Join 100,000+ athletes worldwide.",
+        "primary_button_text": "Shop Now",
+        "primary_button_link": "/collections/all",
+        "secondary_button_text": "Learn More",
+        "secondary_button_link": "/pages/about",
+        "show_stats": true,
+        "stat_1_number": "100K+",
+        "stat_1_label": "Happy Customers",
+        "stat_2_number": "4.9/5",
+        "stat_2_label": "Average Rating",
+        "stat_3_number": "50+",
+        "stat_3_label": "Countries"
+      }
+    },
+    "premium-master-categories": {
+      "type": "premium-master-categories-v3",
+      "blocks": {
+        "category-1": {
+          "type": "category",
+          "settings": {
+            "icon": "💪",
+            "title": "Strength Training",
+            "description": "Build muscle and increase power with our premium equipment"
+          }
+        },
+        "category-2": {
+          "type": "category",
+          "settings": {
+            "icon": "🏃",
+            "title": "Cardio & Running",
+            "description": "Boost endurance and stamina with performance gear"
+          }
+        },
+        "category-3": {
+          "type": "category",
+          "settings": {
+            "icon": "🧘",
+            "title": "Yoga & Flexibility",
+            "description": "Improve mobility and balance with comfort-focused apparel"
+          }
+        },
+        "category-4": {
+          "type": "category",
+          "settings": {
+            "icon": "👕",
+            "title": "Athletic Apparel",
+            "description": "Premium clothing engineered for maximum performance"
+          }
+        },
+        "category-5": {
+          "type": "category",
+          "settings": {
+            "icon": "⚡",
+            "title": "Supplements",
+            "description": "Fuel your body with scientifically-backed nutrition"
+          }
+        },
+        "category-6": {
+          "type": "category",
+          "settings": {
+            "icon": "🎯",
+            "title": "Accessories",
+            "description": "Complete your workout with essential gear"
+          }
+        }
+      },
+      "block_order": [
+        "category-1",
+        "category-2",
+        "category-3",
+        "category-4",
+        "category-5",
+        "category-6"
+      ],
+      "settings": {
+        "badge_text": "Explore",
+        "heading": "SHOP BY",
+        "heading_highlight": "CATEGORY",
+        "description": "Discover our premium collections designed for peak performance",
+        "featured_first": true,
+        "show_view_all": true,
+        "view_all_text": "View All Categories",
+        "view_all_link": "/collections"
+      }
+    },
+    "premium-master-products": {
+      "type": "premium-master-products-v3",
+      "settings": {
+        "badge_text": "Best Sellers",
+        "heading": "FEATURED",
+        "heading_highlight": "PRODUCTS",
+        "description": "Premium gear trusted by athletes worldwide",
+        "products_to_show": 6,
+        "show_rating": true,
+        "show_view_all": true,
+        "view_all_text": "View All Products"
+      }
+    },
+    "premium-master-testimonials": {
+      "type": "premium-master-testimonials-v3",
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "Best fitness gear I've ever owned. The quality is exceptional and it's clear they care about their customers. I've been using it for 6 months and it still looks brand new!",
+            "author_name": "Sarah Johnson",
+            "author_role": "Professional Athlete",
+            "verified": true
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "Game-changer for my workout routine. I've seen incredible results in just 3 months! The comfort and durability are unmatched.",
+            "author_name": "Mike Chen",
+            "author_role": "Fitness Enthusiast",
+            "verified": true
+          }
+        },
+        "testimonial-3": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "Worth every penny. The comfort and performance are unmatched by any other brand. My students love my outfit and always ask where I got it!",
+            "author_name": "Emily Davis",
+            "author_role": "Yoga Instructor",
+            "verified": true
+          }
+        },
+        "testimonial-4": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "Finally found a brand that understands athletes. The attention to detail is incredible. Shipping was fast and customer service is top-notch.",
+            "author_name": "Marcus Williams",
+            "author_role": "CrossFit Coach",
+            "verified": true
+          }
+        },
+        "testimonial-5": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "I've tried many brands, but this is by far the best. The quality speaks for itself. My entire gym crew switched to this brand!",
+            "author_name": "Jessica Lee",
+            "author_role": "Marathon Runner",
+            "verified": true
+          }
+        },
+        "testimonial-6": {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "Outstanding products and amazing customer support. I'm a customer for life! The investment was worth it for the quality and performance boost.",
+            "author_name": "David Brown",
+            "author_role": "Personal Trainer",
+            "verified": true
+          }
+        }
+      },
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2",
+        "testimonial-3",
+        "testimonial-4",
+        "testimonial-5",
+        "testimonial-6"
+      ],
+      "settings": {
+        "badge_text": "Testimonials",
+        "heading": "CUSTOMER",
+        "heading_highlight": "REVIEWS",
+        "description": "See what athletes around the world are saying about our products",
+        "show_stats": true,
+        "stat_rating": "4.9",
+        "stat_reviews": "10,000+",
+        "stat_customers": "100K+"
+      }
+    },
+    "premium-master-footer": {
+      "type": "premium-master-footer-v3",
+      "blocks": {
+        "footer-column-1": {
+          "type": "column",
+          "settings": {
+            "title": "Shop",
+            "menu": "footer-shop"
+          }
+        },
+        "footer-column-2": {
+          "type": "column",
+          "settings": {
+            "title": "Support",
+            "menu": "footer-support"
+          }
+        },
+        "footer-column-3": {
+          "type": "column",
+          "settings": {
+            "title": "Company",
+            "menu": "footer-company"
+          }
+        },
+        "footer-column-4": {
+          "type": "column",
+          "settings": {
+            "title": "Resources",
+            "menu": "footer-resources"
+          }
+        }
+      },
+      "block_order": [
+        "footer-column-1",
+        "footer-column-2",
+        "footer-column-3",
+        "footer-column-4"
+      ],
+      "settings": {
+        "newsletter_heading": "Join The Movement",
+        "newsletter_description": "Get exclusive access to new products, workouts, and special offers. Join 100,000+ fitness enthusiasts worldwide.",
+        "instagram_url": "https://instagram.com/yourstore",
+        "facebook_url": "https://facebook.com/yourstore",
+        "tiktok_url": "https://tiktok.com/@yourstore",
+        "youtube_url": "https://youtube.com/yourstore",
+        "brand_description": "Premium fitness gear engineered for athletes who demand excellence. We're committed to quality, performance, and sustainability.",
+        "copyright": "© 2025 All rights reserved"
+      }
+    }
+  },
+  "order": [
+    "premium-master-navbar",
+    "premium-master-hero",
+    "premium-master-categories",
+    "premium-master-products",
+    "premium-master-testimonials",
+    "premium-master-footer"
+  ]
+}

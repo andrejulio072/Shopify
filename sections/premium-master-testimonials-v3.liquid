@@ -1,0 +1,611 @@
+<!--
+========================================
+🏆 PREMIUM MASTER TESTIMONIALS V3.0
+World-Class Social Proof Section
+Inspired by: Nike, Gymshark, Lululemon
+Ultra-Premium Reviews | Trust Building
+========================================
+-->
+
+<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+<style>
+  /* ========================================
+     🎨 PREMIUM TESTIMONIALS VARIABLES
+  ======================================== */
+  :root {
+    --testimonials-spacing: 120px;
+    --testimonial-card-radius: 20px;
+  }
+
+  /* ========================================
+     💎 MAIN SECTION
+  ======================================== */
+  .premium-master-testimonials {
+    padding: var(--testimonials-spacing) 40px;
+    background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative Background */
+  .testimonials-bg-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(0, 122, 255, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(48, 209, 88, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .testimonials-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ========================================
+     📝 SECTION HEADER
+  ======================================== */
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 80px;
+    animation: fade-slide-up 0.8s ease-out;
+  }
+
+  .testimonials-badge {
+    display: inline-block;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
+    border: 1px solid rgba(0, 122, 255, 0.3);
+    border-radius: 50px;
+    color: #007AFF;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+  }
+
+  .testimonials-heading {
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 900;
+    color: white;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .testimonials-heading-highlight {
+    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .testimonials-description {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* ========================================
+     ⭐ STATS BAR
+  ======================================== */
+  .testimonials-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 80px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    animation: fade-slide-up 0.8s ease-out 0.2s backwards;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .stat-stars {
+    font-size: 24px;
+    color: #FF9500;
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+  }
+
+  /* ========================================
+     🎯 TESTIMONIALS GRID
+  ======================================== */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 30px;
+  }
+
+  /* Testimonial Card */
+  .testimonial-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--testimonial-card-radius);
+    padding: 40px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: fade-slide-up 0.8s ease-out backwards;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+  .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+  .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+  .testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+  .testimonial-card:nth-child(5) { animation-delay: 0.5s; }
+  .testimonial-card:nth-child(6) { animation-delay: 0.6s; }
+
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 122, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 122, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 122, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .testimonial-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Quote Icon */
+  .quote-icon {
+    font-size: 48px;
+    color: rgba(0, 122, 255, 0.3);
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+
+  /* Rating Stars */
+  .testimonial-rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 20px;
+  }
+
+  .star {
+    font-size: 18px;
+    color: #FF9500;
+  }
+
+  /* Review Text */
+  .testimonial-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Author Section */
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+  }
+
+  .author-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(0, 122, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-card:hover .author-avatar {
+    border-color: #007AFF;
+    box-shadow: 0 0 20px rgba(0, 122, 255, 0.5);
+  }
+
+  .author-info {
+    flex: 1;
+  }
+
+  .author-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .author-role {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  /* Verified Badge */
+  .verified-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(48, 209, 88, 0.15);
+    border: 1px solid rgba(48, 209, 88, 0.3);
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #30D158;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .verified-icon {
+    font-size: 14px;
+  }
+
+  /* ========================================
+     📱 RESPONSIVE DESIGN
+  ======================================== */
+  @media (max-width: 1200px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonials-stats {
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .premium-master-testimonials {
+      padding: 80px 20px;
+    }
+
+    .testimonials-header {
+      margin-bottom: 50px;
+    }
+
+    .testimonials-stats {
+      flex-direction: column;
+      gap: 30px;
+      padding: 30px 20px;
+    }
+
+    .stat-number {
+      font-size: 36px;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      padding: 30px;
+    }
+
+    .quote-icon {
+      font-size: 36px;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+    }
+
+    .author-avatar {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  /* ========================================
+     ✨ ANIMATIONS
+  ======================================== */
+  @keyframes fade-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<!-- ========================================
+     🏆 PREMIUM TESTIMONIALS HTML
+======================================== -->
+
+<section class="premium-master-testimonials">
+  <div class="testimonials-bg-pattern"></div>
+
+  <div class="testimonials-container">
+
+    <!-- Section Header -->
+    <div class="testimonials-header">
+      {% if section.settings.badge_text != blank %}
+        <span class="testimonials-badge">{{ section.settings.badge_text }}</span>
+      {% endif %}
+
+      <h2 class="testimonials-heading">
+        {{ section.settings.heading | default: 'CUSTOMER' }}
+        <span class="testimonials-heading-highlight">{{ section.settings.heading_highlight | default: 'REVIEWS' }}</span>
+      </h2>
+
+      {% if section.settings.description != blank %}
+        <p class="testimonials-description">{{ section.settings.description }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Stats Bar -->
+    {% if section.settings.show_stats %}
+      <div class="testimonials-stats">
+        <div class="stat-item">
+          <div class="stat-stars">★★★★★</div>
+          <span class="stat-number">{{ section.settings.stat_rating | default: '4.9' }}</span>
+          <span class="stat-label">Average Rating</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">{{ section.settings.stat_reviews | default: '10,000+' }}</span>
+          <span class="stat-label">Total Reviews</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">{{ section.settings.stat_customers | default: '100K+' }}</span>
+          <span class="stat-label">Happy Customers</span>
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Testimonials Grid -->
+    <div class="testimonials-grid">
+      {% for block in section.blocks %}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          <!-- Quote Icon -->
+          <div class="quote-icon">"</div>
+
+          <!-- Rating -->
+          <div class="testimonial-rating">
+            {% assign rating = block.settings.rating | default: 5 %}
+            {% for i in (1..rating) %}
+              <span class="star">★</span>
+            {% endfor %}
+          </div>
+
+          <!-- Review Text -->
+          <p class="testimonial-text">
+            {{ block.settings.review_text | default: 'This product changed my training routine completely. The quality is unmatched and I can feel the difference in every workout.' }}
+          </p>
+
+          <!-- Author -->
+          <div class="testimonial-author">
+            {% if block.settings.author_image != blank %}
+              <img
+                src="{{ block.settings.author_image | image_url: width: 120 }}"
+                alt="{{ block.settings.author_name }}"
+                width="60"
+                height="60"
+                loading="lazy"
+                class="author-avatar"
+              >
+            {% else %}
+              <div class="author-avatar" style="
+                background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                font-weight: 900;
+                color: white;
+              ">{{ block.settings.author_name | slice: 0 }}</div>
+            {% endif %}
+
+            <div class="author-info">
+              <div class="author-name">{{ block.settings.author_name | default: 'John Doe' }}</div>
+              <div class="author-role">{{ block.settings.author_role | default: 'Verified Customer' }}</div>
+            </div>
+
+            {% if block.settings.verified %}
+              <div class="verified-badge">
+                <span class="verified-icon">✓</span>
+                <span>Verified</span>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Premium Master Testimonials",
+  "tag": "section",
+  "class": "premium-master-testimonials-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Testimonials"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "CUSTOMER"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Heading Highlight",
+      "default": "REVIEWS"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "See what athletes around the world are saying about our products"
+    },
+    {
+      "type": "header",
+      "content": "Statistics"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stats",
+      "label": "Show Statistics Bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "stat_rating",
+      "label": "Average Rating",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "stat_reviews",
+      "label": "Total Reviews",
+      "default": "10,000+"
+    },
+    {
+      "type": "text",
+      "id": "stat_customers",
+      "label": "Total Customers",
+      "default": "100K+"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial Card",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "This product changed my training routine completely. The quality is unmatched!"
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author Photo"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Author Name",
+          "default": "John Doe"
+        },
+        {
+          "type": "text",
+          "id": "author_role",
+          "label": "Author Role/Location",
+          "default": "Verified Customer"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Show Verified Badge",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Master Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "Best fitness gear I've ever owned. The quality is exceptional and it's clear they care about their customers.",
+            "author_name": "Sarah Johnson",
+            "author_role": "Professional Athlete",
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "Game-changer for my workout routine. I've seen incredible results in just 3 months!",
+            "author_name": "Mike Chen",
+            "author_role": "Fitness Enthusiast",
+            "verified": true
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "rating": 5,
+            "review_text": "Worth every penny. The comfort and performance are unmatched by any other brand.",
+            "author_name": "Emily Davis",
+            "author_role": "Yoga Instructor",
+            "verified": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -391,23 +391,23 @@ Ultra-Premium Backgrounds | Maximum Impact
 ======================================== -->
 
 <section class="premium-master-hero">
-  
+
   <!-- Background Layer -->
   <div class="hero-background">
     {% if section.settings.background_video_url != blank %}
-      <video 
-        class="hero-bg-video" 
-        autoplay 
-        muted 
-        loop 
+      <video
+        class="hero-bg-video"
+        autoplay
+        muted
+        loop
         playsinline
         poster="{{ section.settings.background_image | image_url: width: 1920 }}"
       >
         <source src="{{ section.settings.background_video_url }}" type="video/mp4">
       </video>
     {% elsif section.settings.background_image != blank %}
-      <img 
-        src="{{ section.settings.background_image | image_url: width: 1920 }}" 
+      <img
+        src="{{ section.settings.background_image | image_url: width: 1920 }}"
         alt="{{ section.settings.heading }}"
         width="1920"
         height="1080"
@@ -418,9 +418,9 @@ Ultra-Premium Backgrounds | Maximum Impact
       <div style="
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, 
-          #000000 0%, 
-          #1a1a1a 50%, 
+        background: linear-gradient(135deg,
+          #000000 0%,
+          #1a1a1a 50%,
           #000000 100%
         );
       "></div>
@@ -429,7 +429,7 @@ Ultra-Premium Backgrounds | Maximum Impact
 
   <!-- Overlay -->
   <div class="hero-overlay"></div>
-  
+
   {% if section.settings.enable_animated_gradient %}
     <div class="hero-gradient-animated"></div>
   {% endif %}
@@ -449,7 +449,7 @@ Ultra-Premium Backgrounds | Maximum Impact
 
   <!-- Content -->
   <div class="hero-content">
-    
+
     {% if section.settings.badge_text != blank %}
       <div class="hero-badge">
         <span class="hero-badge-icon">{{ section.settings.badge_icon | default: '🔥' }}</span>
@@ -474,7 +474,7 @@ Ultra-Premium Backgrounds | Maximum Impact
           <span>{{ section.settings.primary_button_text }}</span>
         </a>
       {% endif %}
-      
+
       {% if section.settings.secondary_button_text != blank %}
         <a href="{{ section.settings.secondary_button_link }}" class="hero-cta-secondary">
           {{ section.settings.secondary_button_text }}

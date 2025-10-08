@@ -1,0 +1,661 @@
+<!--
+========================================
+🏆 PREMIUM MASTER HERO V3.0
+World-Class Hero Section
+Inspired by: Nike, Gymshark, Lululemon
+Ultra-Premium Backgrounds | Maximum Impact
+========================================
+-->
+
+<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+<style>
+  /* ========================================
+     🎨 PREMIUM MASTER HERO VARIABLES
+  ======================================== */
+  :root {
+    --hero-height: 90vh;
+    --hero-overlay: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+  }
+
+  /* ========================================
+     💎 HERO SECTION - Full Screen Impact
+  ======================================== */
+  .premium-master-hero {
+    position: relative;
+    height: var(--hero-height);
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Background Image/Video Layer */
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: ken-burns 30s ease-in-out infinite alternate;
+  }
+
+  @keyframes ken-burns {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+  }
+
+  .hero-bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Gradient Overlay */
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: var(--hero-overlay);
+    z-index: 2;
+  }
+
+  /* Animated Gradient Overlay (Optional) */
+  .hero-gradient-animated {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 122, 255, 0.3) 0%,
+      rgba(48, 209, 88, 0.2) 50%,
+      rgba(0, 122, 255, 0.3) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradient-flow 8s ease infinite;
+    z-index: 3;
+    mix-blend-mode: overlay;
+  }
+
+  @keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Particles Effect */
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    opacity: 0.2;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: float-particle linear infinite;
+  }
+
+  @keyframes float-particle {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-100vh) translateX(50px);
+      opacity: 0;
+    }
+  }
+
+  /* Content Container */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    padding: 0 40px;
+    text-align: center;
+    animation: fade-slide-up 1.2s ease-out;
+  }
+
+  @keyframes fade-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Pre-heading Badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 30px;
+    animation: fade-slide-up 1.2s ease-out 0.2s both;
+  }
+
+  .hero-badge-icon {
+    font-size: 18px;
+    animation: pulse-scale 2s ease-in-out infinite;
+  }
+
+  /* Main Heading */
+  .hero-heading {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: -0.03em;
+    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    animation: fade-slide-up 1.2s ease-out 0.4s both;
+  }
+
+  .hero-heading-highlight {
+    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+
+  /* Subheading */
+  .hero-subheading {
+    font-size: clamp(18px, 2.5vw, 24px);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    animation: fade-slide-up 1.2s ease-out 0.6s both;
+  }
+
+  /* CTA Buttons */
+  .hero-cta-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fade-slide-up 1.2s ease-out 0.8s both;
+  }
+
+  .hero-cta-primary {
+    padding: 20px 50px;
+    background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 10px 40px rgba(0, 122, 255, 0.5);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-cta-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0056CC 0%, #003D99 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .hero-cta-primary:hover::before {
+    opacity: 1;
+  }
+
+  .hero-cta-primary:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 50px rgba(0, 122, 255, 0.7);
+  }
+
+  .hero-cta-primary span {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-cta-secondary {
+    padding: 20px 50px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .hero-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Stats/Social Proof */
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 60px;
+    animation: fade-slide-up 1.2s ease-out 1s both;
+  }
+
+  .hero-stat-item {
+    text-align: center;
+  }
+
+  .hero-stat-number {
+    font-size: 42px;
+    font-weight: 900;
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-stat-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Scroll Indicator */
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    animation: fade-in 1.2s ease-out 1.2s both;
+  }
+
+  .scroll-arrow {
+    width: 30px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 25px;
+    position: relative;
+  }
+
+  .scroll-arrow::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    animation: scroll-bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+    50% { transform: translateX(-50%) translateY(15px); opacity: 0.5; }
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ========================================
+     📱 RESPONSIVE DESIGN
+  ======================================== */
+  @media (max-width: 768px) {
+    .premium-master-hero {
+      height: 80vh;
+      min-height: 500px;
+    }
+
+    .hero-content {
+      padding: 0 20px;
+    }
+
+    .hero-badge {
+      font-size: 12px;
+      padding: 10px 20px;
+    }
+
+    .hero-cta-group {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .hero-cta-primary,
+    .hero-cta-secondary {
+      padding: 18px 40px;
+      font-size: 16px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .hero-stats {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .hero-scroll-indicator {
+      display: none;
+    }
+  }
+</style>
+
+<!-- ========================================
+     🏆 PREMIUM MASTER HERO HTML
+======================================== -->
+
+<section class="premium-master-hero">
+  
+  <!-- Background Layer -->
+  <div class="hero-background">
+    {% if section.settings.background_video_url != blank %}
+      <video 
+        class="hero-bg-video" 
+        autoplay 
+        muted 
+        loop 
+        playsinline
+        poster="{{ section.settings.background_image | image_url: width: 1920 }}"
+      >
+        <source src="{{ section.settings.background_video_url }}" type="video/mp4">
+      </video>
+    {% elsif section.settings.background_image != blank %}
+      <img 
+        src="{{ section.settings.background_image | image_url: width: 1920 }}" 
+        alt="{{ section.settings.heading }}"
+        width="1920"
+        height="1080"
+        class="hero-bg-image"
+        loading="eager"
+      >
+    {% else %}
+      <div style="
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, 
+          #000000 0%, 
+          #1a1a1a 50%, 
+          #000000 100%
+        );
+      "></div>
+    {% endif %}
+  </div>
+
+  <!-- Overlay -->
+  <div class="hero-overlay"></div>
+  
+  {% if section.settings.enable_animated_gradient %}
+    <div class="hero-gradient-animated"></div>
+  {% endif %}
+
+  <!-- Particles Effect -->
+  {% if section.settings.enable_particles %}
+    <div class="hero-particles">
+      {% for i in (1..20) %}
+        <div class="particle" style="
+          left: {{ 5 | times: i }}%;
+          animation-duration: {{ 10 | plus: i }}s;
+          animation-delay: {{ i | times: 0.5 }}s;
+        "></div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- Content -->
+  <div class="hero-content">
+    
+    {% if section.settings.badge_text != blank %}
+      <div class="hero-badge">
+        <span class="hero-badge-icon">{{ section.settings.badge_icon | default: '🔥' }}</span>
+        <span>{{ section.settings.badge_text }}</span>
+      </div>
+    {% endif %}
+
+    <h1 class="hero-heading">
+      {{ section.settings.heading | default: 'TRANSFORM YOUR' }}
+      <span class="hero-heading-highlight">{{ section.settings.heading_highlight | default: 'FITNESS JOURNEY' }}</span>
+    </h1>
+
+    {% if section.settings.subheading != blank %}
+      <p class="hero-subheading">
+        {{ section.settings.subheading }}
+      </p>
+    {% endif %}
+
+    <div class="hero-cta-group">
+      {% if section.settings.primary_button_text != blank %}
+        <a href="{{ section.settings.primary_button_link }}" class="hero-cta-primary">
+          <span>{{ section.settings.primary_button_text }}</span>
+        </a>
+      {% endif %}
+      
+      {% if section.settings.secondary_button_text != blank %}
+        <a href="{{ section.settings.secondary_button_link }}" class="hero-cta-secondary">
+          {{ section.settings.secondary_button_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    {% if section.settings.show_stats %}
+      <div class="hero-stats">
+        <div class="hero-stat-item">
+          <span class="hero-stat-number">{{ section.settings.stat_1_number | default: '100K+' }}</span>
+          <span class="hero-stat-label">{{ section.settings.stat_1_label | default: 'Happy Customers' }}</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-number">{{ section.settings.stat_2_number | default: '4.9/5' }}</span>
+          <span class="hero-stat-label">{{ section.settings.stat_2_label | default: 'Average Rating' }}</span>
+        </div>
+        <div class="hero-stat-item">
+          <span class="hero-stat-number">{{ section.settings.stat_3_number | default: '50+' }}</span>
+          <span class="hero-stat-label">{{ section.settings.stat_3_label | default: 'Countries' }}</span>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="hero-scroll-indicator">
+    <div class="scroll-arrow"></div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Premium Master Hero",
+  "tag": "section",
+  "class": "premium-master-hero-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "url",
+      "id": "background_video_url",
+      "label": "Background Video URL (MP4)",
+      "info": "Video will override image"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_animated_gradient",
+      "label": "Enable Animated Gradient Overlay",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_particles",
+      "label": "Enable Particles Effect",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "New Collection 2025"
+    },
+    {
+      "type": "text",
+      "id": "badge_icon",
+      "label": "Badge Icon (Emoji)",
+      "default": "🔥"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "TRANSFORM YOUR"
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Highlighted Text",
+      "default": "FITNESS JOURNEY"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Premium athletic wear engineered for peak performance"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Primary Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Secondary Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Stats Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stats",
+      "label": "Show Stats",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "stat_1_number",
+      "label": "Stat 1 Number",
+      "default": "100K+"
+    },
+    {
+      "type": "text",
+      "id": "stat_1_label",
+      "label": "Stat 1 Label",
+      "default": "Happy Customers"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_number",
+      "label": "Stat 2 Number",
+      "default": "4.9/5"
+    },
+    {
+      "type": "text",
+      "id": "stat_2_label",
+      "label": "Stat 2 Label",
+      "default": "Average Rating"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_number",
+      "label": "Stat 3 Number",
+      "default": "50+"
+    },
+    {
+      "type": "text",
+      "id": "stat_3_label",
+      "label": "Stat 3 Label",
+      "default": "Countries"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Master Hero"
+    }
+  ]
+}
+{% endschema %}

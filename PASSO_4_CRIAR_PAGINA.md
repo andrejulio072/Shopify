@@ -400,7 +400,7 @@ No navegador (Chrome/Firefox):
 Abra lado a lado:
    ABA 1: Sua página
    ABA 2: Screenshot do design esperado (se tiver)
-   
+
 Compare:
    ✅ Estrutura correta
    ✅ Seções na ordem certa

@@ -6,7 +6,7 @@
 
 ## 📋 **CHECKLIST DESTE PASSO:**
 - [ ] Seção 1: Navbar uploaded
-- [ ] Seção 2: Hero uploaded  
+- [ ] Seção 2: Hero uploaded
 - [ ] Seção 3: Categories uploaded
 - [ ] Seção 4: Products uploaded
 - [ ] Seção 5: Testimonials uploaded
@@ -297,7 +297,7 @@ Ação: Ctrl+A → Ctrl+C
       2. Clique nos 3 pontinhos
       3. Delete
       4. Tente criar novamente
-   
+
    OPÇÃO B: Use nome diferente
       - premium-master-navbar-v3-new
       - (depois pode renomear a antiga)
@@ -354,7 +354,7 @@ Ctrl+F = Buscar no código
 ```
 Após colar, use Ctrl+F e busque por:
    "{% schema %}"
-   
+
 Se encontrar, o arquivo está completo! ✅
 ```
 
@@ -362,7 +362,7 @@ Se encontrar, o arquivo está completo! ✅
 ```
 Se você tem Shopify CLI instalado:
    shopify theme push -d
-   
+
 Isso faz upload de TODAS as seções de uma vez!
 (Mas o método manual é mais seguro para iniciantes)
 ```

@@ -1,0 +1,884 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; {{ 'general.meta.tags' | t: tags: current_tags | join: ', ' }}{% endif -%}
+      {%- if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+
+    <!-- Base CSS -->
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    <!-- Premium V2 CSS -->
+    {{ 'premium-v2.css' | asset_url | stylesheet_tag }}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+  </head>
+
+  <body class="gradient">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      {{ "accessibility.skip_to_text" | t }}
+    </a>
+
+    {%- render 'cart-notification', color_scheme: settings.color_schemes[settings.cart_notification_color_scheme].settings, desktop_menu_type: section.settings.menu_type_desktop -%}
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      <!-- PREMIUM V2.0 SECTIONS -->
+
+      <!-- Hero Section with actual content -->
+      <section class="premium-hero-test" style="
+        min-height: 80vh;
+        background: linear-gradient(135deg, #0A0A0A 0%, #1C1C1E 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+      ">
+        <div style="max-width: 800px;">
+          <div style="
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+          ">
+            ⭐ PREMIUM FITNESS
+          </div>
+
+          <h1 style="
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+          ">
+            FUEL YOUR <span style="
+              background: linear-gradient(135deg, #FFFFFF 0%, #007AFF 50%, #30D158 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              background-clip: text;
+            ">GREATNESS</span>
+          </h1>
+
+          <p style="
+            font-size: 1.25rem;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            line-height: 1.6;
+          ">
+            Discover premium supplements and gear designed for champions. Elevate your performance today.
+          </p>
+
+          <div style="
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+          ">
+            <a href="/collections/all" style="
+              background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
+              color: white;
+              font-size: 1.125rem;
+              font-weight: 700;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              padding: 20px 40px;
+              border-radius: 12px;
+              text-decoration: none;
+              display: inline-flex;
+              align-items: center;
+              gap: 12px;
+              box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
+              transition: all 0.25s ease;
+            " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(0, 122, 255, 0.4)';"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0, 122, 255, 0.3)';">
+              SHOP NOW →
+            </a>
+
+            <a href="/pages/about" style="
+              background: transparent;
+              color: white;
+              border: 2px solid rgba(255, 255, 255, 0.3);
+              font-size: 1rem;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              padding: 18px 32px;
+              border-radius: 12px;
+              text-decoration: none;
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              transition: all 0.25s ease;
+              backdrop-filter: blur(10px);
+            " onmouseover="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.borderColor='white';"
+               onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(255, 255, 255, 0.3)';">
+              ▶ WATCH STORY
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Badges Section -->
+      <section style="
+        padding: 48px 0;
+        background: linear-gradient(135deg, #F2F2F7 0%, #FFFFFF 100%);
+        border-top: 1px solid #E5E5EA;
+        border-bottom: 1px solid #E5E5EA;
+      ">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
+          <div style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            align-items: center;
+          ">
+            <div style="
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              padding: 16px;
+              background: white;
+              border-radius: 12px;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+              transition: all 0.25s ease;
+            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.15)';"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0, 0, 0, 0.1)';">
+              <div style="
+                width: 48px;
+                height: 48px;
+                background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+              ">🚚</div>
+              <div>
+                <div style="font-size: 14px; font-weight: 700; color: #0A0A0A; text-transform: uppercase;">FRETE GRÁTIS</div>
+                <div style="font-size: 12px; color: #636366;">Pedidos acima de R$ 99</div>
+              </div>
+            </div>
+
+            <div style="
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              padding: 16px;
+              background: white;
+              border-radius: 12px;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+              transition: all 0.25s ease;
+            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.15)';"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0, 0, 0, 0.1)';">
+              <div style="
+                width: 48px;
+                height: 48px;
+                background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+              ">🔒</div>
+              <div>
+                <div style="font-size: 14px; font-weight: 700; color: #0A0A0A; text-transform: uppercase;">COMPRA SEGURA</div>
+                <div style="font-size: 12px; color: #636366;">SSL 256-bit criptografado</div>
+              </div>
+            </div>
+
+            <div style="
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              padding: 16px;
+              background: white;
+              border-radius: 12px;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+              transition: all 0.25s ease;
+            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.15)';"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0, 0, 0, 0.1)';">
+              <div style="
+                width: 48px;
+                height: 48px;
+                background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+              ">⚡</div>
+              <div>
+                <div style="font-size: 14px; font-weight: 700; color: #0A0A0A; text-transform: uppercase;">ENTREGA RÁPIDA</div>
+                <div style="font-size: 12px; color: #636366;">1-3 dias úteis</div>
+              </div>
+            </div>
+
+            <div style="
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              padding: 16px;
+              background: white;
+              border-radius: 12px;
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+              transition: all 0.25s ease;
+            " onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.15)';"
+               onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 1px 3px rgba(0, 0, 0, 0.1)';">
+              <div style="
+                width: 48px;
+                height: 48px;
+                background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+              ">✅</div>
+              <div>
+                <div style="font-size: 14px; font-weight: 700; color: #0A0A0A; text-transform: uppercase;">GARANTIA TOTAL</div>
+                <div style="font-size: 12px; color: #636366;">30 dias para trocar</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories Section -->
+      <section style="
+        padding: 80px 0;
+        background: linear-gradient(135deg, #FFFFFF 0%, #F2F2F7 100%);
+      ">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
+          <div style="text-align: center; margin-bottom: 64px;">
+            <div style="
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              padding: 8px 16px;
+              background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+              border-radius: 50px;
+              color: white;
+              font-size: 14px;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              margin-bottom: 24px;
+            ">
+              ⭐ CATEGORIES
+            </div>
+
+            <h2 style="
+              font-size: clamp(2rem, 5vw, 3rem);
+              font-weight: 900;
+              color: #0A0A0A;
+              margin-bottom: 16px;
+              text-transform: uppercase;
+              letter-spacing: -0.02em;
+            ">SHOP BY CATEGORY</h2>
+
+            <p style="
+              font-size: 1.125rem;
+              color: #636366;
+              max-width: 600px;
+              margin: 0 auto;
+              line-height: 1.6;
+            ">
+              Discover our premium selection of fitness supplements, apparel, and accessories
+            </p>
+          </div>
+
+          <div style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+          ">
+            <div style="
+              background: white;
+              border-radius: 16px;
+              overflow: hidden;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+              transition: all 0.25s ease;
+              cursor: pointer;
+              height: 400px;
+            " onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(0, 0, 0, 0.15)';"
+               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.1)';"
+               onclick="window.location.href='/collections/supplements'">
+              <div style="
+                width: 100%;
+                height: 70%;
+                background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 4rem;
+              ">💪</div>
+              <div style="
+                padding: 24px;
+                height: 30%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+              ">
+                <h3 style="
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                  color: #0A0A0A;
+                  margin-bottom: 8px;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05em;
+                ">SUPPLEMENTS</h3>
+                <p style="
+                  font-size: 14px;
+                  color: #636366;
+                  margin-bottom: 16px;
+                  line-height: 1.5;
+                ">Premium protein, pre-workout & more</p>
+                <span style="
+                  color: #007AFF;
+                  font-size: 14px;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05em;
+                ">SHOP NOW →</span>
+              </div>
+            </div>
+
+            <div style="
+              background: white;
+              border-radius: 16px;
+              overflow: hidden;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+              transition: all 0.25s ease;
+              cursor: pointer;
+              height: 400px;
+            " onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(0, 0, 0, 0.15)';"
+               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.1)';"
+               onclick="window.location.href='/collections/apparel'">
+              <div style="
+                width: 100%;
+                height: 70%;
+                background: linear-gradient(135deg, #30D158 0%, #007AFF 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 4rem;
+              ">👕</div>
+              <div style="
+                padding: 24px;
+                height: 30%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+              ">
+                <h3 style="
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                  color: #0A0A0A;
+                  margin-bottom: 8px;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05em;
+                ">APPAREL</h3>
+                <p style="
+                  font-size: 14px;
+                  color: #636366;
+                  margin-bottom: 16px;
+                  line-height: 1.5;
+                ">Premium workout gear & clothing</p>
+                <span style="
+                  color: #007AFF;
+                  font-size: 14px;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05em;
+                ">SHOP NOW →</span>
+              </div>
+            </div>
+
+            <div style="
+              background: white;
+              border-radius: 16px;
+              overflow: hidden;
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+              transition: all 0.25s ease;
+              cursor: pointer;
+              height: 400px;
+            " onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 20px 40px rgba(0, 0, 0, 0.15)';"
+               onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 4px 20px rgba(0, 0, 0, 0.1)';"
+               onclick="window.location.href='/collections/accessories'">
+              <div style="
+                width: 100%;
+                height: 70%;
+                background: linear-gradient(135deg, #FF9500 0%, #FF3B30 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 4rem;
+              ">🎯</div>
+              <div style="
+                padding: 24px;
+                height: 30%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+              ">
+                <h3 style="
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                  color: #0A0A0A;
+                  margin-bottom: 8px;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05em;
+                ">ACCESSORIES</h3>
+                <p style="
+                  font-size: 14px;
+                  color: #636366;
+                  margin-bottom: 16px;
+                  line-height: 1.5;
+                ">Shakers, straps & gym equipment</p>
+                <span style="
+                  color: #007AFF;
+                  font-size: 14px;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05em;
+                ">SHOP NOW →</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Reviews Section -->
+      <section style="
+        padding: 80px 0;
+        background: linear-gradient(135deg, #F2F2F7 0%, #FFFFFF 100%);
+      ">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
+          <div style="text-align: center; margin-bottom: 64px;">
+            <div style="
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              padding: 8px 16px;
+              background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+              border-radius: 50px;
+              color: white;
+              font-size: 14px;
+              font-weight: 600;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              margin-bottom: 24px;
+            ">
+              ⭐ REVIEWS
+            </div>
+
+            <h2 style="
+              font-size: clamp(2rem, 5vw, 3rem);
+              font-weight: 900;
+              color: #0A0A0A;
+              margin-bottom: 16px;
+              text-transform: uppercase;
+              letter-spacing: -0.02em;
+            ">WHAT OUR CUSTOMERS SAY</h2>
+
+            <p style="
+              font-size: 1.125rem;
+              color: #636366;
+              max-width: 600px;
+              margin: 0 auto;
+              line-height: 1.6;
+            ">
+              Join over 50,000 satisfied customers who trust our premium products
+            </p>
+          </div>
+
+          <!-- Stats -->
+          <div style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 24px;
+            margin-bottom: 64px;
+            padding: 32px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          ">
+            <div style="text-align: center;">
+              <div style="
+                font-size: 2rem;
+                font-weight: 900;
+                color: #007AFF;
+                line-height: 1;
+              ">50K+</div>
+              <div style="
+                font-size: 14px;
+                font-weight: 500;
+                color: #636366;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-top: 8px;
+              ">Happy Customers</div>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="
+                font-size: 2rem;
+                font-weight: 900;
+                color: #007AFF;
+                line-height: 1;
+              ">4.9</div>
+              <div style="color: #FF9500; font-size: 1.25rem; margin: 8px 0;">★★★★★</div>
+              <div style="
+                font-size: 14px;
+                font-weight: 500;
+                color: #636366;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+              ">Average Rating</div>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="
+                font-size: 2rem;
+                font-weight: 900;
+                color: #007AFF;
+                line-height: 1;
+              ">98%</div>
+              <div style="
+                font-size: 14px;
+                font-weight: 500;
+                color: #636366;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-top: 8px;
+              ">Satisfaction</div>
+            </div>
+
+            <div style="text-align: center;">
+              <div style="
+                font-size: 2rem;
+                font-weight: 900;
+                color: #007AFF;
+                line-height: 1;
+              ">96%</div>
+              <div style="
+                font-size: 14px;
+                font-weight: 500;
+                color: #636366;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-top: 8px;
+              ">Recommend</div>
+            </div>
+          </div>
+
+          <!-- Review Cards -->
+          <div style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+          ">
+            <div style="
+              background: white;
+              border-radius: 16px;
+              padding: 24px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+              position: relative;
+              border-top: 4px solid #007AFF;
+            ">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                <div style="
+                  width: 60px;
+                  height: 60px;
+                  border-radius: 50%;
+                  background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                ">M</div>
+                <div>
+                  <div style="font-weight: 700; color: #0A0A0A; margin-bottom: 4px;">Maria Santos</div>
+                  <div style="font-size: 14px; color: #8E8E93; margin-bottom: 8px;">Rio de Janeiro, RJ</div>
+                  <div style="color: #FF9500;">★★★★★</div>
+                </div>
+              </div>
+              <h4 style="font-size: 1.125rem; font-weight: 700; color: #0A0A0A; margin-bottom: 12px; line-height: 1.3;">
+                Melhor investimento que fiz!
+              </h4>
+              <p style="font-size: 1rem; color: #48484A; line-height: 1.6; margin-bottom: 16px;">
+                Comecei a usar há 3 meses e os resultados são incríveis. Ganhei 4kg de massa magra e me sinto muito mais disposta nos treinos.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #8E8E93;">
+                <span>Há 2 dias</span>
+                <span style="
+                  background: #30D158;
+                  color: white;
+                  padding: 4px 8px;
+                  border-radius: 4px;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                ">✓ Verificado</span>
+              </div>
+            </div>
+
+            <div style="
+              background: white;
+              border-radius: 16px;
+              padding: 24px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+              position: relative;
+              border-top: 4px solid #30D158;
+            ">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                <div style="
+                  width: 60px;
+                  height: 60px;
+                  border-radius: 50%;
+                  background: linear-gradient(135deg, #30D158 0%, #007AFF 100%);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                ">C</div>
+                <div>
+                  <div style="font-weight: 700; color: #0A0A0A; margin-bottom: 4px;">Carlos Silva</div>
+                  <div style="font-size: 14px; color: #8E8E93; margin-bottom: 8px;">Belo Horizonte, MG</div>
+                  <div style="color: #FF9500;">★★★★★</div>
+                </div>
+              </div>
+              <h4 style="font-size: 1.125rem; font-weight: 700; color: #0A0A0A; margin-bottom: 12px; line-height: 1.3;">
+                Produto de qualidade premium
+              </h4>
+              <p style="font-size: 1rem; color: #48484A; line-height: 1.6; margin-bottom: 16px;">
+                Já testei várias marcas e essa é disparada a melhor. Sabor incrível, mixabilidade perfeita e resultados visíveis.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #8E8E93;">
+                <span>Há 5 dias</span>
+                <span style="
+                  background: #30D158;
+                  color: white;
+                  padding: 4px 8px;
+                  border-radius: 4px;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                ">✓ Verificado</span>
+              </div>
+            </div>
+
+            <div style="
+              background: white;
+              border-radius: 16px;
+              padding: 24px;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+              position: relative;
+              border-top: 4px solid #FF9500;
+            ">
+              <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 16px;">
+                <div style="
+                  width: 60px;
+                  height: 60px;
+                  border-radius: 50%;
+                  background: linear-gradient(135deg, #FF9500 0%, #FF3B30 100%);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: white;
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                ">A</div>
+                <div>
+                  <div style="font-weight: 700; color: #0A0A0A; margin-bottom: 4px;">Ana Costa</div>
+                  <div style="font-size: 14px; color: #8E8E93; margin-bottom: 8px;">Porto Alegre, RS</div>
+                  <div style="color: #FF9500;">★★★★★</div>
+                </div>
+              </div>
+              <h4 style="font-size: 1.125rem; font-weight: 700; color: #0A0A0A; margin-bottom: 12px; line-height: 1.3;">
+                Recomendo de olhos fechados!
+              </h4>
+              <p style="font-size: 1rem; color: #48484A; line-height: 1.6; margin-bottom: 16px;">
+                Produto chegou rapidinho, embalagem impecável. Tomando há 2 meses e já vejo diferença no corpo e na disposição.
+              </p>
+              <div style="display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #8E8E93;">
+                <span>Há 1 semana</span>
+                <span style="
+                  background: #30D158;
+                  color: white;
+                  padding: 4px 8px;
+                  border-radius: 4px;
+                  font-weight: 600;
+                  text-transform: uppercase;
+                ">✓ Verificado</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section style="
+        padding: 80px 0;
+        background: linear-gradient(135deg, #0A0A0A 0%, #1C1C1E 100%);
+        text-align: center;
+        color: white;
+      ">
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+          <h2 style="
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+          ">JOIN 50,000+ SATISFIED CUSTOMERS</h2>
+
+          <p style="
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            line-height: 1.6;
+          ">
+            Experience our premium products and see why we're the #1 choice for fitness enthusiasts
+          </p>
+
+          <a href="/collections/all" style="
+            background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.25s ease;
+          " onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(0, 122, 255, 0.4)';"
+             onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            SHOP NOW →
+          </a>
+        </div>
+      </section>
+
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    <ul hidden>
+      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+      <li id="a11y-new-window-message">{{ 'accessibility.link_messages.new_window' | t }}</li>
+    </ul>
+
+    <script>
+      window.shopUrl = '{{ request.origin }}';
+      window.routes = {
+        cart_add_url: '{{ routes.cart_add_url }}',
+        cart_change_url: '{{ routes.cart_change_url }}',
+        cart_update_url: '{{ routes.cart_update_url }}',
+        cart_url: '{{ routes.cart_url }}',
+        predictive_search_url: '{{ routes.predictive_search_url }}'
+      };
+
+      window.cartStrings = {
+        error: `{{ 'sections.cart.cart_error' | t }}`,
+        quantityError: `{{ 'sections.cart.cart_quantity_error_html' | t: quantity: '[quantity]' }}`
+      }
+
+      window.variantStrings = {
+        addToCart: `{{ 'products.product.add_to_cart' | t }}`,
+        soldOut: `{{ 'products.product.sold_out' | t }}`,
+        unavailable: `{{ 'products.product.unavailable' | t }}`,
+        unavailable_with_option: `{{ 'products.product.value_unavailable' | t: option_value: '[value]' }}`,
+      }
+    </script>
+
+    {%- if settings.predictive_search_enabled -%}
+      <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
+    {%- endif -%}
+
+    <!-- Mobile responsiveness -->
+    <style>
+      @media (max-width: 768px) {
+        .premium-hero-test h1 {
+          font-size: 2.5rem !important;
+        }
+
+        .premium-hero-test p {
+          font-size: 1rem !important;
+        }
+
+        .premium-hero-test > div > div:last-child {
+          flex-direction: column !important;
+          gap: 12px !important;
+        }
+
+        [style*="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))"] {
+          grid-template-columns: 1fr !important;
+          gap: 16px !important;
+        }
+
+        [style*="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        [style*="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))"] {
+          grid-template-columns: 1fr !important;
+        }
+
+        [style*="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))"] {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+      }
+    </style>
+  </body>
+</html>

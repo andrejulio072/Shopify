@@ -1,0 +1,43 @@
+{% comment %}
+USPs – 4 colunas com ícones e textos
+{% endcomment %}
+<section class="usp">
+  <div class="usp__wrap">
+    {% for block in section.blocks %}
+      <div class="usp__item">
+        <div class="usp__icon">{{ block.settings.icon_svg }}</div>
+        <div class="usp__title">{{ block.settings.title }}</div>
+        <div class="usp__text">{{ block.settings.text }}</div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <style>
+    .usp{padding:clamp(16px,3vw,32px) 0; background:var(--surface, #fff)}
+    .usp__wrap{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; max-width:1200px; margin:auto; padding:0 16px}
+    @media(max-width:900px){.usp__wrap{grid-template-columns:repeat(2,1fr)}}
+    .usp__item{border:1px solid rgba(0,0,0,.08); border-radius:14px; padding:18px; text-align:center}
+    .usp__icon svg{width:28px;height:28px}
+    .usp__title{font-weight:700; margin:.5rem 0 .25rem}
+    .usp__text{opacity:.8; font-size:.95rem}
+  </style>
+
+  {% schema %}
+  {
+    "name": "USPs / Trust badges",
+    "blocks": [
+      {
+        "type": "item",
+        "name": "USP",
+        "settings": [
+          { "type": "html", "id": "icon_svg", "label": "Icon (inline SVG)", "default": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><circle cx='12' cy='12' r='10'/><path d='M16 12H8'/><path d='M12 16V8'/></svg>" },
+          { "type": "text", "id": "title", "label": "Title", "default": "Fast EU/UK Shipping" },
+          { "type": "text", "id": "text", "label": "Text", "default": "5–12 business days" }
+        ]
+      }
+    ],
+    "max_blocks": 4,
+    "presets": [{ "name": "USPs – 4 items" }]
+  }
+  {% endschema %}
+</section>

@@ -1,0 +1,7 @@
+{%- assign first_available = product.first_available_variant | default: product.variants.first -%}
+<form method="post" action="/cart/add" class="card__quick">
+  <input type="hidden" name="id" value="{{ first_available.id }}">
+  <button type="submit" class="btn btn--primary" {% unless first_available.available %}disabled{% endunless %}>
+    {% if first_available.available %}Add to cart{% else %}Sold out{% endif %}
+  </button>
+</form>

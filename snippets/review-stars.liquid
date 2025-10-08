@@ -1,0 +1,14 @@
+{%- comment -%} Simple stars placeholder (4.8/5) until real app is connected {%- endcomment -%}
+{% assign rating = product.metafields.reviews.rating.value | default: 4.8 %}
+{% assign rounded = rating | round: 1 %}
+<span class="stars" aria-label="{{ rounded }} out of 5">
+  {% assign full = 5 %}
+  {% for i in (1..5) %}
+    {% if i <= rounded %}
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.3l-6.2 3.7 1.7-7.1L2 9.5l7.2-.6L12 2l2.8 6.9 7.2 .6-5.5 4.4 1.7 7.1z"/></svg>
+    {% else %}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 17.3l-6.2 3.7 1.7-7.1L2 9.5l7.2-.6L12 2l2.8 6.9 7.2 .6-5.5 4.4 1.7 7.1z"/></svg>
+    {% endif %}
+  {% endfor %}
+</span>
+<span style="margin-left:6px;opacity:.7">{{ rounded }}</span>

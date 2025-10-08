@@ -1,0 +1,33 @@
+:root{
+  --accent:#39FF14;          /* Neon green CTA */
+  --ink:#000000;
+  --radius:14px;
+}
+.btn,.button{border-radius:var(--radius);font-weight:700;padding:.8rem 1.15rem}
+.btn--primary{background:var(--accent);color:var(--ink);border:0;transition:transform .15s}
+.btn--primary:hover{transform:translateY(-1px)}
+.badge{display:inline-block;padding:.35rem .55rem;border-radius:999px;font-size:.78rem;font-weight:800}
+.badge--dark{background:#111;color:#fff}
+.badge--accent{background:var(--accent);color:#000}
+.cards{--gap:18px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap)}
+@media(max-width:1200px){.cards{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.cards{grid-template-columns:1fr}}
+.card{border:1px solid rgba(0,0,0,.08);border-radius:16px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+.card__media img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover}
+.card__body{padding:14px}
+.card__title{font-weight:800;line-height:1.2;margin:0 0 .35rem}
+.card__price{font-weight:800;margin:.15rem 0 .6rem}
+.card__meta{display:flex;align-items:center;gap:8px;opacity:.85;font-size:.9rem}
+.card__actions{padding:0 14px 14px}
+.card__quick{width:100%;text-align:center}
+.collection-hero{border-radius:18px;overflow:hidden;margin:8px 0 20px;position:relative;background:#0a0a0a}
+.collection-hero__inner{min-height:220px;display:flex;align-items:center}
+.collection-hero__img{position:absolute;inset:0;opacity:.25;background-position:center;background-size:cover}
+.collection-hero__content{position:relative;z-index:2;color:#fff;padding:28px}
+.collection-hero__title{font-size:clamp(24px,4.2vw,42px);margin:0 0 6px}
+.collection-hero__sub{opacity:.9}
+.sortbar{display:flex;justify-content:flex-end;margin:12px 0 18px}
+.sortbar select{padding:.5rem .75rem;border-radius:10px;border:1px solid #ddd;background:#fff}
+.stars{display:inline-flex;gap:2px;vertical-align:middle}
+.stars svg{width:14px;height:14px}

@@ -1,0 +1,81 @@
+{% comment %}
+HERO PRO – Background image + gradient overlay + CTA
+Controls: text align, overlay, image focal position, height (vh)
+{% endcomment %}
+<section class="hero-pro">
+  <div
+    class="hero-pro__bg"
+    style="
+      background-image:url({{ section.settings.bg_image | image_url: width: 2400 }});
+      background-position:{% case section.settings.bg_position %}{% when 'center' %}center{% when 'left' %}left center{% when 'right' %}right center{% endcase %};
+      min-height: {{ section.settings.hero_height }}vh;
+    "
+  >
+    <div class="hero-pro__overlay"></div>
+
+    <div class="hero-pro__content hero-pro__content--{{ section.settings.text_align }}">
+      {% if section.settings.kicker != blank %}
+        <p class="hero-pro__kicker">{{ section.settings.kicker }}</p>
+      {% endif %}
+      {% if section.settings.heading != blank %}
+        <h1 class="hero-pro__heading">{{ section.settings.heading }}</h1>
+      {% endif %}
+      {% if section.settings.subheading != blank %}
+        <p class="hero-pro__sub">{{ section.settings.subheading }}</p>
+      {% endif %}
+      {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
+        <a class="btn btn--primary" href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <style>
+    .hero-pro{position:relative}
+    .hero-pro__bg{
+      position:relative; background-size:cover; display:flex; align-items:center; justify-content:center;
+      border-radius:22px; overflow:hidden;
+    }
+    /* Gradient overlay (usa o controle de opacidade no schema via CSS var) */
+    .hero-pro__bg{ --ov: {{ section.settings.overlay_opacity }}; }
+    .hero-pro__overlay{position:absolute; inset:0;
+      background: radial-gradient(120% 120% at 80% 20%, rgba(0,0,0,.22), rgba(0,0,0,var(--ov)) 60%);
+    }
+    .hero-pro__content{position:relative; z-index:2; text-align:center; padding:clamp(16px,3vw,32px)}
+    .hero-pro__content--left{ text-align:left; max-width:min(100%,1080px); margin-inline:auto; }
+    .hero-pro__kicker{letter-spacing:.08em; text-transform:uppercase; font-weight:700; opacity:.9; margin:0 0 .5rem; color:#fff}
+    .hero-pro__heading{font-size:clamp(30px,5vw,58px); line-height:1.05; margin:.25rem 0 1rem; color:#fff; text-shadow:0 2px 20px rgba(0,0,0,.25)}
+    .hero-pro__sub{font-size:clamp(14px,1.6vw,18px); color:#fff; opacity:.92; margin:0 0 1.25rem}
+    @media(max-width: 820px){
+      .hero-pro__bg{border-radius:14px}
+    }
+  </style>
+
+  {% schema %}
+  {
+    "name": "Hero Pro",
+    "settings": [
+      { "type": "image_picker", "id": "bg_image", "label": "Background image" },
+      { "type": "text", "id": "kicker", "label": "Kicker", "default": "Fast UK/IE/ES shipping" },
+      { "type": "text", "id": "heading", "label": "Heading", "default": "Performance Delivered to Your Door." },
+      { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Premium fitness gear, sportswear, and wellness products." },
+      { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop Best Sellers" },
+      { "type": "url", "id": "cta_link", "label": "CTA link" },
+
+      { "type": "select", "id": "text_align", "label": "Text align", "default": "center",
+        "options": [ { "value": "center", "label": "Center" }, { "value": "left", "label": "Left" } ] },
+
+      { "type": "select", "id": "bg_position", "label": "Background focal position", "default": "center",
+        "options": [
+          { "value": "left", "label": "Left" },
+          { "value": "center", "label": "Center" },
+          { "value": "right", "label": "Right" }
+        ] },
+
+      { "type": "range", "id": "hero_height", "label": "Hero height (vh)", "min": 50, "max": 80, "step": 1, "default": 68 },
+
+      { "type": "range", "id": "overlay_opacity", "label": "Overlay opacity (0–0.6)", "min": 0, "max": 0.6, "step": 0.1, "default": 0.3 }
+    ],
+    "presets": [{ "name": "Hero Pro" }]
+  }
+  {% endschema %}
+</section>

@@ -1,0 +1,78 @@
+{% comment %} COLLECTION PRO – banner + sort + grid com quick add e badges {% endcomment %}
+{%- assign threshold = section.settings.free_ship_threshold | times: 100 -%}
+
+<div class="collection-hero">
+  <div class="collection-hero__img" style="background-image:url({{ section.settings.banner | image_url: width: 2000 }});"></div>
+  <div class="collection-hero__inner">
+    <div class="collection-hero__content">
+      <h1 class="collection-hero__title">{{ collection.title }}</h1>
+      {% if section.settings.sub != blank %}
+        <p class="collection-hero__sub">{{ section.settings.sub }}</p>
+      {% elsif collection.description != blank %}
+        <div class="collection-hero__sub">{{ collection.description | strip_html | truncate: 180 }}</div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<div class="sortbar">
+  <form method="get">
+    <label for="sort_by" class="visually-hidden">Sort by</label>
+    <select name="sort_by" id="sort_by" onchange="this.form.submit()">
+      {% assign sort = collection.sort_by | default: collection.default_sort_by %}
+      <option value="best-selling" {% if sort == "best-selling" %}selected{% endif %}>Best selling</option>
+      <option value="created-descending" {% if sort == "created-descending" %}selected{% endif %}>Newest</option>
+      <option value="price-ascending" {% if sort == "price-ascending" %}selected{% endif %}>Price, low to high</option>
+      <option value="price-descending" {% if sort == "price-descending" %}selected{% endif %}>Price, high to low</option>
+    </select>
+  </form>
+</div>
+
+<div class="cards">
+  {% for product in collection.products %}
+    <article class="card">
+      <div class="card__media" style="position:relative">
+        {% render 'product-badges', product: product, threshold: threshold %}
+        <a href="{{ product.url }}">
+          {% assign img = product.featured_media | default: product.media.first %}
+          {% if img %}
+            {{ img | image_url: width: 900 | image_tag: alt: product.title }}
+          {% else %}
+            <div style="aspect-ratio:1/1;background:#f6f6f6"></div>
+          {% endif %}
+        </a>
+      </div>
+      <div class="card__body">
+        <a class="card__title" href="{{ product.url }}">{{ product.title }}</a>
+        <div class="card__meta">
+          {% render 'review-stars', product: product %}
+        </div>
+        <div class="card__price">
+          {% if product.compare_at_price_max > product.price %}
+            <span>{{ product.price | money }}</span>
+            <s style="opacity:.6;margin-left:.35rem">{{ product.compare_at_price_max | money }}</s>
+          {% else %}
+            <span>{{ product.price | money }}</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="card__actions">
+        {% render 'quick-add', product: product %}
+      </div>
+    </article>
+  {% else %}
+    <p>No products found.</p>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Collection PRO",
+  "settings": [
+    { "type": "image_picker", "id": "banner", "label": "Banner image" },
+    { "type": "text", "id": "sub", "label": "Subtitle (optional)", "default": "Premium fitness gear, sportswear & wellness." },
+    { "type": "number", "id": "free_ship_threshold", "label": "Free shipping threshold (store currency)", "default": 50 }
+  ],
+  "presets": [{ "name": "Collection PRO" }]
+}
+{% endschema %}

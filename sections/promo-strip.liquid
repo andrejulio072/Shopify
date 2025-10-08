@@ -1,0 +1,32 @@
+{% comment %}
+Promo Strip – faixa chamativa para bundles ou ofertas
+{% endcomment %}
+<section class="promo-strip">
+  <div class="promo-strip__inner">
+    <span class="promo-strip__kicker">{{ section.settings.kicker }}</span>
+    <strong class="promo-strip__text">{{ section.settings.text }}</strong>
+    {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
+      <a class="btn btn--outline" href="{{ section.settings.cta_link }}">{{ section.settings.cta_label }}</a>
+    {% endif %}
+  </div>
+
+  <style>
+    .promo-strip{background: var(--accent, #39FF14); color:#000; padding:14px 0}
+    .promo-strip__inner{max-width:1200px; margin:auto; padding:0 16px; display:flex; gap:12px; align-items:center; justify-content:center; flex-wrap:wrap; text-align:center}
+    .promo-strip__kicker{letter-spacing:.08em; text-transform:uppercase; font-weight:700}
+    .promo-strip__text{font-weight:800}
+  </style>
+
+  {% schema %}
+  {
+    "name": "Promo strip",
+    "settings": [
+      { "type": "text", "id": "kicker", "label": "Kicker", "default": "Bundle & Save" },
+      { "type": "text", "id": "text", "label": "Text", "default": "Starter Pack (Bands + Shaker) — save 10%" },
+      { "type": "text", "id": "cta_label", "label": "CTA label", "default": "Shop Bundle" },
+      { "type": "url", "id": "cta_link", "label": "CTA link" }
+    ],
+    "presets": [{ "name": "Promo strip" }]
+  }
+  {% endschema %}
+</section>

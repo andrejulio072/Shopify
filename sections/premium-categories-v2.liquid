@@ -1,0 +1,765 @@
+<!--
+========================================
+🚀 PREMIUM CATEGORIES V2.0
+International Standards | Dynamic Layout
+Inspired by: Gymshark, MyProtein, Alphalete
+========================================
+-->
+
+<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+<style>
+  .premium-categories-v2 {
+    padding: var(--space-20) 0;
+    background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-white) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .categories-header {
+    text-align: center;
+    margin-bottom: var(--space-16);
+  }
+  
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
+    border-radius: var(--radius-full);
+    color: var(--color-white);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-6);
+    animation: slide-up 0.8s ease-out;
+  }
+  
+  .section-title {
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: var(--font-black);
+    color: var(--color-black);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    animation: slide-up 0.8s ease-out 0.2s both;
+  }
+  
+  .section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-gray-600);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    animation: slide-up 0.8s ease-out 0.4s both;
+  }
+  
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+  }
+  
+  .category-card {
+    position: relative;
+    background: var(--color-white);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition-normal);
+    cursor: pointer;
+    height: 400px;
+    animation: fade-in 0.8s ease-out;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-2xl);
+  }
+  
+  .category-image {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+  }
+  
+  .category-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+  }
+  
+  .category-card:hover .category-image img {
+    transform: scale(1.1);
+  }
+  
+  .category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 122, 255, 0.2) 50%,
+      rgba(48, 209, 88, 0.3) 100%
+    );
+    opacity: 0;
+    transition: var(--transition-normal);
+  }
+  
+  .category-card:hover .category-overlay {
+    opacity: 1;
+  }
+  
+  .category-content {
+    padding: var(--space-6);
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+  
+  .category-title {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--color-black);
+    margin-bottom: var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: var(--transition-normal);
+  }
+  
+  .category-card:hover .category-title {
+    color: var(--color-electric-blue);
+  }
+  
+  .category-description {
+    font-size: var(--text-sm);
+    color: var(--color-gray-600);
+    margin-bottom: var(--space-4);
+    line-height: 1.5;
+  }
+  
+  .category-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-electric-blue);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: var(--transition-normal);
+  }
+  
+  .category-card:hover .category-cta {
+    color: var(--color-neon-green);
+    transform: translateX(4px);
+  }
+  
+  .category-badge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: linear-gradient(135deg, var(--color-neon-green) 0%, #28B946 100%);
+    color: var(--color-white);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    animation: pulse 2s infinite;
+  }
+  
+  /* FEATURED CATEGORIES LAYOUT */
+  .featured-categories {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    margin-bottom: var(--space-16);
+  }
+  
+  .featured-card {
+    position: relative;
+    background: var(--color-black);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    height: 300px;
+    cursor: pointer;
+    transition: var(--transition-normal);
+  }
+  
+  .featured-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .featured-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .featured-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: var(--transition-slow);
+  }
+  
+  .featured-card:hover .featured-background img {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  
+  .featured-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 122, 255, 0.3) 100%);
+    z-index: 2;
+  }
+  
+  .featured-content {
+    position: relative;
+    z-index: 3;
+    padding: var(--space-8);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--color-white);
+  }
+  
+  .featured-title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-black);
+    margin-bottom: var(--space-3);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+  
+  .featured-description {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-6);
+    opacity: 0.9;
+    line-height: 1.5;
+  }
+  
+  .featured-btn {
+    background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);
+    color: var(--color-white);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-xl);
+    font-size: var(--text-sm);
+    font-weight: var(--font-bold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    transition: var(--transition-normal);
+    align-self: flex-start;
+  }
+  
+  .featured-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  /* VIEW ALL SECTION */
+  .view-all-section {
+    text-align: center;
+    padding: var(--space-12);
+    background: linear-gradient(135deg, var(--color-black) 0%, var(--color-charcoal) 100%);
+    border-radius: var(--radius-2xl);
+    color: var(--color-white);
+  }
+  
+  .view-all-title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+  }
+  
+  .view-all-text {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-6);
+    opacity: 0.9;
+  }
+  
+  .view-all-btn {
+    background: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-electric-blue);
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-xl);
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    transition: var(--transition-normal);
+  }
+  
+  .view-all-btn:hover {
+    background: var(--color-electric-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 122, 255, 0.3);
+  }
+  
+  /* RESPONSIVE */
+  @media (min-width: 768px) {
+    .categories-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .featured-categories {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .categories-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .featured-categories {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+  
+  /* ANIMATIONS */
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  /* FLOATING PARTICLES */
+  .floating-particle {
+    position: absolute;
+    background: var(--color-electric-blue);
+    border-radius: 50%;
+    opacity: 0.1;
+    animation: float-particle 8s infinite linear;
+  }
+  
+  .floating-particle:nth-child(1) {
+    width: 20px;
+    height: 20px;
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+  }
+  
+  .floating-particle:nth-child(2) {
+    width: 15px;
+    height: 15px;
+    top: 70%;
+    right: 15%;
+    animation-delay: 3s;
+  }
+  
+  .floating-particle:nth-child(3) {
+    width: 25px;
+    height: 25px;
+    bottom: 20%;
+    left: 10%;
+    animation-delay: 6s;
+  }
+  
+  @keyframes float-particle {
+    0% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-20px) rotate(120deg);
+    }
+    66% {
+      transform: translateY(20px) rotate(240deg);
+    }
+    100% {
+      transform: translateY(0px) rotate(360deg);
+    }
+  }
+</style>
+
+<section class="premium-categories-v2">
+  <!-- Floating Particles -->
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  <div class="floating-particle"></div>
+  
+  <div class="container container-premium">
+    <!-- Section Header -->
+    <div class="categories-header">
+      {% if section.settings.section_badge %}
+        <div class="section-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9l-5 4.87 1.18 6.88L12 17.77l-6.18 2.98L7 14.87 2 9l6.91-1.74L12 2z"/>
+          </svg>
+          {{ section.settings.section_badge }}
+        </div>
+      {% endif %}
+      
+      <h2 class="section-title">{{ section.settings.section_title | default: "SHOP BY CATEGORY" }}</h2>
+      
+      {% if section.settings.section_subtitle %}
+        <p class="section-subtitle">{{ section.settings.section_subtitle }}</p>
+      {% endif %}
+    </div>
+    
+    <!-- Featured Categories -->
+    {% if section.settings.show_featured %}
+      <div class="featured-categories">
+        {% for block in section.blocks %}
+          {% if block.type == 'featured_category' %}
+            <a href="{{ block.settings.category_link | default: '/collections/all' }}" class="featured-card">
+              <div class="featured-background">
+                {% if block.settings.category_image %}
+                  {{ block.settings.category_image | image_url: width: 800 | image_tag: 
+                     loading: 'lazy',
+                     alt: block.settings.category_title,
+                     sizes: '(max-width: 768px) 100vw, 50vw'
+                  }}
+                {% else %}
+                  <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--color-electric-blue) 0%, var(--color-neon-green) 100%);"></div>
+                {% endif %}
+              </div>
+              <div class="featured-overlay"></div>
+              <div class="featured-content">
+                <h3 class="featured-title">{{ block.settings.category_title | default: "Premium Supplements" }}</h3>
+                <p class="featured-description">{{ block.settings.category_description | default: "Fuel your performance with our premium selection" }}</p>
+                <span class="featured-btn">
+                  {{ block.settings.button_text | default: "EXPLORE" }}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </span>
+              </div>
+            </a>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+    
+    <!-- Regular Categories Grid -->
+    <div class="categories-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'category' %}
+          <a href="{{ block.settings.category_link | default: '/collections/all' }}" class="category-card">
+            <div class="category-image">
+              {% if block.settings.category_image %}
+                {{ block.settings.category_image | image_url: width: 600 | image_tag: 
+                   loading: 'lazy',
+                   alt: block.settings.category_title,
+                   sizes: '(max-width: 768px) 100vw, 33vw'
+                }}
+              {% else %}
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--color-gray-200) 0%, var(--color-gray-300) 100%);"></div>
+              {% endif %}
+              <div class="category-overlay"></div>
+              
+              {% if block.settings.show_badge %}
+                <div class="category-badge">{{ block.settings.badge_text | default: "NEW" }}</div>
+              {% endif %}
+            </div>
+            
+            <div class="category-content">
+              <h3 class="category-title">{{ block.settings.category_title | default: "Category Name" }}</h3>
+              {% if block.settings.category_description %}
+                <p class="category-description">{{ block.settings.category_description }}</p>
+              {% endif %}
+              <span class="category-cta">
+                {{ block.settings.cta_text | default: "SHOP NOW" }}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    
+    <!-- View All Section -->
+    {% if section.settings.show_view_all %}
+      <div class="view-all-section">
+        <h3 class="view-all-title">{{ section.settings.view_all_title | default: "EXPLORE ALL CATEGORIES" }}</h3>
+        <p class="view-all-text">{{ section.settings.view_all_text | default: "Discover our complete range of premium fitness products" }}</p>
+        <a href="{{ section.settings.view_all_link | default: '/collections' }}" class="view-all-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          {{ section.settings.view_all_button_text | default: "VIEW ALL CATEGORIES" }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  // Add intersection observer for animations
+  document.addEventListener('DOMContentLoaded', function() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+    
+    // Observe category cards
+    document.querySelectorAll('.category-card, .featured-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'all 0.8s ease-out';
+      observer.observe(card);
+    });
+  });
+  
+  // Add hover sound effect (optional)
+  document.querySelectorAll('.category-card, .featured-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      // Subtle haptic feedback for mobile
+      if (navigator.vibrate) {
+        navigator.vibrate(10);
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Premium Categories V2",
+  "tag": "section",
+  "class": "premium-categories-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "section_badge",
+      "label": "Section Badge",
+      "default": "CATEGORIES"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "SHOP BY CATEGORY"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Discover our premium selection of fitness supplements, apparel, and accessories designed for champions"
+    },
+    {
+      "type": "header",
+      "content": "Featured Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured",
+      "label": "Show Featured Categories",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "View All Section"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show View All Section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_title",
+      "label": "View All Title",
+      "default": "EXPLORE ALL CATEGORIES"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Text",
+      "default": "Discover our complete range of premium fitness products"
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "View All Link",
+      "default": "/collections"
+    },
+    {
+      "type": "text",
+      "id": "view_all_button_text",
+      "label": "View All Button Text",
+      "default": "VIEW ALL CATEGORIES"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "featured_category",
+      "name": "Featured Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "category_image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "category_title",
+          "label": "Category Title",
+          "default": "Premium Supplements"
+        },
+        {
+          "type": "textarea",
+          "id": "category_description",
+          "label": "Category Description",
+          "default": "Fuel your performance with our premium selection"
+        },
+        {
+          "type": "url",
+          "id": "category_link",
+          "label": "Category Link"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "EXPLORE"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "category_image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "category_title",
+          "label": "Category Title",
+          "default": "Category Name"
+        },
+        {
+          "type": "text",
+          "id": "category_description",
+          "label": "Category Description"
+        },
+        {
+          "type": "url",
+          "id": "category_link",
+          "label": "Category Link"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "SHOP NOW"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_badge",
+          "label": "Show Badge",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "NEW"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Premium Categories V2",
+      "blocks": [
+        {
+          "type": "featured_category",
+          "settings": {
+            "category_title": "Premium Supplements",
+            "category_description": "Fuel your performance with our premium selection"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_title": "Protein Powders",
+            "category_description": "Build muscle with premium protein"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_title": "Pre-Workout",
+            "category_description": "Boost energy and focus"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_title": "Fitness Apparel",
+            "category_description": "Train in style and comfort"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_title": "Accessories",
+            "category_description": "Complete your workout setup"
+          }
+        },
+        {
+          "type": "category",
+          "settings": {
+            "category_title": "Recovery",
+            "category_description": "Support your recovery journey",
+            "show_badge": true,
+            "badge_text": "NEW"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

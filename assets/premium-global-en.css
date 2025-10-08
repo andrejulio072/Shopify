@@ -29,7 +29,7 @@ Following Shopify Documentation Standards
   --color-gray-700: #495057;
   --color-gray-800: #343a40;
   --color-gray-900: #212529;
-  
+
   /* Accent Colors */
   --color-primary: #000000;
   --color-secondary: #6c757d;
@@ -37,7 +37,7 @@ Following Shopify Documentation Standards
   --color-warning: #ffc107;
   --color-danger: #dc3545;
   --color-info: #17a2b8;
-  
+
   /* Spacing following Shopify conventions */
   --spacing-xs: 5px;
   --spacing-sm: 10px;
@@ -48,7 +48,7 @@ Following Shopify Documentation Standards
   --spacing-3xl: 60px;
   --spacing-4xl: 80px;
   --spacing-5xl: 100px;
-  
+
   /* Border radius following Shopify design system */
   --border-radius-sm: 4px;
   --border-radius-md: 6px;
@@ -56,25 +56,25 @@ Following Shopify Documentation Standards
   --border-radius-xl: 12px;
   --border-radius-xxl: 16px;
   --border-radius-round: 50%;
-  
+
   /* Shadows optimized for performance */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.08);
   --shadow-xl: 0 15px 40px rgba(0, 0, 0, 0.1);
-  
+
   /* Typography following Shopify font stack */
   --font-family-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-weight-normal: 400;
   --font-weight-medium: 600;
   --font-weight-bold: 700;
   --font-weight-black: 800;
-  
+
   /* Transitions for smooth UX */
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
-  
+
   /* Z-index scale following Shopify conventions */
   --z-dropdown: 1000;
   --z-sticky: 1020;
@@ -378,13 +378,13 @@ h6 { font-size: clamp(1rem, 1.5vw, 1.25rem); }
 @media screen and (max-width: 768px) {
   .hidden-on-mobile { display: none; }
   .visible-on-mobile { display: block; }
-  
+
   .grid--2-columns,
   .grid--3-columns,
   .grid--4-columns {
     grid-template-columns: 1fr;
   }
-  
+
   .container {
     padding: 0 var(--spacing-md);
   }
@@ -468,14 +468,14 @@ html {
 /* PRINT STYLES */
 @media print {
   .no-print { display: none; }
-  
+
   body {
     font-size: 12pt;
     line-height: 1.4;
     color: black;
     background: white;
   }
-  
+
   .btn {
     border: 1px solid black;
     background: white;

@@ -4,7 +4,7 @@
 
 According to Shopify documentation, all section files should use English as the default language for:
 - Schema labels and descriptions
-- Default text values  
+- Default text values
 - Comments and documentation
 - Variable names and CSS classes
 
@@ -13,7 +13,7 @@ According to Shopify documentation, all section files should use English as the 
 ### 1. Premium Header (`premium-header.liquid`)
 ✅ **COMPLETED**
 - Promotional text → English
-- Search placeholder → English 
+- Search placeholder → English
 - Account/login text → English
 - Schema labels → English
 

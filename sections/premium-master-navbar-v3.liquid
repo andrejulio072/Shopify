@@ -457,7 +457,7 @@ Ultra-Premium Design | Maximum Conversion
 <nav class="premium-master-navbar" id="mainNavbar">
   <div class="navbar-container">
     <!-- Logo -->
-    <a href="/" class="navbar-logo">
+    <a href="{{ routes.root_url }}" class="navbar-logo">
       {% if section.settings.logo != blank %}
         <img src="{{ section.settings.logo | image_url: width: 50 }}" alt="{{ shop.name }}" width="50" height="50" class="logo-icon">
       {% else %}
@@ -500,13 +500,13 @@ Ultra-Premium Design | Maximum Conversion
 
     <!-- Action Buttons -->
     <div class="navbar-actions">
-      <a href="/search" class="action-btn" aria-label="Search">
+      <a href="{{ routes.search_url }}" class="action-btn" aria-label="Search">
         🔍
       </a>
-      <a href="/account" class="action-btn" aria-label="Account">
+      <a href="{{ routes.account_url }}" class="action-btn" aria-label="Account">
         👤
       </a>
-      <a href="/cart" class="action-btn" aria-label="Cart">
+      <a href="{{ routes.cart_url }}" class="action-btn" aria-label="Cart">
         🛒
         <span class="cart-count" id="cartCount">{{ cart.item_count }}</span>
       </a>

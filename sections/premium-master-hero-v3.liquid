@@ -1,255 +1,507 @@
-<!--
-========================================
-🏆 PREMIUM MASTER HERO V3.0
-World-Class Hero Section
-Inspired by: Nike, Gymshark, Lululemon
-Ultra-Premium Backgrounds | Maximum Impact
-========================================
--->
+<!--<!--
 
-<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+================================================================================
 
-<style>
-  /* ========================================
-     🎨 PREMIUM MASTER HERO VARIABLES
-  ======================================== */
-  :root {
-    --hero-height: 90vh;
+🏆 GARCIA BUILDER - CLEAN HERO V3.0🏆 PREMIUM MASTER HERO V3.0
+
+Premium Supplement Store | Minimalist DesignWorld-Class Hero Section
+
+========================================Inspired by: Nike, Gymshark, Lululemon
+
+-->Ultra-Premium Backgrounds | Maximum Impact
+
+========================================
+
+<style>-->
+
+  .gb-hero {
+
+    position: relative;<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+    height: 85vh;
+
+    min-height: 600px;<style>
+
+    display: flex;  /* ========================================
+
+    align-items: center;     🎨 PREMIUM MASTER HERO VARIABLES
+
+    overflow: hidden;  ======================================== */
+
+    background: #1a1a1a;  :root {
+
+  }    --hero-height: 90vh;
+
     --hero-overlay: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
-  }
 
-  /* ========================================
-     💎 HERO SECTION - Full Screen Impact
-  ======================================== */
+  .gb-hero-bg {  }
+
+    position: absolute;
+
+    inset: 0;  /* ========================================
+
+    z-index: 1;     💎 HERO SECTION - Full Screen Impact
+
+  }  ======================================== */
+
   .premium-master-hero {
-    position: relative;
-    height: var(--hero-height);
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+  .gb-hero-bg img {    position: relative;
+
+    width: 100%;    height: var(--hero-height);
+
+    height: 100%;    min-height: 600px;
+
+    object-fit: cover;    display: flex;
+
+    opacity: 0.6;    align-items: center;
+
+  }    justify-content: center;
+
     overflow: hidden;
-  }
 
-  /* Background Image/Video Layer */
-  .hero-background {
+  .gb-hero-overlay {  }
+
     position: absolute;
-    inset: 0;
+
+    inset: 0;  /* Background Image/Video Layer */
+
+    background: linear-gradient(90deg, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.4) 100%);  .hero-background {
+
+    z-index: 2;    position: absolute;
+
+  }    inset: 0;
+
     z-index: 1;
-  }
 
-  .hero-bg-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    animation: ken-burns 30s ease-in-out infinite alternate;
-  }
+  .gb-hero-content {  }
 
-  @keyframes ken-burns {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.1); }
-  }
+    position: relative;
 
-  .hero-bg-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    z-index: 3;  .hero-bg-image {
 
-  /* Gradient Overlay */
-  .hero-overlay {
+    max-width: 1400px;    width: 100%;
+
+    margin: 0 auto;    height: 100%;
+
+    padding: 0 40px;    object-fit: cover;
+
+    width: 100%;    animation: ken-burns 30s ease-in-out infinite alternate;
+
+  }  }
+
+
+
+  .gb-hero-badge {  @keyframes ken-burns {
+
+    display: inline-block;    0% { transform: scale(1); }
+
+    padding: 8px 16px;    100% { transform: scale(1.1); }
+
+    background: rgba(212, 175, 55, 0.1);  }
+
+    border: 1px solid rgba(212, 175, 55, 0.3);
+
+    border-radius: 20px;  .hero-bg-video {
+
+    color: #d4af37;    width: 100%;
+
+    font-size: 12px;    height: 100%;
+
+    font-weight: 600;    object-fit: cover;
+
+    text-transform: uppercase;  }
+
+    letter-spacing: 1.5px;
+
+    margin-bottom: 24px;  /* Gradient Overlay */
+
+  }  .hero-overlay {
+
     position: absolute;
-    inset: 0;
-    background: var(--hero-overlay);
-    z-index: 2;
-  }
 
-  /* Animated Gradient Overlay (Optional) */
-  .hero-gradient-animated {
-    position: absolute;
-    inset: 0;
+  .gb-hero-title {    inset: 0;
+
+    font-size: clamp(48px, 7vw, 80px);    background: var(--hero-overlay);
+
+    font-weight: 900;    z-index: 2;
+
+    line-height: 1.1;  }
+
+    color: #ffffff;
+
+    margin: 0 0 24px 0;  /* Animated Gradient Overlay (Optional) */
+
+    max-width: 800px;  .hero-gradient-animated {
+
+    letter-spacing: -0.02em;    position: absolute;
+
+  }    inset: 0;
+
     background: linear-gradient(
-      135deg,
-      rgba(0, 122, 255, 0.3) 0%,
-      rgba(48, 209, 88, 0.2) 50%,
+
+  .gb-hero-title span {      135deg,
+
+    color: #d4af37;      rgba(0, 122, 255, 0.3) 0%,
+
+  }      rgba(48, 209, 88, 0.2) 50%,
+
       rgba(0, 122, 255, 0.3) 100%
-    );
-    background-size: 200% 200%;
-    animation: gradient-flow 8s ease infinite;
-    z-index: 3;
-    mix-blend-mode: overlay;
-  }
 
-  @keyframes gradient-flow {
+  .gb-hero-subtitle {    );
+
+    font-size: clamp(18px, 2vw, 22px);    background-size: 200% 200%;
+
+    font-weight: 400;    animation: gradient-flow 8s ease infinite;
+
+    line-height: 1.6;    z-index: 3;
+
+    color: rgba(255, 255, 255, 0.8);    mix-blend-mode: overlay;
+
+    margin: 0 0 40px 0;  }
+
+    max-width: 600px;
+
+  }  @keyframes gradient-flow {
+
     0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
 
-  /* Particles Effect */
-  .hero-particles {
-    position: absolute;
-    inset: 0;
-    z-index: 4;
-    opacity: 0.2;
-  }
+  .gb-hero-actions {    50% { background-position: 100% 50%; }
 
-  .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: white;
-    border-radius: 50%;
-    animation: float-particle linear infinite;
-  }
+    display: flex;    100% { background-position: 0% 50%; }
 
-  @keyframes float-particle {
-    0% {
-      transform: translateY(0) translateX(0);
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-100vh) translateX(50px);
-      opacity: 0;
-    }
-  }
+    gap: 16px;  }
 
-  /* Content Container */
-  .hero-content {
-    position: relative;
-    z-index: 10;
-    max-width: 1200px;
-    padding: 0 40px;
-    text-align: center;
-    animation: fade-slide-up 1.2s ease-out;
-  }
-
-  @keyframes fade-slide-up {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Pre-heading Badge */
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 28px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 30px;
-    animation: fade-slide-up 1.2s ease-out 0.2s both;
-  }
-
-  .hero-badge-icon {
-    font-size: 18px;
-    animation: pulse-scale 2s ease-in-out infinite;
-  }
-
-  /* Main Heading */
-  .hero-heading {
-    font-size: clamp(48px, 8vw, 96px);
-    font-weight: 900;
-    color: white;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    text-transform: uppercase;
-    letter-spacing: -0.03em;
-    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    animation: fade-slide-up 1.2s ease-out 0.4s both;
-  }
-
-  .hero-heading-highlight {
-    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: inline-block;
-  }
-
-  /* Subheading */
-  .hero-subheading {
-    font-size: clamp(18px, 2.5vw, 24px);
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-    max-width: 700px;
-    margin: 0 auto 40px;
-    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
-    animation: fade-slide-up 1.2s ease-out 0.6s both;
-  }
-
-  /* CTA Buttons */
-  .hero-cta-group {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
     flex-wrap: wrap;
-    animation: fade-slide-up 1.2s ease-out 0.8s both;
+
+  }  /* Particles Effect */
+
+  .hero-particles {
+
+  .gb-hero-btn {    position: absolute;
+
+    padding: 16px 40px;    inset: 0;
+
+    font-size: 15px;    z-index: 4;
+
+    font-weight: 600;    opacity: 0.2;
+
+    text-transform: uppercase;  }
+
+    letter-spacing: 1px;
+
+    text-decoration: none;  .particle {
+
+    border-radius: 4px;    position: absolute;
+
+    transition: all 0.3s ease;    width: 4px;
+
+    display: inline-block;    height: 4px;
+
+  }    background: white;
+
+    border-radius: 50%;
+
+  .gb-hero-btn-primary {    animation: float-particle linear infinite;
+
+    background: #d4af37;  }
+
+    color: #1a1a1a;
+
+  }  @keyframes float-particle {
+
+    0% {
+
+  .gb-hero-btn-primary:hover {      transform: translateY(0) translateX(0);
+
+    background: #ffffff;      opacity: 0;
+
+    transform: translateY(-2px);    }
+
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);    10% {
+
+  }      opacity: 1;
+
+    }
+
+  .gb-hero-btn-secondary {    90% {
+
+    background: transparent;      opacity: 1;
+
+    color: #ffffff;    }
+
+    border: 2px solid rgba(255, 255, 255, 0.3);    100% {
+
+  }      transform: translateY(-100vh) translateX(50px);
+
+      opacity: 0;
+
+  .gb-hero-btn-secondary:hover {    }
+
+    border-color: #ffffff;  }
+
+    background: rgba(255, 255, 255, 0.1);
+
+  }  /* Content Container */
+
+  .hero-content {
+
+  @media (max-width: 768px) {    position: relative;
+
+    .gb-hero {    z-index: 10;
+
+      height: 70vh;    max-width: 1200px;
+
+      min-height: 500px;    padding: 0 40px;
+
+    }    text-align: center;
+
+    animation: fade-slide-up 1.2s ease-out;
+
+    .gb-hero-content {  }
+
+      padding: 0 24px;
+
+    }  @keyframes fade-slide-up {
+
+    from {
+
+    .gb-hero-title {      opacity: 0;
+
+      margin-bottom: 16px;      transform: translateY(40px);
+
+    }    }
+
+    to {
+
+    .gb-hero-subtitle {      opacity: 1;
+
+      margin-bottom: 32px;      transform: translateY(0);
+
+    }    }
+
   }
 
-  .hero-cta-primary {
-    padding: 20px 50px;
-    background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
-    color: white;
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 10px 40px rgba(0, 122, 255, 0.5);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
+    .gb-hero-actions {
 
-  .hero-cta-primary::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, #0056CC 0%, #003D99 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
+      flex-direction: column;  /* Pre-heading Badge */
 
-  .hero-cta-primary:hover::before {
-    opacity: 1;
-  }
+    }  .hero-badge {
 
-  .hero-cta-primary:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 15px 50px rgba(0, 122, 255, 0.7);
-  }
+    display: inline-flex;
 
-  .hero-cta-primary span {
-    position: relative;
-    z-index: 1;
-  }
+    .gb-hero-btn {    align-items: center;
 
-  .hero-cta-secondary {
+      width: 100%;    gap: 10px;
+
+      text-align: center;    padding: 12px 28px;
+
+    }    background: rgba(255, 255, 255, 0.15);
+
+  }    backdrop-filter: blur(20px);
+
+</style>    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 50px;
+
+<section class="gb-hero">    color: white;
+
+  <div class="gb-hero-bg">    font-size: 14px;
+
+    {% if section.settings.hero_image != blank %}    font-weight: 700;
+
+      <img src="{{ section.settings.hero_image | image_url: width: 1920 }}" alt="{{ section.settings.title }}">    text-transform: uppercase;
+
+    {% else %}    letter-spacing: 0.1em;
+
+      <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80" alt="Garcia Builder">    margin-bottom: 30px;
+
+    {% endif %}    animation: fade-slide-up 1.2s ease-out 0.2s both;
+
+  </div>  }
+
+  
+
+  <div class="gb-hero-overlay"></div>  .hero-badge-icon {
+
+      font-size: 18px;
+
+  <div class="gb-hero-content">    animation: pulse-scale 2s ease-in-out infinite;
+
+    {% if section.settings.badge != blank %}  }
+
+      <span class="gb-hero-badge">{{ section.settings.badge }}</span>
+
+    {% endif %}  /* Main Heading */
+
+      .hero-heading {
+
+    <h1 class="gb-hero-title">    font-size: clamp(48px, 8vw, 96px);
+
+      {{ section.settings.title | default: 'Construa o Corpo dos Seus <span>Sonhos</span>' }}    font-weight: 900;
+
+    </h1>    color: white;
+
+        line-height: 1.1;
+
+    <p class="gb-hero-subtitle">    margin-bottom: 24px;
+
+      {{ section.settings.subtitle | default: 'Suplementos premium de alta performance para resultados reais. Qualidade internacional, entrega nacional.' }}    text-transform: uppercase;
+
+    </p>    letter-spacing: -0.03em;
+
+        text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+
+    <div class="gb-hero-actions">    animation: fade-slide-up 1.2s ease-out 0.4s both;
+
+      {% if section.settings.primary_button_text != blank %}  }
+
+        <a href="{{ section.settings.primary_button_link | default: '#' }}" class="gb-hero-btn gb-hero-btn-primary">
+
+          {{ section.settings.primary_button_text }}  .hero-heading-highlight {
+
+        </a>    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+
+      {% endif %}    -webkit-background-clip: text;
+
+          -webkit-text-fill-color: transparent;
+
+      {% if section.settings.secondary_button_text != blank %}    background-clip: text;
+
+        <a href="{{ section.settings.secondary_button_link | default: '#' }}" class="gb-hero-btn gb-hero-btn-secondary">    display: inline-block;
+
+          {{ section.settings.secondary_button_text }}  }
+
+        </a>
+
+      {% endif %}  /* Subheading */
+
+    </div>  .hero-subheading {
+
+  </div>    font-size: clamp(18px, 2.5vw, 24px);
+
+</section>    font-weight: 500;
+
+    color: rgba(255, 255, 255, 0.9);
+
+{% schema %}    line-height: 1.6;
+
+{    max-width: 700px;
+
+  "name": "Garcia Builder Hero",    margin: 0 auto 40px;
+
+  "tag": "section",    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+
+  "class": "garcia-builder-hero",    animation: fade-slide-up 1.2s ease-out 0.6s both;
+
+  "settings": [  }
+
+    {
+
+      "type": "image_picker",  /* CTA Buttons */
+
+      "id": "hero_image",  .hero-cta-group {
+
+      "label": "Imagem de Fundo"    display: flex;
+
+    },    gap: 20px;
+
+    {    justify-content: center;
+
+      "type": "text",    flex-wrap: wrap;
+
+      "id": "badge",    animation: fade-slide-up 1.2s ease-out 0.8s both;
+
+      "label": "Badge (opcional)",  }
+
+      "default": "✨ Novo"
+
+    },  .hero-cta-primary {
+
+    {    padding: 20px 50px;
+
+      "type": "text",    background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
+
+      "id": "title",    color: white;
+
+      "label": "Título",    font-size: 18px;
+
+      "default": "Construa o Corpo dos Seus <span>Sonhos</span>"    font-weight: 700;
+
+    },    text-transform: uppercase;
+
+    {    letter-spacing: 0.05em;
+
+      "type": "textarea",    border: none;
+
+      "id": "subtitle",    border-radius: 14px;
+
+      "label": "Subtítulo",    cursor: pointer;
+
+      "default": "Suplementos premium de alta performance para resultados reais. Qualidade internacional, entrega nacional."    text-decoration: none;
+
+    },    display: inline-block;
+
+    {    box-shadow: 0 10px 40px rgba(0, 122, 255, 0.5);
+
+      "type": "text",    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+      "id": "primary_button_text",    position: relative;
+
+      "label": "Botão Principal - Texto",    overflow: hidden;
+
+      "default": "Ver Produtos"  }
+
+    },
+
+    {  .hero-cta-primary::before {
+
+      "type": "url",    content: '';
+
+      "id": "primary_button_link",    position: absolute;
+
+      "label": "Botão Principal - Link"    inset: 0;
+
+    },    background: linear-gradient(135deg, #0056CC 0%, #003D99 100%);
+
+    {    opacity: 0;
+
+      "type": "text",    transition: opacity 0.4s ease;
+
+      "id": "secondary_button_text",  }
+
+      "label": "Botão Secundário - Texto",
+
+      "default": "Saiba Mais"  .hero-cta-primary:hover::before {
+
+    },    opacity: 1;
+
+    {  }
+
+      "type": "url",
+
+      "id": "secondary_button_link",  .hero-cta-primary:hover {
+
+      "label": "Botão Secundário - Link"    transform: translateY(-4px) scale(1.05);
+
+    }    box-shadow: 0 15px 50px rgba(0, 122, 255, 0.7);
+
+  ],  }
+
+  "presets": [
+
+    {  .hero-cta-primary span {
+
+      "name": "Garcia Builder Hero"    position: relative;
+
+    }    z-index: 1;
+
+  ]  }
+
+}
+
+{% endschema %}  .hero-cta-secondary {
+
     padding: 20px 50px;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(20px);

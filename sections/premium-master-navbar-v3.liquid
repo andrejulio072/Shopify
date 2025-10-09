@@ -1,522 +1,264 @@
 <!--
 ========================================
-🏆 PREMIUM MASTER NAVBAR V3.0
-World-Class International Standards
-Inspired by: Gymshark, Nike, Lululemon, Myprotein
-Ultra-Premium Design | Maximum Conversion
+🏆 GARCIA BUILDER - CLEAN NAVBAR V3.0
+Premium Supplement Store | Minimalist Design
+Inspired by: Myprotein, Transparent Labs, Legion Athletics
 ========================================
 -->
 
-<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
-
 <style>
   /* ========================================
-     🎨 PREMIUM MASTER NAVBAR VARIABLES
+     CLEAN NAVBAR - Minimalist Professional
   ======================================== */
   :root {
-    --navbar-height: 80px;
-    --navbar-bg: rgba(0, 0, 0, 0.95);
-    --navbar-glass: rgba(255, 255, 255, 0.05);
-    --navbar-blur: blur(30px);
-    --navbar-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    --gb-black: #1a1a1a;
+    --gb-white: #ffffff;
+    --gb-gold: #d4af37;
+    --gb-gray: #6b6b6b;
+    --gb-light-gray: #f5f5f5;
   }
 
-  /* ========================================
-     🚀 ANNOUNCEMENT BAR - Premium Gradient
-  ======================================== */
-  .premium-announcement-bar {
-    background: linear-gradient(135deg,
-      #007AFF 0%,
-      #0056CC 25%,
-      #30D158 75%,
-      #00C853 100%
-    );
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
-    padding: 12px 0;
-    position: relative;
-    overflow: hidden;
+  /* Announcement Bar - Simple & Elegant */
+  .gb-announcement-bar {
+    background: var(--gb-black);
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
   }
 
-  @keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  .gb-announcement-bar p {
+    color: var(--gb-white);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin: 0;
   }
 
-  .announcement-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    animation: fade-slide-in 1s ease-out;
+  .gb-announcement-bar span {
+    color: var(--gb-gold);
+    font-weight: 600;
   }
 
-  .announcement-icon {
-    font-size: 18px;
-    animation: pulse-scale 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-scale {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-  }
-
-  /* ========================================
-     💎 MAIN NAVBAR - Glass Morphism Effect
-  ======================================== */
-  .premium-master-navbar {
+  /* Main Navbar - Clean White */
+  .gb-navbar {
     position: sticky;
     top: 0;
     z-index: 9999;
-    background: var(--navbar-bg);
-    backdrop-filter: var(--navbar-blur);
-    -webkit-backdrop-filter: var(--navbar-blur);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: var(--navbar-shadow);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--gb-white);
+    border-bottom: 1px solid #e5e5e5;
+    transition: box-shadow 0.3s ease;
   }
 
-  .navbar-scrolled {
-    background: rgba(0, 0, 0, 0.98);
-    box-shadow: 0 8px 50px rgba(0, 0, 0, 0.6);
-    border-bottom: 1px solid rgba(0, 122, 255, 0.3);
+  .gb-navbar.scrolled {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
-  .navbar-container {
-    max-width: 1600px;
+  .gb-navbar-container {
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: var(--navbar-height);
-    gap: 60px;
+    height: 80px;
   }
 
-  /* ========================================
-     🎯 LOGO SECTION - Brand Power
-  ======================================== */
-  .navbar-logo {
+  /* Logo - Garcia Builder */
+  .gb-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
     text-decoration: none;
-    transition: all 0.3s ease;
-  }
-
-  .logo-icon {
-    width: 50px;
-    height: 50px;
-    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: 900;
-    color: white;
-    box-shadow: 0 4px 20px rgba(0, 122, 255, 0.4);
-    transition: all 0.3s ease;
-  }
-
-  .navbar-logo:hover .logo-icon {
-    transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 8px 30px rgba(0, 122, 255, 0.6);
-  }
-
-  .logo-text {
-    font-size: 28px;
-    font-weight: 900;
-    background: linear-gradient(135deg, #ffffff 0%, #007AFF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-transform: uppercase;
-    letter-spacing: -0.03em;
-  }
-
-  /* ========================================
-     🎨 NAVIGATION MENU - Pro Layout
-  ======================================== */
-  .navbar-menu {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 8px;
-    flex: 1;
-    justify-content: center;
-  }
-
-  .nav-item {
-    position: relative;
-  }
-
-  .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 12px 24px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 10px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .nav-link::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(0, 122, 255, 0.15) 0%, rgba(48, 209, 88, 0.15) 100%);
-    opacity: 0;
     transition: opacity 0.3s ease;
-    border-radius: 10px;
   }
 
-  .nav-link:hover {
-    color: #ffffff;
-    transform: translateY(-2px);
+  .gb-logo:hover {
+    opacity: 0.8;
   }
 
-  .nav-link:hover::before {
-    opacity: 1;
+  .gb-logo img {
+    height: 55px;
+    width: auto;
   }
 
-  .nav-link.active {
-    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 122, 255, 0.3);
-  }
-
-  /* ========================================
-     🔥 MEGA MENU - Premium Dropdown
-  ======================================== */
-  .mega-menu {
-    position: absolute;
-    top: calc(100% + 15px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(30px);
-    border-radius: 20px;
-    padding: 40px;
-    min-width: 800px;
-    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) translateY(-10px);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 10000;
-  }
-
-  .nav-item:hover .mega-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  .mega-menu-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-  }
-
-  .mega-menu-column h4 {
-    color: #007AFF;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 20px;
-  }
-
-  .mega-menu-links {
+  /* Navigation Menu - Minimalist */
+  .gb-menu {
+    display: flex;
+    align-items: center;
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    gap: 40px;
   }
 
-  .mega-menu-links li {
-    margin-bottom: 12px;
-  }
-
-  .mega-menu-links a {
-    color: rgba(255, 255, 255, 0.7);
+  .gb-menu-link {
+    color: var(--gb-black);
     font-size: 14px;
     font-weight: 500;
     text-decoration: none;
-    transition: all 0.2s ease;
-    display: block;
-    padding: 8px 0;
-  }
-
-  .mega-menu-links a:hover {
-    color: #ffffff;
-    transform: translateX(5px);
-  }
-
-  /* ========================================
-     💎 ACTION BUTTONS - Premium CTAs
-  ======================================== */
-  .navbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .action-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    text-decoration: none;
-  }
-
-  .action-btn:hover {
-    background: linear-gradient(135deg, rgba(0, 122, 255, 0.3) 0%, rgba(48, 209, 88, 0.3) 100%);
-    border-color: rgba(0, 122, 255, 0.5);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 122, 255, 0.4);
-  }
-
-  .cart-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: linear-gradient(135deg, #FF3B30 0%, #FF9500 100%);
-    color: white;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 7px;
-    border-radius: 10px;
-    min-width: 20px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(255, 59, 48, 0.5);
-    animation: bounce-in 0.5s ease-out;
-  }
-
-  @keyframes bounce-in {
-    0% { transform: scale(0); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-  }
-
-  .cta-button {
-    padding: 12px 32px;
-    background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 122, 255, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-decoration: none;
-    display: inline-block;
-  }
-
-  .cta-button:hover {
-    background: linear-gradient(135deg, #0056CC 0%, #003D99 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0, 122, 255, 0.6);
-  }
-
-  /* ========================================
-     📱 MOBILE MENU TOGGLE
-  ======================================== */
-  .mobile-menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px;
-  }
-
-  .mobile-menu-toggle span {
-    width: 28px;
-    height: 3px;
-    background: white;
-    border-radius: 3px;
+    letter-spacing: 1px;
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
   }
 
-  /* ========================================
-     📱 RESPONSIVE DESIGN
-  ======================================== */
-  @media (max-width: 1200px) {
-    .navbar-menu {
+  .gb-menu-link:hover,
+  .gb-menu-link.active {
+    color: var(--gb-gold);
+    border-bottom-color: var(--gb-gold);
+  }
+
+  /* Action Buttons - Simple Icons */
+  .gb-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .gb-action-btn {
+    color: var(--gb-black);
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .gb-action-btn:hover {
+    color: var(--gb-gold);
+  }
+
+  .gb-cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: var(--gb-gold);
+    color: var(--gb-white);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 18px;
+    text-align: center;
+  }
+
+  .gb-cta-btn {
+    padding: 10px 24px;
+    background: var(--gb-black);
+    color: var(--gb-white);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .gb-cta-btn:hover {
+    background: var(--gb-gold);
+    color: var(--gb-black);
+  }
+
+  /* Mobile Toggle */
+  .gb-mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .gb-mobile-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--gb-black);
+    transition: all 0.3s ease;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .gb-menu {
       display: none;
     }
 
-    .mobile-menu-toggle {
+    .gb-mobile-toggle {
       display: flex;
     }
 
-    .navbar-container {
-      padding: 0 20px;
-      gap: 20px;
+    .gb-navbar-container {
+      padding: 0 24px;
     }
 
-    .mega-menu {
-      min-width: 90vw;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .navbar-container {
-      height: 70px;
-    }
-
-    .logo-text {
-      font-size: 22px;
-    }
-
-    .logo-icon {
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-    }
-
-    .action-btn {
-      width: 40px;
-      height: 40px;
-      font-size: 18px;
-    }
-
-    .cta-button {
+    .gb-cta-btn {
       display: none;
     }
   }
 
-  /* ========================================
-     ✨ PREMIUM ANIMATIONS
-  ======================================== */
-  @keyframes fade-slide-in {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
+  @media (max-width: 640px) {
+    .gb-navbar-container {
+      height: 70px;
+      padding: 0 16px;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
 
-  @keyframes glow-pulse {
-    0%, 100% {
-      box-shadow: 0 0 20px rgba(0, 122, 255, 0.3);
+    .gb-logo img {
+      height: 45px;
     }
-    50% {
-      box-shadow: 0 0 40px rgba(0, 122, 255, 0.6);
+
+    .gb-actions {
+      gap: 16px;
+    }
+
+    .gb-action-btn {
+      font-size: 18px;
     }
   }
 </style>
 
-<!-- ========================================
-     🏆 PREMIUM MASTER NAVBAR HTML
-======================================== -->
-
 <!-- Announcement Bar -->
-<div class="premium-announcement-bar">
-  <div class="announcement-content">
-    <span class="announcement-icon">🔥</span>
-    <span>{{ section.settings.announcement_text | default: 'FREE SHIPPING ON ORDERS OVER $75 | NEW ARRIVALS WEEKLY' }}</span>
-    <span class="announcement-icon">⚡</span>
-  </div>
+<div class="gb-announcement-bar">
+  <p>{{ section.settings.announcement_text | default: 'Frete Grátis em Pedidos Acima de <span>R$150</span> | Entrega Rápida' }}</p>
 </div>
 
-<!-- Main Navigation -->
-<nav class="premium-master-navbar" id="mainNavbar">
-  <div class="navbar-container">
+<!-- Main Navbar -->
+<nav class="gb-navbar" id="gbNavbar">
+  <div class="gb-navbar-container">
     <!-- Logo -->
-    <a href="{{ routes.root_url }}" class="navbar-logo">
+    <a href="{{ routes.root_url }}" class="gb-logo">
       {% if section.settings.logo != blank %}
-        <img src="{{ section.settings.logo | image_url: width: 50 }}" alt="{{ shop.name }}" width="50" height="50" class="logo-icon">
+        <img src="{{ section.settings.logo | image_url: width: 110 }}" alt="{{ shop.name }}">
       {% else %}
-        <div class="logo-icon">💪</div>
+        <img src="https://via.placeholder.com/110x55/1a1a1a/d4af37?text=GARCIA+BUILDER" alt="{{ shop.name }}">
       {% endif %}
-      <span class="logo-text">{{ shop.name }}</span>
     </a>
 
     <!-- Desktop Menu -->
-    <ul class="navbar-menu">
+    <ul class="gb-menu">
       {% for link in linklists[section.settings.menu].links %}
-        <li class="nav-item">
-          <a href="{{ link.url }}" class="nav-link {% if link.active %}active{% endif %}">
+        <li>
+          <a href="{{ link.url }}" class="gb-menu-link {% if link.active %}active{% endif %}">
             {{ link.title }}
-            {% if link.links.size > 0 %}
-              <span>▾</span>
-            {% endif %}
           </a>
-
-          {% if link.links.size > 0 %}
-            <div class="mega-menu">
-              <div class="mega-menu-grid">
-                {% assign columns_size = link.links.size | divided_by: 3 | plus: 1 %}
-                {% for i in (1..3) %}
-                  <div class="mega-menu-column">
-                    <h4>Category {{ i }}</h4>
-                    <ul class="mega-menu-links">
-                      {% for sublink in link.links limit: columns_size offset: forloop.index0 %}
-                        <li><a href="{{ sublink.url }}">{{ sublink.title }}</a></li>
-                      {% endfor %}
-                    </ul>
-                  </div>
-                {% endfor %}
-              </div>
-            </div>
-          {% endif %}
         </li>
       {% endfor %}
     </ul>
 
-    <!-- Action Buttons -->
-    <div class="navbar-actions">
-      <a href="{{ routes.search_url }}" class="action-btn" aria-label="Search">
-        🔍
-      </a>
-      <a href="{{ routes.account_url }}" class="action-btn" aria-label="Account">
-        👤
-      </a>
-      <a href="{{ routes.cart_url }}" class="action-btn" aria-label="Cart">
+    <!-- Actions -->
+    <div class="gb-actions">
+      <a href="{{ routes.search_url }}" class="gb-action-btn" aria-label="Buscar">🔍</a>
+      <a href="{{ routes.account_url }}" class="gb-action-btn" aria-label="Conta">👤</a>
+      <a href="{{ routes.cart_url }}" class="gb-action-btn" aria-label="Carrinho">
         🛒
-        <span class="cart-count" id="cartCount">{{ cart.item_count }}</span>
+        <span class="gb-cart-count">{{ cart.item_count }}</span>
       </a>
-      <a href="{{ routes.collections_url }}" class="cta-button">
-        Shop Now
+      <a href="{{ section.settings.cta_link | default: routes.collections_url }}" class="gb-cta-btn">
+        {{ section.settings.cta_text | default: 'Comprar' }}
       </a>
     </div>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" aria-label="Menu">
+    <!-- Mobile Toggle -->
+    <button class="gb-mobile-toggle" aria-label="Menu">
       <span></span>
       <span></span>
       <span></span>
@@ -524,45 +266,51 @@ Ultra-Premium Design | Maximum Conversion
   </div>
 </nav>
 
-<!-- Scroll Effect Script -->
 <script>
-  window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('mainNavbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('navbar-scrolled');
-    } else {
-      navbar.classList.remove('navbar-scrolled');
-    }
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('gbNavbar');
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
   });
 </script>
 
 {% schema %}
 {
-  "name": "Premium Master Navbar",
+  "name": "Garcia Builder Navbar",
   "tag": "header",
-  "class": "premium-master-header",
+  "class": "garcia-builder-header",
   "settings": [
     {
       "type": "text",
       "id": "announcement_text",
-      "label": "Announcement Text",
-      "default": "FREE SHIPPING ON ORDERS OVER $75 | NEW ARRIVALS WEEKLY"
+      "label": "Texto Anúncio",
+      "default": "Frete Grátis em Pedidos Acima de <span>R$150</span> | Entrega Rápida"
     },
     {
       "type": "image_picker",
       "id": "logo",
-      "label": "Logo Image"
+      "label": "Logo"
     },
     {
       "type": "link_list",
       "id": "menu",
-      "label": "Navigation Menu",
+      "label": "Menu Principal",
       "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto Botão CTA",
+      "default": "Comprar"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Link Botão CTA"
     }
   ],
   "presets": [
     {
-      "name": "Premium Master Navbar"
+      "name": "Garcia Builder Navbar"
     }
   ]
 }

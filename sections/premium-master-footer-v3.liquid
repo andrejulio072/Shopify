@@ -1,265 +1,527 @@
-<!--
-========================================
-🏆 PREMIUM MASTER FOOTER V3.0
-World-Class International Standards
-Inspired by: Nike, Gymshark, Lululemon, Adidas
-Ultra-Premium Design | Trust Building
-========================================
--->
+<!--<!--
 
-<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+================================================================================
 
-<style>
-  /* ========================================
+🏆 GARCIA BUILDER - FOOTER V3.0🏆 PREMIUM MASTER FOOTER V3.0
+
+Clean & Professional FooterWorld-Class International Standards
+
+========================================Inspired by: Nike, Gymshark, Lululemon, Adidas
+
+-->Ultra-Premium Design | Trust Building
+
+========================================
+
+<style>-->
+
+  .gb-footer {
+
+    background: #1a1a1a;<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+    color: rgba(255, 255, 255, 0.8);
+
+    padding: 60px 0 30px;<style>
+
+  }  /* ========================================
+
      🎨 PREMIUM MASTER FOOTER VARIABLES
-  ======================================== */
-  :root {
-    --footer-bg-primary: #000000;
-    --footer-bg-secondary: #0a0a0a;
-    --footer-text: rgba(255, 255, 255, 0.7);
+
+  .gb-footer-container {  ======================================== */
+
+    max-width: 1400px;  :root {
+
+    margin: 0 auto;    --footer-bg-primary: #000000;
+
+    padding: 0 40px;    --footer-bg-secondary: #0a0a0a;
+
+  }    --footer-text: rgba(255, 255, 255, 0.7);
+
     --footer-heading: #ffffff;
-    --footer-accent: #007AFF;
-  }
 
-  /* ========================================
-     💎 MAIN FOOTER STRUCTURE
-  ======================================== */
-  .premium-master-footer {
-    background: linear-gradient(180deg, var(--footer-bg-primary) 0%, var(--footer-bg-secondary) 100%);
+  .gb-footer-top {    --footer-accent: #007AFF;
+
+    display: grid;  }
+
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+
+    gap: 60px;  /* ========================================
+
+    padding-bottom: 40px;     💎 MAIN FOOTER STRUCTURE
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);  ======================================== */
+
+    margin-bottom: 30px;  .premium-master-footer {
+
+  }    background: linear-gradient(180deg, var(--footer-bg-primary) 0%, var(--footer-bg-secondary) 100%);
+
     color: var(--footer-text);
-    position: relative;
-    overflow: hidden;
-  }
 
-  /* Decorative Background Elements */
-  .footer-bg-pattern {
+  .gb-footer-brand h3 {    position: relative;
+
+    font-size: 24px;    overflow: hidden;
+
+    font-weight: 900;  }
+
+    color: #ffffff;
+
+    margin: 0 0 16px 0;  /* Decorative Background Elements */
+
+  }  .footer-bg-pattern {
+
     position: absolute;
-    inset: 0;
-    opacity: 0.03;
-    background-image:
-      radial-gradient(circle at 20% 30%, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(48, 209, 88, 0.1) 0%, transparent 50%);
-    pointer-events: none;
+
+  .gb-footer-brand p {    inset: 0;
+
+    font-size: 14px;    opacity: 0.03;
+
+    line-height: 1.7;    background-image:
+
+    margin: 0 0 24px 0;      radial-gradient(circle at 20% 30%, rgba(0, 122, 255, 0.1) 0%, transparent 50%),
+
+    max-width: 300px;      radial-gradient(circle at 80% 70%, rgba(48, 209, 88, 0.1) 0%, transparent 50%);
+
+  }    pointer-events: none;
+
   }
 
-  .footer-container {
-    max-width: 1600px;
-    margin: 0 auto;
+  .gb-footer-social {
+
+    display: flex;  .footer-container {
+
+    gap: 16px;    max-width: 1600px;
+
+  }    margin: 0 auto;
+
     padding: 0 40px;
-    position: relative;
-    z-index: 1;
-  }
 
-  /* ========================================
-     🚀 TOP SECTION - Newsletter & Social
-  ======================================== */
-  .footer-top {
-    padding: 80px 0 60px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
+  .gb-footer-social a {    position: relative;
 
-  .footer-top-content {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
+    display: flex;    z-index: 1;
 
-  .footer-newsletter {
-    max-width: 600px;
-  }
+    align-items: center;  }
 
-  .newsletter-heading {
-    font-size: 42px;
-    font-weight: 900;
-    color: var(--footer-heading);
-    margin-bottom: 16px;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #ffffff 0%, #007AFF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+    justify-content: center;
 
-  .newsletter-description {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: rgba(255, 255, 255, 0.6);
-  }
+    width: 40px;  /* ========================================
 
-  .newsletter-form {
-    display: flex;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 8px;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 40px;     🚀 TOP SECTION - Newsletter & Social
+
+    background: rgba(255, 255, 255, 0.1);  ======================================== */
+
+    border-radius: 4px;  .footer-top {
+
+    color: #ffffff;    padding: 80px 0 60px;
+
+    text-decoration: none;    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    font-size: 18px;  }
+
     transition: all 0.3s ease;
-  }
 
-  .newsletter-form:focus-within {
-    border-color: rgba(0, 122, 255, 0.5);
+  }  .footer-top-content {
+
+    display: grid;
+
+  .gb-footer-social a:hover {    grid-template-columns: 1.5fr 1fr;
+
+    background: #d4af37;    gap: 60px;
+
+    color: #1a1a1a;    align-items: center;
+
+  }  }
+
+
+
+  .gb-footer-column h4 {  .footer-newsletter {
+
+    font-size: 14px;    max-width: 600px;
+
+    font-weight: 700;  }
+
+    color: #ffffff;
+
+    text-transform: uppercase;  .newsletter-heading {
+
+    letter-spacing: 1px;    font-size: 42px;
+
+    margin: 0 0 20px 0;    font-weight: 900;
+
+  }    color: var(--footer-heading);
+
+    margin-bottom: 16px;
+
+  .gb-footer-links {    text-transform: uppercase;
+
+    list-style: none;    letter-spacing: -0.02em;
+
+    padding: 0;    background: linear-gradient(135deg, #ffffff 0%, #007AFF 100%);
+
+    margin: 0;    -webkit-background-clip: text;
+
+  }    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+
+  .gb-footer-links li {  }
+
+    margin-bottom: 12px;
+
+  }  .newsletter-description {
+
+    font-size: 16px;
+
+  .gb-footer-links a {    line-height: 1.6;
+
+    color: rgba(255, 255, 255, 0.7);    margin-bottom: 30px;
+
+    text-decoration: none;    color: rgba(255, 255, 255, 0.6);
+
+    font-size: 14px;  }
+
+    transition: color 0.3s ease;
+
+  }  .newsletter-form {
+
+    display: flex;
+
+  .gb-footer-links a:hover {    gap: 12px;
+
+    color: #d4af37;    background: rgba(255, 255, 255, 0.05);
+
+  }    padding: 8px;
+
+    border-radius: 16px;
+
+  .gb-footer-bottom {    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    display: flex;    transition: all 0.3s ease;
+
+    justify-content: space-between;  }
+
+    align-items: center;
+
+    font-size: 13px;  .newsletter-form:focus-within {
+
+  }    border-color: rgba(0, 122, 255, 0.5);
+
     box-shadow: 0 0 30px rgba(0, 122, 255, 0.2);
-  }
 
-  .newsletter-input {
-    flex: 1;
-    padding: 18px 24px;
+  .gb-footer-payment {  }
+
+    display: flex;
+
+    gap: 12px;  .newsletter-input {
+
+    align-items: center;    flex: 1;
+
+  }    padding: 18px 24px;
+
     background: transparent;
-    border: none;
-    color: white;
-    font-size: 15px;
-    font-weight: 500;
-    outline: none;
-  }
 
-  .newsletter-input::placeholder {
-    color: rgba(255, 255, 255, 0.4);
+  .gb-footer-payment img {    border: none;
+
+    height: 24px;    color: white;
+
+    opacity: 0.6;    font-size: 15px;
+
+  }    font-weight: 500;
+
+    outline: none;
+
+  @media (max-width: 1024px) {  }
+
+    .gb-footer-top {
+
+      grid-template-columns: repeat(2, 1fr);  .newsletter-input::placeholder {
+
+      gap: 40px;    color: rgba(255, 255, 255, 0.4);
+
+    }  }
+
   }
 
   .newsletter-button {
-    padding: 18px 40px;
-    background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
-    color: white;
-    font-size: 15px;
+
+  @media (max-width: 640px) {    padding: 18px 40px;
+
+    .gb-footer {    background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
+
+      padding: 40px 0 20px;    color: white;
+
+    }    font-size: 15px;
+
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border: none;
+
+    .gb-footer-container {    text-transform: uppercase;
+
+      padding: 0 24px;    letter-spacing: 0.05em;
+
+    }    border: none;
+
     border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
+
+    .gb-footer-top {    cursor: pointer;
+
+      grid-template-columns: 1fr;    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      gap: 32px;    box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
+
+    }  }
+
+
+
+    .gb-footer-bottom {  .newsletter-button:hover {
+
+      flex-direction: column;    background: linear-gradient(135deg, #0056CC 0%, #003D99 100%);
+
+      gap: 16px;    transform: translateY(-2px);
+
+      text-align: center;    box-shadow: 0 8px 30px rgba(0, 122, 255, 0.5);
+
+    }  }
+
   }
 
-  .newsletter-button:hover {
-    background: linear-gradient(135deg, #0056CC 0%, #003D99 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 122, 255, 0.5);
-  }
+</style>  /* Social Media Links */
 
-  /* Social Media Links */
   .footer-social {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
 
-  .social-heading {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--footer-heading);
-    margin-bottom: 24px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
+<footer class="gb-footer">    display: flex;
 
-  .social-links {
-    display: flex;
-    gap: 16px;
-  }
+  <div class="gb-footer-container">    flex-direction: column;
+
+    <div class="gb-footer-top">    align-items: flex-end;
+
+      <!-- Brand Column -->  }
+
+      <div class="gb-footer-brand">
+
+        <h3>{{ section.settings.brand_name | default: 'Garcia Builder' }}</h3>  .social-heading {
+
+        <p>{{ section.settings.brand_description | default: 'Suplementos premium de alta performance para resultados reais.' }}</p>    font-size: 18px;
+
+        <div class="gb-footer-social">    font-weight: 700;
+
+          {% if section.settings.instagram != blank %}    color: var(--footer-heading);
+
+            <a href="{{ section.settings.instagram }}" target="_blank" aria-label="Instagram">📷</a>    margin-bottom: 24px;
+
+          {% endif %}    text-transform: uppercase;
+
+          {% if section.settings.facebook != blank %}    letter-spacing: 0.1em;
+
+            <a href="{{ section.settings.facebook }}" target="_blank" aria-label="Facebook">👍</a>  }
+
+          {% endif %}
+
+          {% if section.settings.whatsapp != blank %}  .social-links {
+
+            <a href="{{ section.settings.whatsapp }}" target="_blank" aria-label="WhatsApp">💬</a>    display: flex;
+
+          {% endif %}    gap: 16px;
+
+        </div>  }
+
+      </div>
 
   .social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 55px;
-    height: 55px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 14px;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 24px;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+
+      <!-- Links Columns -->    display: flex;
+
+      {% for block in section.blocks %}    align-items: center;
+
+        <div class="gb-footer-column">    justify-content: center;
+
+          <h4>{{ block.settings.title }}</h4>    width: 55px;
+
+          <ul class="gb-footer-links">    height: 55px;
+
+            {% if block.settings.menu != blank %}    background: rgba(255, 255, 255, 0.05);
+
+              {% for link in linklists[block.settings.menu].links %}    border: 1px solid rgba(255, 255, 255, 0.1);
+
+                <li><a href="{{ link.url }}">{{ link.title }}</a></li>    border-radius: 14px;
+
+              {% endfor %}    color: rgba(255, 255, 255, 0.8);
+
+            {% endif %}    font-size: 24px;
+
+          </ul>    text-decoration: none;
+
+        </div>    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+      {% endfor %}  }
+
+    </div>
 
   .social-link:hover {
-    background: linear-gradient(135deg, rgba(0, 122, 255, 0.3) 0%, rgba(48, 209, 88, 0.3) 100%);
-    border-color: rgba(0, 122, 255, 0.5);
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 10px 30px rgba(0, 122, 255, 0.4);
-  }
 
-  /* ========================================
-     📋 MIDDLE SECTION - Navigation Links
+    <div class="gb-footer-bottom">    background: linear-gradient(135deg, rgba(0, 122, 255, 0.3) 0%, rgba(48, 209, 88, 0.3) 100%);
+
+      <p>© {{ 'now' | date: '%Y' }} {{ shop.name }}. Todos os direitos reservados.</p>    border-color: rgba(0, 122, 255, 0.5);
+
+      <div class="gb-footer-payment">    transform: translateY(-5px) scale(1.1);
+
+        <span>Pagamento seguro</span>    box-shadow: 0 10px 30px rgba(0, 122, 255, 0.4);
+
+      </div>  }
+
+    </div>
+
+  </div>  /* ========================================
+
+</footer>     📋 MIDDLE SECTION - Navigation Links
+
   ======================================== */
-  .footer-middle {
-    padding: 60px 0;
-  }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr repeat(4, 1fr);
-    gap: 50px;
-  }
+{% schema %}  .footer-middle {
 
-  /* Brand Column */
-  .footer-brand {
-    padding-right: 40px;
-  }
+{    padding: 60px 0;
 
-  .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
+  "name": "Garcia Builder Footer",  }
 
-  .footer-logo-icon {
-    width: 55px;
-    height: 55px;
-    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
-  }
+  "tag": "footer",
 
-  .footer-logo-text {
-    font-size: 28px;
-    font-weight: 900;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-  }
+  "class": "garcia-builder-footer",  .footer-grid {
 
-  .footer-brand-description {
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 30px;
-  }
+  "settings": [    display: grid;
 
-  .footer-trust-badges {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+    {    grid-template-columns: 2fr repeat(4, 1fr);
 
-  .trust-badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-  }
+      "type": "text",    gap: 50px;
 
-  .trust-badge-icon {
-    font-size: 18px;
-  }
+      "id": "brand_name",  }
 
-  /* Navigation Columns */
-  .footer-column h4 {
+      "label": "Nome da Marca",
+
+      "default": "Garcia Builder"  /* Brand Column */
+
+    },  .footer-brand {
+
+    {    padding-right: 40px;
+
+      "type": "textarea",  }
+
+      "id": "brand_description",
+
+      "label": "Descrição",  .footer-logo {
+
+      "default": "Suplementos premium de alta performance para resultados reais."    display: flex;
+
+    },    align-items: center;
+
+    {    gap: 12px;
+
+      "type": "url",    margin-bottom: 24px;
+
+      "id": "instagram",  }
+
+      "label": "Instagram URL"
+
+    },  .footer-logo-icon {
+
+    {    width: 55px;
+
+      "type": "url",    height: 55px;
+
+      "id": "facebook",    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+
+      "label": "Facebook URL"    border-radius: 14px;
+
+    },    display: flex;
+
+    {    align-items: center;
+
+      "type": "url",    justify-content: center;
+
+      "id": "whatsapp",    font-size: 28px;
+
+      "label": "WhatsApp URL"    box-shadow: 0 4px 20px rgba(0, 122, 255, 0.3);
+
+    }  }
+
+  ],
+
+  "blocks": [  .footer-logo-text {
+
+    {    font-size: 28px;
+
+      "type": "menu",    font-weight: 900;
+
+      "name": "Coluna de Links",    color: white;
+
+      "settings": [    text-transform: uppercase;
+
+        {    letter-spacing: -0.02em;
+
+          "type": "text",  }
+
+          "id": "title",
+
+          "label": "Título",  .footer-brand-description {
+
+          "default": "Links"    font-size: 15px;
+
+        },    line-height: 1.7;
+
+        {    color: rgba(255, 255, 255, 0.5);
+
+          "type": "link_list",    margin-bottom: 30px;
+
+          "id": "menu",  }
+
+          "label": "Menu"
+
+        }  .footer-trust-badges {
+
+      ]    display: flex;
+
+    }    gap: 12px;
+
+  ],    flex-wrap: wrap;
+
+  "presets": [  }
+
+    {
+
+      "name": "Garcia Builder Footer",  .trust-badge {
+
+      "blocks": [    display: flex;
+
+        {    align-items: center;
+
+          "type": "menu",    gap: 8px;
+
+          "settings": {    padding: 10px 16px;
+
+            "title": "Loja"    background: rgba(255, 255, 255, 0.05);
+
+          }    border: 1px solid rgba(255, 255, 255, 0.1);
+
+        },    border-radius: 10px;
+
+        {    font-size: 13px;
+
+          "type": "menu",    font-weight: 600;
+
+          "settings": {    color: rgba(255, 255, 255, 0.7);
+
+            "title": "Ajuda"  }
+
+          }
+
+        }  .trust-badge-icon {
+
+      ]    font-size: 18px;
+
+    }  }
+
+  ]
+
+}  /* Navigation Columns */
+
+{% endschema %}  .footer-column h4 {
+
     font-size: 16px;
     font-weight: 700;
     color: var(--footer-heading);

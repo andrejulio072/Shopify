@@ -1,256 +1,509 @@
-<!--
-========================================
-🏆 PREMIUM MASTER PRODUCTS V3.0
-World-Class Product Showcase
-Inspired by: Nike, Gymshark, Lululemon
-Ultra-Premium Grid | Interactive Hover Effects
-========================================
--->
+<!--<!--
 
-<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+================================================================================
 
-<style>
+🏆 GARCIA BUILDER - PRODUCTS V3.0🏆 PREMIUM MASTER PRODUCTS V3.0
+
+Clean Product ShowcaseWorld-Class Product Showcase
+
+========================================Inspired by: Nike, Gymshark, Lululemon
+
+-->Ultra-Premium Grid | Interactive Hover Effects
+
+========================================
+
+<style>-->
+
+  .gb-products {
+
+    padding: 100px 0;<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+    background: #f5f5f5;
+
+  }<style>
+
   /* ========================================
-     🎨 PREMIUM PRODUCTS VARIABLES
-  ======================================== */
-  :root {
-    --products-spacing: 120px;
-    --product-card-radius: 20px;
+
+  .gb-products-container {     🎨 PREMIUM PRODUCTS VARIABLES
+
+    max-width: 1400px;  ======================================== */
+
+    margin: 0 auto;  :root {
+
+    padding: 0 40px;    --products-spacing: 120px;
+
+  }    --product-card-radius: 20px;
+
   }
 
-  /* ========================================
-     💎 MAIN SECTION
-  ======================================== */
+  .gb-products-header {
+
+    text-align: center;  /* ========================================
+
+    margin-bottom: 60px;     💎 MAIN SECTION
+
+  }  ======================================== */
+
   .premium-master-products {
-    padding: var(--products-spacing) 40px;
-    background: #000000;
-    position: relative;
-  }
 
-  .products-container {
-    max-width: 1600px;
+  .gb-products-title {    padding: var(--products-spacing) 40px;
+
+    font-size: clamp(36px, 5vw, 48px);    background: #000000;
+
+    font-weight: 900;    position: relative;
+
+    color: #1a1a1a;  }
+
+    margin: 0 0 16px 0;
+
+    letter-spacing: -0.02em;  .products-container {
+
+  }    max-width: 1600px;
+
     margin: 0 auto;
-  }
 
-  /* ========================================
-     📝 SECTION HEADER
-  ======================================== */
-  .products-header {
-    text-align: center;
-    margin-bottom: 80px;
-    animation: fade-slide-up 0.8s ease-out;
-  }
+  .gb-products-subtitle {  }
 
-  .products-badge {
-    display: inline-block;
-    padding: 10px 24px;
-    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
-    border: 1px solid rgba(0, 122, 255, 0.3);
-    border-radius: 50px;
-    color: #007AFF;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 24px;
-  }
-
-  .products-heading {
-    font-size: clamp(42px, 6vw, 72px);
-    font-weight: 900;
-    color: white;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-  }
-
-  .products-heading-highlight {
-    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .products-description {
     font-size: 18px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
 
-  /* ========================================
-     🎯 PRODUCTS GRID
-  ======================================== */
-  .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
-  }
+    color: #6b6b6b;  /* ========================================
 
-  /* Product Card */
-  .product-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--product-card-radius);
+    margin: 0 0 32px 0;     📝 SECTION HEADER
+
+  }  ======================================== */
+
+  .products-header {
+
+  .gb-products-cta {    text-align: center;
+
+    display: inline-block;    margin-bottom: 80px;
+
+    padding: 12px 32px;    animation: fade-slide-up 0.8s ease-out;
+
+    background: #1a1a1a;  }
+
+    color: #ffffff;
+
+    font-size: 14px;  .products-badge {
+
+    font-weight: 600;    display: inline-block;
+
+    text-transform: uppercase;    padding: 10px 24px;
+
+    letter-spacing: 1px;    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
+
+    text-decoration: none;    border: 1px solid rgba(0, 122, 255, 0.3);
+
+    border-radius: 4px;    border-radius: 50px;
+
+    transition: all 0.3s ease;    color: #007AFF;
+
+  }    font-size: 13px;
+
+    font-weight: 700;
+
+  .gb-products-cta:hover {    text-transform: uppercase;
+
+    background: #d4af37;    letter-spacing: 0.15em;
+
+    color: #1a1a1a;    margin-bottom: 24px;
+
+  }  }
+
+
+
+  .gb-products-grid {  .products-heading {
+
+    display: grid;    font-size: clamp(42px, 6vw, 72px);
+
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));    font-weight: 900;
+
+    gap: 32px;    color: white;
+
+  }    margin-bottom: 20px;
+
+    text-transform: uppercase;
+
+  .gb-product-card {    letter-spacing: -0.02em;
+
+    background: #ffffff;    line-height: 1.1;
+
+    border-radius: 8px;  }
+
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    animation: fade-slide-up 0.8s ease-out backwards;
-  }
 
-  .product-card:nth-child(1) { animation-delay: 0.1s; }
-  .product-card:nth-child(2) { animation-delay: 0.2s; }
+    text-decoration: none;  .products-heading-highlight {
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+
+  }    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+  .gb-product-card:hover {    background-clip: text;
+
+    transform: translateY(-4px);  }
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+
+  }  .products-description {
+
+    font-size: 18px;
+
+  .gb-product-image-wrapper {    font-weight: 500;
+
+    position: relative;    color: rgba(255, 255, 255, 0.6);
+
+    padding-top: 100%;    max-width: 700px;
+
+    overflow: hidden;    margin: 0 auto;
+
+    background: #f8f8f8;    line-height: 1.7;
+
+  }  }
+
+
+
+  .gb-product-image {  /* ========================================
+
+    position: absolute;     🎯 PRODUCTS GRID
+
+    top: 0;  ======================================== */
+
+    left: 0;  .products-grid {
+
+    width: 100%;    display: grid;
+
+    height: 100%;    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+    object-fit: contain;    gap: 30px;
+
+    padding: 20px;    margin-bottom: 60px;
+
+  }  }
+
+
+
+  .gb-product-badge {  /* Product Card */
+
+    position: absolute;  .product-card {
+
+    top: 16px;    background: rgba(255, 255, 255, 0.03);
+
+    left: 16px;    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    padding: 6px 12px;    border-radius: var(--product-card-radius);
+
+    background: #d4af37;    overflow: hidden;
+
+    color: #1a1a1a;    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    font-size: 11px;    position: relative;
+
+    font-weight: 700;    animation: fade-slide-up 0.8s ease-out backwards;
+
+    text-transform: uppercase;  }
+
+    letter-spacing: 0.5px;
+
+    border-radius: 4px;  .product-card:nth-child(1) { animation-delay: 0.1s; }
+
+  }  .product-card:nth-child(2) { animation-delay: 0.2s; }
+
   .product-card:nth-child(3) { animation-delay: 0.3s; }
-  .product-card:nth-child(4) { animation-delay: 0.4s; }
-  .product-card:nth-child(5) { animation-delay: 0.5s; }
-  .product-card:nth-child(6) { animation-delay: 0.6s; }
 
-  .product-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(0, 122, 255, 0.3);
-    box-shadow: 0 20px 60px rgba(0, 122, 255, 0.3);
-    background: rgba(255, 255, 255, 0.05);
-  }
+  .gb-product-info {  .product-card:nth-child(4) { animation-delay: 0.4s; }
 
-  /* Product Image Container */
-  .product-image-wrapper {
-    position: relative;
+    padding: 24px;  .product-card:nth-child(5) { animation-delay: 0.5s; }
+
+  }  .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+
+
+  .gb-product-title {  .product-card:hover {
+
+    font-size: 18px;    transform: translateY(-10px);
+
+    font-weight: 700;    border-color: rgba(0, 122, 255, 0.3);
+
+    color: #1a1a1a;    box-shadow: 0 20px 60px rgba(0, 122, 255, 0.3);
+
+    margin: 0 0 8px 0;    background: rgba(255, 255, 255, 0.05);
+
+    display: -webkit-box;  }
+
+    -webkit-line-clamp: 2;
+
+    -webkit-box-orient: vertical;  /* Product Image Container */
+
+    overflow: hidden;  .product-image-wrapper {
+
+  }    position: relative;
+
     aspect-ratio: 1 / 1;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 0.02);
-  }
 
-  .product-image {
-    width: 100%;
+  .gb-product-price {    overflow: hidden;
+
+    font-size: 24px;    background: rgba(255, 255, 255, 0.02);
+
+    font-weight: 900;  }
+
+    color: #d4af37;
+
+    margin: 0;  .product-image {
+
+  }    width: 100%;
+
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+  .gb-product-price-compare {    object-fit: cover;
+
+    font-size: 16px;    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+    color: #999;  }
+
+    text-decoration: line-through;
+
+    margin-left: 8px;  .product-card:hover .product-image {
+
+  }    transform: scale(1.08);
+
   }
 
-  .product-card:hover .product-image {
-    transform: scale(1.08);
-  }
+  @media (max-width: 768px) {
 
-  /* Product Badges */
-  .product-badges {
-    position: absolute;
+    .gb-products {  /* Product Badges */
+
+      padding: 60px 0;  .product-badges {
+
+    }    position: absolute;
+
     top: 16px;
-    left: 16px;
-    display: flex;
-    flex-direction: column;
+
+    .gb-products-container {    left: 16px;
+
+      padding: 0 24px;    display: flex;
+
+    }    flex-direction: column;
+
     gap: 8px;
-    z-index: 2;
-  }
+
+    .gb-products-header {    z-index: 2;
+
+      margin-bottom: 40px;  }
+
+    }
 
   .product-badge {
-    padding: 8px 16px;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    border-radius: 8px;
+
+    .gb-products-grid {    padding: 8px 16px;
+
+      grid-template-columns: repeat(2, 1fr);    background: rgba(0, 0, 0, 0.8);
+
+      gap: 16px;    backdrop-filter: blur(10px);
+
+    }    border-radius: 8px;
+
     font-size: 12px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
+
+    .gb-product-info {    font-weight: 700;
+
+      padding: 16px;    text-transform: uppercase;
+
+    }    letter-spacing: 0.05em;
+
+  }  }
+
+</style>
 
   .badge-new {
-    color: #30D158;
-    border: 1px solid rgba(48, 209, 88, 0.3);
-  }
 
-  .badge-sale {
-    color: #FF3B30;
-    border: 1px solid rgba(255, 59, 48, 0.3);
-  }
+<section class="gb-products">    color: #30D158;
+
+  <div class="gb-products-container">    border: 1px solid rgba(48, 209, 88, 0.3);
+
+    <div class="gb-products-header">  }
+
+      <h2 class="gb-products-title">{{ section.settings.title | default: 'Produtos em Destaque' }}</h2>
+
+      <p class="gb-products-subtitle">{{ section.settings.subtitle | default: 'Os melhores suplementos do mercado' }}</p>  .badge-sale {
+
+      {% if section.settings.button_text != blank %}    color: #FF3B30;
+
+        <a href="{{ section.settings.button_link }}" class="gb-products-cta">{{ section.settings.button_text }}</a>    border: 1px solid rgba(255, 59, 48, 0.3);
+
+      {% endif %}  }
+
+    </div>
 
   .badge-bestseller {
-    color: #FF9500;
-    border: 1px solid rgba(255, 149, 0, 0.3);
-  }
 
-  /* Quick Actions */
-  .product-actions {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+    <div class="gb-products-grid">    color: #FF9500;
 
-  .product-card:hover .product-actions {
-    opacity: 1;
-    transform: translateX(0);
-  }
+      {% if section.settings.collection != blank %}    border: 1px solid rgba(255, 149, 0, 0.3);
 
-  .action-btn {
-    width: 45px;
-    height: 45px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: none;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
+        {% for product in collections[section.settings.collection].products limit: section.settings.products_count %}  }
+
+          <a href="{{ product.url }}" class="gb-product-card">
+
+            <div class="gb-product-image-wrapper">  /* Quick Actions */
+
+              {% if product.featured_image != blank %}  .product-actions {
+
+                <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title }}" class="gb-product-image">    position: absolute;
+
+              {% else %}    top: 16px;
+
+                <img src="https://via.placeholder.com/600/f5f5f5/1a1a1a?text={{ product.title }}" alt="{{ product.title }}" class="gb-product-image">    right: 16px;
+
+              {% endif %}    display: flex;
+
+                  flex-direction: column;
+
+              {% if product.compare_at_price > product.price %}    gap: 10px;
+
+                <span class="gb-product-badge">Oferta</span>    opacity: 0;
+
+              {% endif %}    transform: translateX(20px);
+
+            </div>    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+              }
+
+            <div class="gb-product-info">
+
+              <h3 class="gb-product-title">{{ product.title }}</h3>  .product-card:hover .product-actions {
+
+              <p class="gb-product-price">    opacity: 1;
+
+                {{ product.price | money }}    transform: translateX(0);
+
+                {% if product.compare_at_price > product.price %}  }
+
+                  <span class="gb-product-price-compare">{{ product.compare_at_price | money }}</span>
+
+                {% endif %}  .action-btn {
+
+              </p>    width: 45px;
+
+            </div>    height: 45px;
+
+          </a>    background: rgba(255, 255, 255, 0.95);
+
+        {% endfor %}    backdrop-filter: blur(10px);
+
+      {% endif %}    border: none;
+
+    </div>    border-radius: 12px;
+
+  </div>    display: flex;
+
+</section>    align-items: center;
+
     justify-content: center;
-    font-size: 18px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  }
 
-  .action-btn:hover {
-    transform: scale(1.1);
-    background: #007AFF;
-    color: white;
-  }
+{% schema %}    font-size: 18px;
 
-  /* Quick Add Button */
-  .quick-add-btn {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
-    padding: 16px;
-    background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
-    color: white;
-    font-size: 15px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 30px rgba(0, 122, 255, 0.5);
-  }
+{    cursor: pointer;
 
-  .product-card:hover .quick-add-btn {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  "name": "Garcia Builder Products",    transition: all 0.3s ease;
 
-  .quick-add-btn:hover {
-    background: linear-gradient(135deg, #0056CC 0%, #003D99 100%);
-    transform: translateY(-2px);
-  }
+  "tag": "section",    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
-  /* Product Info */
-  .product-info {
-    padding: 24px;
-  }
+  "class": "garcia-builder-products",  }
 
-  /* Product Vendor */
-  .product-vendor {
+  "settings": [
+
+    {  .action-btn:hover {
+
+      "type": "text",    transform: scale(1.1);
+
+      "id": "title",    background: #007AFF;
+
+      "label": "Título",    color: white;
+
+      "default": "Produtos em Destaque"  }
+
+    },
+
+    {  /* Quick Add Button */
+
+      "type": "text",  .quick-add-btn {
+
+      "id": "subtitle",    position: absolute;
+
+      "label": "Subtítulo",    bottom: 16px;
+
+      "default": "Os melhores suplementos do mercado"    left: 16px;
+
+    },    right: 16px;
+
+    {    padding: 16px;
+
+      "type": "collection",    background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
+
+      "id": "collection",    color: white;
+
+      "label": "Coleção"    font-size: 15px;
+
+    },    font-weight: 700;
+
+    {    text-transform: uppercase;
+
+      "type": "range",    letter-spacing: 0.05em;
+
+      "id": "products_count",    border: none;
+
+      "label": "Número de Produtos",    border-radius: 12px;
+
+      "min": 3,    cursor: pointer;
+
+      "max": 12,    opacity: 0;
+
+      "step": 1,    transform: translateY(10px);
+
+      "default": 8    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    },    box-shadow: 0 8px 30px rgba(0, 122, 255, 0.5);
+
+    {  }
+
+      "type": "text",
+
+      "id": "button_text",  .product-card:hover .quick-add-btn {
+
+      "label": "Texto Botão",    opacity: 1;
+
+      "default": "Ver Todos"    transform: translateY(0);
+
+    },  }
+
+    {
+
+      "type": "url",  .quick-add-btn:hover {
+
+      "id": "button_link",    background: linear-gradient(135deg, #0056CC 0%, #003D99 100%);
+
+      "label": "Link Botão"    transform: translateY(-2px);
+
+    }  }
+
+  ],
+
+  "presets": [  /* Product Info */
+
+    {  .product-info {
+
+      "name": "Garcia Builder Products"    padding: 24px;
+
+    }  }
+
+  ]
+
+}  /* Product Vendor */
+
+{% endschema %}  .product-vendor {
+
     font-size: 12px;
     font-weight: 600;
     color: #007AFF;

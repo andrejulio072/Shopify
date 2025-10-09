@@ -1,224 +1,445 @@
-<!--
-========================================
-🏆 PREMIUM MASTER CATEGORIES V3.0
-World-Class Category Showcase
-Inspired by: Nike, Gymshark, Lululemon
-Ultra-Premium Grid Layout | Interactive Hover
-========================================
--->
+<!--<!--
 
-<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+================================================================================
 
-<style>
+🏆 GARCIA BUILDER - CATEGORIES V3.0🏆 PREMIUM MASTER CATEGORIES V3.0
+
+Clean Product Categories GridWorld-Class Category Showcase
+
+========================================Inspired by: Nike, Gymshark, Lululemon
+
+-->Ultra-Premium Grid Layout | Interactive Hover
+
+========================================
+
+<style>-->
+
+  .gb-categories {
+
+    padding: 100px 0;<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+    background: #ffffff;
+
+  }<style>
+
   /* ========================================
-     🎨 PREMIUM CATEGORIES VARIABLES
-  ======================================== */
-  :root {
-    --categories-spacing: 120px;
-    --category-radius: 24px;
+
+  .gb-categories-container {     🎨 PREMIUM CATEGORIES VARIABLES
+
+    max-width: 1400px;  ======================================== */
+
+    margin: 0 auto;  :root {
+
+    padding: 0 40px;    --categories-spacing: 120px;
+
+  }    --category-radius: 24px;
+
     --category-overlay: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
-  }
 
-  /* ========================================
-     💎 MAIN SECTION
+  .gb-categories-header {  }
+
+    text-align: center;
+
+    margin-bottom: 60px;  /* ========================================
+
+  }     💎 MAIN SECTION
+
   ======================================== */
-  .premium-master-categories {
-    padding: var(--categories-spacing) 40px;
-    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
-    position: relative;
-    overflow: hidden;
+
+  .gb-categories-title {  .premium-master-categories {
+
+    font-size: clamp(36px, 5vw, 48px);    padding: var(--categories-spacing) 40px;
+
+    font-weight: 900;    background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+
+    color: #1a1a1a;    position: relative;
+
+    margin: 0 0 16px 0;    overflow: hidden;
+
+    letter-spacing: -0.02em;  }
+
   }
 
   /* Decorative Background */
-  .categories-bg-pattern {
-    position: absolute;
-    inset: 0;
-    opacity: 0.03;
-    background-image:
+
+  .gb-categories-subtitle {  .categories-bg-pattern {
+
+    font-size: 18px;    position: absolute;
+
+    color: #6b6b6b;    inset: 0;
+
+    margin: 0;    opacity: 0.03;
+
+  }    background-image:
+
       radial-gradient(circle at 30% 40%, rgba(0, 122, 255, 0.15) 0%, transparent 60%),
-      radial-gradient(circle at 70% 60%, rgba(48, 209, 88, 0.15) 0%, transparent 60%);
-    pointer-events: none;
-  }
 
-  .categories-container {
+  .gb-categories-grid {      radial-gradient(circle at 70% 60%, rgba(48, 209, 88, 0.15) 0%, transparent 60%);
+
+    display: grid;    pointer-events: none;
+
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  }
+
+    gap: 32px;
+
+  }  .categories-container {
+
     max-width: 1600px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
 
-  /* ========================================
-     📝 SECTION HEADER
-  ======================================== */
+  .gb-category-card {    margin: 0 auto;
+
+    position: relative;    position: relative;
+
+    height: 400px;    z-index: 1;
+
+    border-radius: 8px;  }
+
+    overflow: hidden;
+
+    text-decoration: none;  /* ========================================
+
+    transition: transform 0.3s ease;     📝 SECTION HEADER
+
+  }  ======================================== */
+
   .categories-header {
-    text-align: center;
-    margin-bottom: 80px;
-    animation: fade-slide-up 1s ease-out;
+
+  .gb-category-card:hover {    text-align: center;
+
+    transform: translateY(-8px);    margin-bottom: 80px;
+
+  }    animation: fade-slide-up 1s ease-out;
+
   }
 
-  .categories-badge {
-    display: inline-block;
-    padding: 10px 24px;
-    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
-    border: 1px solid rgba(0, 122, 255, 0.3);
+  .gb-category-image {
+
+    width: 100%;  .categories-badge {
+
+    height: 100%;    display: inline-block;
+
+    object-fit: cover;    padding: 10px 24px;
+
+    transition: transform 0.6s ease;    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
+
+  }    border: 1px solid rgba(0, 122, 255, 0.3);
+
     border-radius: 50px;
-    color: #007AFF;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 24px;
-  }
 
-  .categories-heading {
-    font-size: clamp(42px, 6vw, 72px);
-    font-weight: 900;
-    color: white;
+  .gb-category-card:hover .gb-category-image {    color: #007AFF;
+
+    transform: scale(1.05);    font-size: 13px;
+
+  }    font-weight: 700;
+
+    text-transform: uppercase;
+
+  .gb-category-overlay {    letter-spacing: 0.15em;
+
+    position: absolute;    margin-bottom: 24px;
+
+    inset: 0;  }
+
+    background: linear-gradient(180deg, transparent 0%, rgba(26, 26, 26, 0.8) 100%);
+
+    display: flex;  .categories-heading {
+
+    align-items: flex-end;    font-size: clamp(42px, 6vw, 72px);
+
+    padding: 32px;    font-weight: 900;
+
+  }    color: white;
+
     margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-  }
 
-  .categories-heading-highlight {
+  .gb-category-content h3 {    text-transform: uppercase;
+
+    font-size: 24px;    letter-spacing: -0.02em;
+
+    font-weight: 700;    line-height: 1.1;
+
+    color: #ffffff;  }
+
+    margin: 0 0 8px 0;
+
+  }  .categories-heading-highlight {
+
     background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+
+  .gb-category-content p {    -webkit-background-clip: text;
+
+    font-size: 14px;    -webkit-text-fill-color: transparent;
+
+    color: rgba(255, 255, 255, 0.8);    background-clip: text;
+
+    margin: 0;  }
+
   }
 
   .categories-description {
-    font-size: 18px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 700px;
+
+  @media (max-width: 768px) {    font-size: 18px;
+
+    .gb-categories {    font-weight: 500;
+
+      padding: 60px 0;    color: rgba(255, 255, 255, 0.6);
+
+    }    max-width: 700px;
+
     margin: 0 auto;
-    line-height: 1.7;
-  }
+
+    .gb-categories-container {    line-height: 1.7;
+
+      padding: 0 24px;  }
+
+    }
 
   /* ========================================
-     🎯 CATEGORIES GRID
-  ======================================== */
-  .categories-grid {
+
+    .gb-categories-header {     🎯 CATEGORIES GRID
+
+      margin-bottom: 40px;  ======================================== */
+
+    }  .categories-grid {
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 30px;
-    margin-bottom: 60px;
-  }
 
-  /* Category Card */
-  .category-card {
-    position: relative;
-    height: 500px;
-    border-radius: var(--category-radius);
+    .gb-categories-grid {    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+
+      grid-template-columns: 1fr;    gap: 30px;
+
+      gap: 24px;    margin-bottom: 60px;
+
+    }  }
+
+
+
+    .gb-category-card {  /* Category Card */
+
+      height: 320px;  .category-card {
+
+    }    position: relative;
+
+  }    height: 500px;
+
+</style>    border-radius: var(--category-radius);
+
     overflow: hidden;
-    cursor: pointer;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: fade-slide-up 1s ease-out backwards;
-  }
 
-  .category-card:nth-child(1) { animation-delay: 0.1s; }
+<section class="gb-categories">    cursor: pointer;
+
+  <div class="gb-categories-container">    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    <div class="gb-categories-header">    animation: fade-slide-up 1s ease-out backwards;
+
+      <h2 class="gb-categories-title">{{ section.settings.title | default: 'Categorias' }}</h2>  }
+
+      <p class="gb-categories-subtitle">{{ section.settings.subtitle | default: 'Encontre os melhores suplementos para seu objetivo' }}</p>
+
+    </div>  .category-card:nth-child(1) { animation-delay: 0.1s; }
+
   .category-card:nth-child(2) { animation-delay: 0.2s; }
-  .category-card:nth-child(3) { animation-delay: 0.3s; }
-  .category-card:nth-child(4) { animation-delay: 0.4s; }
-  .category-card:nth-child(5) { animation-delay: 0.5s; }
-  .category-card:nth-child(6) { animation-delay: 0.6s; }
 
-  .category-card:hover {
-    transform: translateY(-15px) scale(1.02);
-    box-shadow: 0 30px 80px rgba(0, 122, 255, 0.4);
-  }
+    <div class="gb-categories-grid">  .category-card:nth-child(3) { animation-delay: 0.3s; }
 
-  /* Featured Card (First Item - Larger) */
-  .category-card.featured {
-    grid-column: span 2;
-    height: 600px;
-  }
+      {% for block in section.blocks %}  .category-card:nth-child(4) { animation-delay: 0.4s; }
 
-  /* Background Image */
-  .category-image {
-    width: 100%;
-    height: 100%;
+        <a href="{{ block.settings.link }}" class="gb-category-card">  .category-card:nth-child(5) { animation-delay: 0.5s; }
+
+          {% if block.settings.image != blank %}  .category-card:nth-child(6) { animation-delay: 0.6s; }
+
+            <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}" class="gb-category-image">
+
+          {% else %}  .category-card:hover {
+
+            <img src="https://via.placeholder.com/600x800/1a1a1a/d4af37?text={{ block.settings.title }}" alt="{{ block.settings.title }}" class="gb-category-image">    transform: translateY(-15px) scale(1.02);
+
+          {% endif %}    box-shadow: 0 30px 80px rgba(0, 122, 255, 0.4);
+
+            }
+
+          <div class="gb-category-overlay">
+
+            <div class="gb-category-content">  /* Featured Card (First Item - Larger) */
+
+              <h3>{{ block.settings.title }}</h3>  .category-card.featured {
+
+              <p>{{ block.settings.description }}</p>    grid-column: span 2;
+
+            </div>    height: 600px;
+
+          </div>  }
+
+        </a>
+
+      {% endfor %}  /* Background Image */
+
+    </div>  .category-image {
+
+  </div>    width: 100%;
+
+</section>    height: 100%;
+
     object-fit: cover;
-    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-  }
 
-  .category-card:hover .category-image {
-    transform: scale(1.1);
-  }
+{% schema %}    transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Gradient Overlay */
-  .category-overlay {
-    position: absolute;
-    inset: 0;
-    background: var(--category-overlay);
-    transition: opacity 0.5s ease;
-  }
+{  }
 
-  .category-card:hover .category-overlay {
-    background: linear-gradient(180deg,
-      transparent 0%,
-      rgba(0, 122, 255, 0.3) 50%,
-      rgba(0, 0, 0, 0.9) 100%
-    );
-  }
+  "name": "Garcia Builder Categories",
 
-  /* Content */
-  .category-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 40px;
-    z-index: 2;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+  "tag": "section",  .category-card:hover .category-image {
 
-  .category-card:hover .category-content {
-    padding-bottom: 50px;
-  }
+  "class": "garcia-builder-categories",    transform: scale(1.1);
 
-  /* Category Icon */
-  .category-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, rgba(0, 122, 255, 0.3) 0%, rgba(48, 209, 88, 0.3) 100%);
-    backdrop-filter: blur(20px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    margin-bottom: 24px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  }
+  "settings": [  }
 
-  .category-card:hover .category-icon {
-    transform: scale(1.1) rotate(5deg);
-    background: linear-gradient(135deg, rgba(0, 122, 255, 0.5) 0%, rgba(48, 209, 88, 0.5) 100%);
-    box-shadow: 0 12px 40px rgba(0, 122, 255, 0.5);
-  }
+    {
 
-  /* Category Name */
-  .category-name {
-    font-size: 32px;
-    font-weight: 900;
-    color: white;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    transition: all 0.3s ease;
-  }
+      "type": "text",  /* Gradient Overlay */
 
-  .category-card:hover .category-name {
-    transform: translateX(10px);
-    color: #007AFF;
-  }
+      "id": "title",  .category-overlay {
 
-  /* Category Description */
+      "label": "Título",    position: absolute;
+
+      "default": "Categorias"    inset: 0;
+
+    },    background: var(--category-overlay);
+
+    {    transition: opacity 0.5s ease;
+
+      "type": "text",  }
+
+      "id": "subtitle",
+
+      "label": "Subtítulo",  .category-card:hover .category-overlay {
+
+      "default": "Encontre os melhores suplementos para seu objetivo"    background: linear-gradient(180deg,
+
+    }      transparent 0%,
+
+  ],      rgba(0, 122, 255, 0.3) 50%,
+
+  "blocks": [      rgba(0, 0, 0, 0.9) 100%
+
+    {    );
+
+      "type": "category",  }
+
+      "name": "Categoria",
+
+      "settings": [  /* Content */
+
+        {  .category-content {
+
+          "type": "image_picker",    position: absolute;
+
+          "id": "image",    bottom: 0;
+
+          "label": "Imagem"    left: 0;
+
+        },    right: 0;
+
+        {    padding: 40px;
+
+          "type": "text",    z-index: 2;
+
+          "id": "title",    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+          "label": "Título",  }
+
+          "default": "Proteínas"
+
+        },  .category-card:hover .category-content {
+
+        {    padding-bottom: 50px;
+
+          "type": "text",  }
+
+          "id": "description",
+
+          "label": "Descrição",  /* Category Icon */
+
+          "default": "Whey, Caseína e mais"  .category-icon {
+
+        },    width: 70px;
+
+        {    height: 70px;
+
+          "type": "url",    background: linear-gradient(135deg, rgba(0, 122, 255, 0.3) 0%, rgba(48, 209, 88, 0.3) 100%);
+
+          "id": "link",    backdrop-filter: blur(20px);
+
+          "label": "Link"    border: 2px solid rgba(255, 255, 255, 0.2);
+
+        }    border-radius: 18px;
+
+      ]    display: flex;
+
+    }    align-items: center;
+
+  ],    justify-content: center;
+
+  "presets": [    font-size: 32px;
+
+    {    margin-bottom: 24px;
+
+      "name": "Garcia Builder Categories",    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+      "blocks": [    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+
+        {  }
+
+          "type": "category",
+
+          "settings": {  .category-card:hover .category-icon {
+
+            "title": "Proteínas",    transform: scale(1.1) rotate(5deg);
+
+            "description": "Whey, Caseína, Isolado"    background: linear-gradient(135deg, rgba(0, 122, 255, 0.5) 0%, rgba(48, 209, 88, 0.5) 100%);
+
+          }    box-shadow: 0 12px 40px rgba(0, 122, 255, 0.5);
+
+        },  }
+
+        {
+
+          "type": "category",  /* Category Name */
+
+          "settings": {  .category-name {
+
+            "title": "Pré-Treino",    font-size: 32px;
+
+            "description": "Energia e Foco"    font-weight: 900;
+
+          }    color: white;
+
+        },    margin-bottom: 12px;
+
+        {    text-transform: uppercase;
+
+          "type": "category",    letter-spacing: -0.02em;
+
+          "settings": {    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+
+            "title": "Creatina",    transition: all 0.3s ease;
+
+            "description": "Força e Performance"  }
+
+          }
+
+        }  .category-card:hover .category-name {
+
+      ]    transform: translateX(10px);
+
+    }    color: #007AFF;
+
+  ]  }
+
+}
+
+{% endschema %}  /* Category Description */
+
   .category-description {
     font-size: 15px;
     font-weight: 500;

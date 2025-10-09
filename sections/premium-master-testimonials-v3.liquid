@@ -1,221 +1,439 @@
-<!--
-========================================
-🏆 PREMIUM MASTER TESTIMONIALS V3.0
-World-Class Social Proof Section
-Inspired by: Nike, Gymshark, Lululemon
-Ultra-Premium Reviews | Trust Building
-========================================
--->
+<!--<!--
 
-<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+================================================================================
 
-<style>
+🏆 GARCIA BUILDER - TESTIMONIALS V3.0🏆 PREMIUM MASTER TESTIMONIALS V3.0
+
+Clean Customer ReviewsWorld-Class Social Proof Section
+
+========================================Inspired by: Nike, Gymshark, Lululemon
+
+-->Ultra-Premium Reviews | Trust Building
+
+========================================
+
+<style>-->
+
+  .gb-testimonials {
+
+    padding: 100px 0;<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+    background: #ffffff;
+
+  }<style>
+
   /* ========================================
-     🎨 PREMIUM TESTIMONIALS VARIABLES
-  ======================================== */
-  :root {
-    --testimonials-spacing: 120px;
-    --testimonial-card-radius: 20px;
+
+  .gb-testimonials-container {     🎨 PREMIUM TESTIMONIALS VARIABLES
+
+    max-width: 1200px;  ======================================== */
+
+    margin: 0 auto;  :root {
+
+    padding: 0 40px;    --testimonials-spacing: 120px;
+
+  }    --testimonial-card-radius: 20px;
+
   }
 
-  /* ========================================
-     💎 MAIN SECTION
-  ======================================== */
+  .gb-testimonials-header {
+
+    text-align: center;  /* ========================================
+
+    margin-bottom: 60px;     💎 MAIN SECTION
+
+  }  ======================================== */
+
   .premium-master-testimonials {
-    padding: var(--testimonials-spacing) 40px;
-    background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
-    position: relative;
-    overflow: hidden;
-  }
 
-  /* Decorative Background */
+  .gb-testimonials-title {    padding: var(--testimonials-spacing) 40px;
+
+    font-size: clamp(36px, 5vw, 48px);    background: linear-gradient(180deg, #0a0a0a 0%, #000000 100%);
+
+    font-weight: 900;    position: relative;
+
+    color: #1a1a1a;    overflow: hidden;
+
+    margin: 0 0 16px 0;  }
+
+    letter-spacing: -0.02em;
+
+  }  /* Decorative Background */
+
   .testimonials-bg-pattern {
-    position: absolute;
-    inset: 0;
-    opacity: 0.03;
-    background-image:
-      radial-gradient(circle at 20% 30%, rgba(0, 122, 255, 0.2) 0%, transparent 50%),
+
+  .gb-testimonials-subtitle {    position: absolute;
+
+    font-size: 18px;    inset: 0;
+
+    color: #6b6b6b;    opacity: 0.03;
+
+    margin: 0;    background-image:
+
+  }      radial-gradient(circle at 20% 30%, rgba(0, 122, 255, 0.2) 0%, transparent 50%),
+
       radial-gradient(circle at 80% 70%, rgba(48, 209, 88, 0.2) 0%, transparent 50%);
-    pointer-events: none;
-  }
 
-  .testimonials-container {
-    max-width: 1600px;
+  .gb-testimonials-grid {    pointer-events: none;
+
+    display: grid;  }
+
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+    gap: 32px;  .testimonials-container {
+
+  }    max-width: 1600px;
+
     margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
 
-  /* ========================================
-     📝 SECTION HEADER
+  .gb-testimonial-card {    position: relative;
+
+    background: #f8f8f8;    z-index: 1;
+
+    border-radius: 8px;  }
+
+    padding: 40px;
+
+    position: relative;  /* ========================================
+
+  }     📝 SECTION HEADER
+
   ======================================== */
-  .testimonials-header {
-    text-align: center;
-    margin-bottom: 80px;
-    animation: fade-slide-up 0.8s ease-out;
+
+  .gb-testimonial-quote {  .testimonials-header {
+
+    font-size: 48px;    text-align: center;
+
+    color: #d4af37;    margin-bottom: 80px;
+
+    line-height: 1;    animation: fade-slide-up 0.8s ease-out;
+
+    margin-bottom: 16px;  }
+
   }
 
   .testimonials-badge {
-    display: inline-block;
-    padding: 10px 24px;
-    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
-    border: 1px solid rgba(0, 122, 255, 0.3);
-    border-radius: 50px;
-    color: #007AFF;
+
+  .gb-testimonial-text {    display: inline-block;
+
+    font-size: 16px;    padding: 10px 24px;
+
+    line-height: 1.7;    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
+
+    color: #1a1a1a;    border: 1px solid rgba(0, 122, 255, 0.3);
+
+    margin: 0 0 24px 0;    border-radius: 50px;
+
+  }    color: #007AFF;
+
     font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 24px;
-  }
 
-  .testimonials-heading {
-    font-size: clamp(42px, 6vw, 72px);
-    font-weight: 900;
-    color: white;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
+  .gb-testimonial-author {    font-weight: 700;
+
+    display: flex;    text-transform: uppercase;
+
+    align-items: center;    letter-spacing: 0.15em;
+
+    gap: 16px;    margin-bottom: 24px;
+
+  }  }
+
+
+
+  .gb-testimonial-avatar {  .testimonials-heading {
+
+    width: 50px;    font-size: clamp(42px, 6vw, 72px);
+
+    height: 50px;    font-weight: 900;
+
+    border-radius: 50%;    color: white;
+
+    object-fit: cover;    margin-bottom: 20px;
+
+    background: #d4af37;    text-transform: uppercase;
+
+  }    letter-spacing: -0.02em;
+
     line-height: 1.1;
-  }
 
-  .testimonials-heading-highlight {
-    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  .gb-testimonial-info h4 {  }
 
-  .testimonials-description {
-    font-size: 18px;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.6);
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-
-  /* ========================================
-     ⭐ STATS BAR
-  ======================================== */
-  .testimonials-stats {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    margin-bottom: 80px;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    animation: fade-slide-up 0.8s ease-out 0.2s backwards;
-  }
-
-  .stat-item {
-    text-align: center;
-  }
-
-  .stat-number {
-    font-size: 48px;
-    font-weight: 900;
-    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  .stat-label {
-    font-size: 14px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .stat-stars {
-    font-size: 24px;
-    color: #FF9500;
-    letter-spacing: 4px;
-    margin-bottom: 8px;
-  }
-
-  /* ========================================
-     🎯 TESTIMONIALS GRID
-  ======================================== */
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-    gap: 30px;
-  }
-
-  /* Testimonial Card */
-  .testimonial-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--testimonial-card-radius);
-    padding: 40px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: fade-slide-up 0.8s ease-out backwards;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
-  .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
-  .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
-  .testimonial-card:nth-child(4) { animation-delay: 0.4s; }
-  .testimonial-card:nth-child(5) { animation-delay: 0.5s; }
-  .testimonial-card:nth-child(6) { animation-delay: 0.6s; }
-
-  .testimonial-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(0, 122, 255, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-
-  .testimonial-card:hover {
-    transform: translateY(-8px);
-    border-color: rgba(0, 122, 255, 0.3);
-    box-shadow: 0 20px 60px rgba(0, 122, 255, 0.3);
-    background: rgba(255, 255, 255, 0.05);
-  }
-
-  .testimonial-card:hover::before {
-    opacity: 1;
-  }
-
-  /* Quote Icon */
-  .quote-icon {
-    font-size: 48px;
-    color: rgba(0, 122, 255, 0.3);
-    margin-bottom: 20px;
-    line-height: 1;
-  }
-
-  /* Rating Stars */
-  .testimonial-rating {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 20px;
-  }
-
-  .star {
-    font-size: 18px;
-    color: #FF9500;
-  }
-
-  /* Review Text */
-  .testimonial-text {
     font-size: 16px;
+
+    font-weight: 700;  .testimonials-heading-highlight {
+
+    color: #1a1a1a;    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+
+    margin: 0 0 4px 0;    -webkit-background-clip: text;
+
+  }    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+
+  .gb-testimonial-rating {  }
+
+    color: #d4af37;
+
+    font-size: 14px;  .testimonials-description {
+
+  }    font-size: 18px;
+
     font-weight: 500;
+
+  @media (max-width: 768px) {    color: rgba(255, 255, 255, 0.6);
+
+    .gb-testimonials {    max-width: 700px;
+
+      padding: 60px 0;    margin: 0 auto;
+
+    }    line-height: 1.7;
+
+  }
+
+    .gb-testimonials-container {
+
+      padding: 0 24px;  /* ========================================
+
+    }     ⭐ STATS BAR
+
+  ======================================== */
+
+    .gb-testimonials-header {  .testimonials-stats {
+
+      margin-bottom: 40px;    display: flex;
+
+    }    justify-content: center;
+
+    gap: 60px;
+
+    .gb-testimonials-grid {    margin-bottom: 80px;
+
+      grid-template-columns: 1fr;    padding: 40px;
+
+      gap: 24px;    background: rgba(255, 255, 255, 0.03);
+
+    }    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 20px;
+
+    .gb-testimonial-card {    backdrop-filter: blur(10px);
+
+      padding: 32px 24px;    animation: fade-slide-up 0.8s ease-out 0.2s backwards;
+
+    }  }
+
+  }
+
+</style>  .stat-item {
+
+    text-align: center;
+
+<section class="gb-testimonials">  }
+
+  <div class="gb-testimonials-container">
+
+    <div class="gb-testimonials-header">  .stat-number {
+
+      <h2 class="gb-testimonials-title">{{ section.settings.title | default: 'O Que Dizem Nossos Clientes' }}</h2>    font-size: 48px;
+
+      <p class="gb-testimonials-subtitle">{{ section.settings.subtitle | default: 'Resultados reais de quem confia na Garcia Builder' }}</p>    font-weight: 900;
+
+    </div>    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+
+    -webkit-background-clip: text;
+
+    <div class="gb-testimonials-grid">    -webkit-text-fill-color: transparent;
+
+      {% for block in section.blocks %}    background-clip: text;
+
+        <div class="gb-testimonial-card">    display: block;
+
+          <div class="gb-testimonial-quote">"</div>    margin-bottom: 8px;
+
+          <p class="gb-testimonial-text">{{ block.settings.text }}</p>  }
+
+          <div class="gb-testimonial-author">
+
+            {% if block.settings.image != blank %}  .stat-label {
+
+              <img src="{{ block.settings.image | image_url: width: 100 }}" alt="{{ block.settings.name }}" class="gb-testimonial-avatar">    font-size: 14px;
+
+            {% else %}    font-weight: 600;
+
+              <div class="gb-testimonial-avatar"></div>    color: rgba(255, 255, 255, 0.6);
+
+            {% endif %}    text-transform: uppercase;
+
+            <div class="gb-testimonial-info">    letter-spacing: 0.1em;
+
+              <h4>{{ block.settings.name }}</h4>  }
+
+              <div class="gb-testimonial-rating">★★★★★</div>
+
+            </div>  .stat-stars {
+
+          </div>    font-size: 24px;
+
+        </div>    color: #FF9500;
+
+      {% endfor %}    letter-spacing: 4px;
+
+    </div>    margin-bottom: 8px;
+
+  </div>  }
+
+</section>
+
+  /* ========================================
+
+{% schema %}     🎯 TESTIMONIALS GRID
+
+{  ======================================== */
+
+  "name": "Garcia Builder Testimonials",  .testimonials-grid {
+
+  "tag": "section",    display: grid;
+
+  "class": "garcia-builder-testimonials",    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+
+  "settings": [    gap: 30px;
+
+    {  }
+
+      "type": "text",
+
+      "id": "title",  /* Testimonial Card */
+
+      "label": "Título",  .testimonial-card {
+
+      "default": "O Que Dizem Nossos Clientes"    background: rgba(255, 255, 255, 0.03);
+
+    },    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    {    border-radius: var(--testimonial-card-radius);
+
+      "type": "text",    padding: 40px;
+
+      "id": "subtitle",    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+      "label": "Subtítulo",    animation: fade-slide-up 0.8s ease-out backwards;
+
+      "default": "Resultados reais de quem confia na Garcia Builder"    position: relative;
+
+    }    overflow: hidden;
+
+  ],  }
+
+  "blocks": [
+
+    {  .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+
+      "type": "testimonial",  .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+
+      "name": "Depoimento",  .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+      "settings": [  .testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+
+        {  .testimonial-card:nth-child(5) { animation-delay: 0.5s; }
+
+          "type": "textarea",  .testimonial-card:nth-child(6) { animation-delay: 0.6s; }
+
+          "id": "text",
+
+          "label": "Texto",  .testimonial-card::before {
+
+          "default": "Produtos de qualidade excepcional! Resultados visíveis em poucas semanas."    content: '';
+
+        },    position: absolute;
+
+        {    top: -50%;
+
+          "type": "text",    right: -50%;
+
+          "id": "name",    width: 200%;
+
+          "label": "Nome",    height: 200%;
+
+          "default": "Cliente Satisfeito"    background: radial-gradient(circle, rgba(0, 122, 255, 0.1) 0%, transparent 70%);
+
+        },    opacity: 0;
+
+        {    transition: opacity 0.5s ease;
+
+          "type": "image_picker",  }
+
+          "id": "image",
+
+          "label": "Foto (opcional)"  .testimonial-card:hover {
+
+        }    transform: translateY(-8px);
+
+      ]    border-color: rgba(0, 122, 255, 0.3);
+
+    }    box-shadow: 0 20px 60px rgba(0, 122, 255, 0.3);
+
+  ],    background: rgba(255, 255, 255, 0.05);
+
+  "presets": [  }
+
+    {
+
+      "name": "Garcia Builder Testimonials",  .testimonial-card:hover::before {
+
+      "blocks": [    opacity: 1;
+
+        {  }
+
+          "type": "testimonial",
+
+          "settings": {  /* Quote Icon */
+
+            "text": "Melhor whey que já experimentei! Sabor incrível e resultados rápidos.",  .quote-icon {
+
+            "name": "João Silva"    font-size: 48px;
+
+          }    color: rgba(0, 122, 255, 0.3);
+
+        },    margin-bottom: 20px;
+
+        {    line-height: 1;
+
+          "type": "testimonial",  }
+
+          "settings": {
+
+            "text": "Atendimento excelente e produtos de primeira. Super recomendo!",  /* Rating Stars */
+
+            "name": "Maria Santos"  .testimonial-rating {
+
+          }    display: flex;
+
+        },    gap: 4px;
+
+        {    margin-bottom: 20px;
+
+          "type": "testimonial",  }
+
+          "settings": {
+
+            "text": "Creatina de qualidade com preço justo. Entrega rápida demais!",  .star {
+
+            "name": "Carlos Oliveira"    font-size: 18px;
+
+          }    color: #FF9500;
+
+        }  }
+
+      ]
+
+    }  /* Review Text */
+
+  ]  .testimonial-text {
+
+}    font-size: 16px;
+
+{% endschema %}    font-weight: 500;
+
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.8;
     margin-bottom: 30px;

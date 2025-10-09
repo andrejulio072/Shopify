@@ -1,280 +1,558 @@
-<!--<!--
-
-================================================================================
-
-🏆 GARCIA BUILDER - PRODUCTS V3.0🏆 PREMIUM MASTER PRODUCTS V3.0
-
-Clean Product ShowcaseWorld-Class Product Showcase
-
-========================================Inspired by: Nike, Gymshark, Lululemon
-
--->Ultra-Premium Grid | Interactive Hover Effects
+<!--<!--<!--
 
 ========================================
 
-<style>-->
+🏆 GARCIA BUILDER - PRODUCTS V3.0================================================================================
 
-  .gb-products {
+Clean Product Showcase
 
-    padding: 100px 0;<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+========================================🏆 GARCIA BUILDER - PRODUCTS V3.0🏆 PREMIUM MASTER PRODUCTS V3.0
 
-    background: #f5f5f5;
+-->
 
-  }<style>
+Clean Product ShowcaseWorld-Class Product Showcase
 
-  /* ========================================
+<style>
 
-  .gb-products-container {     🎨 PREMIUM PRODUCTS VARIABLES
+  .gb-products {========================================Inspired by: Nike, Gymshark, Lululemon
 
-    max-width: 1400px;  ======================================== */
+    padding: 100px 0;
 
-    margin: 0 auto;  :root {
-
-    padding: 0 40px;    --products-spacing: 120px;
-
-  }    --product-card-radius: 20px;
+    background: #f5f5f5;-->Ultra-Premium Grid | Interactive Hover Effects
 
   }
 
-  .gb-products-header {
+========================================
 
-    text-align: center;  /* ========================================
+  .gb-products-container {
 
-    margin-bottom: 60px;     💎 MAIN SECTION
-
-  }  ======================================== */
-
-  .premium-master-products {
-
-  .gb-products-title {    padding: var(--products-spacing) 40px;
-
-    font-size: clamp(36px, 5vw, 48px);    background: #000000;
-
-    font-weight: 900;    position: relative;
-
-    color: #1a1a1a;  }
-
-    margin: 0 0 16px 0;
-
-    letter-spacing: -0.02em;  .products-container {
-
-  }    max-width: 1600px;
+    max-width: 1400px;<style>-->
 
     margin: 0 auto;
 
-  .gb-products-subtitle {  }
-
-    font-size: 18px;
-
-    color: #6b6b6b;  /* ========================================
-
-    margin: 0 0 32px 0;     📝 SECTION HEADER
-
-  }  ======================================== */
-
-  .products-header {
-
-  .gb-products-cta {    text-align: center;
-
-    display: inline-block;    margin-bottom: 80px;
-
-    padding: 12px 32px;    animation: fade-slide-up 0.8s ease-out;
-
-    background: #1a1a1a;  }
-
-    color: #ffffff;
-
-    font-size: 14px;  .products-badge {
-
-    font-weight: 600;    display: inline-block;
-
-    text-transform: uppercase;    padding: 10px 24px;
-
-    letter-spacing: 1px;    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
-
-    text-decoration: none;    border: 1px solid rgba(0, 122, 255, 0.3);
-
-    border-radius: 4px;    border-radius: 50px;
-
-    transition: all 0.3s ease;    color: #007AFF;
-
-  }    font-size: 13px;
-
-    font-weight: 700;
-
-  .gb-products-cta:hover {    text-transform: uppercase;
-
-    background: #d4af37;    letter-spacing: 0.15em;
-
-    color: #1a1a1a;    margin-bottom: 24px;
-
-  }  }
-
-
-
-  .gb-products-grid {  .products-heading {
-
-    display: grid;    font-size: clamp(42px, 6vw, 72px);
-
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));    font-weight: 900;
-
-    gap: 32px;    color: white;
-
-  }    margin-bottom: 20px;
-
-    text-transform: uppercase;
-
-  .gb-product-card {    letter-spacing: -0.02em;
-
-    background: #ffffff;    line-height: 1.1;
-
-    border-radius: 8px;  }
-
-    overflow: hidden;
-
-    text-decoration: none;  .products-heading-highlight {
-
-    transition: transform 0.3s ease, box-shadow 0.3s ease;    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
-
-  }    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
-
-  .gb-product-card:hover {    background-clip: text;
-
-    transform: translateY(-4px);  }
-
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-
-  }  .products-description {
-
-    font-size: 18px;
-
-  .gb-product-image-wrapper {    font-weight: 500;
-
-    position: relative;    color: rgba(255, 255, 255, 0.6);
-
-    padding-top: 100%;    max-width: 700px;
-
-    overflow: hidden;    margin: 0 auto;
-
-    background: #f8f8f8;    line-height: 1.7;
-
-  }  }
-
-
-
-  .gb-product-image {  /* ========================================
-
-    position: absolute;     🎯 PRODUCTS GRID
-
-    top: 0;  ======================================== */
-
-    left: 0;  .products-grid {
-
-    width: 100%;    display: grid;
-
-    height: 100%;    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-
-    object-fit: contain;    gap: 30px;
-
-    padding: 20px;    margin-bottom: 60px;
-
-  }  }
-
-
-
-  .gb-product-badge {  /* Product Card */
-
-    position: absolute;  .product-card {
-
-    top: 16px;    background: rgba(255, 255, 255, 0.03);
-
-    left: 16px;    border: 1px solid rgba(255, 255, 255, 0.08);
-
-    padding: 6px 12px;    border-radius: var(--product-card-radius);
-
-    background: #d4af37;    overflow: hidden;
-
-    color: #1a1a1a;    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
-    font-size: 11px;    position: relative;
-
-    font-weight: 700;    animation: fade-slide-up 0.8s ease-out backwards;
-
-    text-transform: uppercase;  }
-
-    letter-spacing: 0.5px;
-
-    border-radius: 4px;  .product-card:nth-child(1) { animation-delay: 0.1s; }
-
-  }  .product-card:nth-child(2) { animation-delay: 0.2s; }
-
-  .product-card:nth-child(3) { animation-delay: 0.3s; }
-
-  .gb-product-info {  .product-card:nth-child(4) { animation-delay: 0.4s; }
-
-    padding: 24px;  .product-card:nth-child(5) { animation-delay: 0.5s; }
-
-  }  .product-card:nth-child(6) { animation-delay: 0.6s; }
-
-
-
-  .gb-product-title {  .product-card:hover {
-
-    font-size: 18px;    transform: translateY(-10px);
-
-    font-weight: 700;    border-color: rgba(0, 122, 255, 0.3);
-
-    color: #1a1a1a;    box-shadow: 0 20px 60px rgba(0, 122, 255, 0.3);
-
-    margin: 0 0 8px 0;    background: rgba(255, 255, 255, 0.05);
-
-    display: -webkit-box;  }
-
-    -webkit-line-clamp: 2;
-
-    -webkit-box-orient: vertical;  /* Product Image Container */
-
-    overflow: hidden;  .product-image-wrapper {
-
-  }    position: relative;
-
-    aspect-ratio: 1 / 1;
-
-  .gb-product-price {    overflow: hidden;
-
-    font-size: 24px;    background: rgba(255, 255, 255, 0.02);
-
-    font-weight: 900;  }
-
-    color: #d4af37;
-
-    margin: 0;  .product-image {
-
-  }    width: 100%;
-
-    height: 100%;
-
-  .gb-product-price-compare {    object-fit: cover;
-
-    font-size: 16px;    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-
-    color: #999;  }
-
-    text-decoration: line-through;
-
-    margin-left: 8px;  .product-card:hover .product-image {
-
-  }    transform: scale(1.08);
+    padding: 0 40px;  .gb-products {
 
   }
 
+    padding: 100px 0;<link rel="stylesheet" href="{{ 'premium-v2.css' | asset_url }}">
+
+  .gb-products-header {
+
+    text-align: center;    background: #f5f5f5;
+
+    margin-bottom: 60px;
+
+  }  }<style>
+
+
+
+  .gb-products-title {  /* ========================================
+
+    font-size: clamp(36px, 5vw, 48px);
+
+    font-weight: 900;  .gb-products-container {     🎨 PREMIUM PRODUCTS VARIABLES
+
+    color: #1a1a1a;
+
+    margin: 0 0 16px 0;    max-width: 1400px;  ======================================== */
+
+    letter-spacing: -0.02em;
+
+  }    margin: 0 auto;  :root {
+
+
+
+  .gb-products-subtitle {    padding: 0 40px;    --products-spacing: 120px;
+
+    font-size: 18px;
+
+    color: #6b6b6b;  }    --product-card-radius: 20px;
+
+    margin: 0 0 32px 0;
+
+  }  }
+
+
+
+  .gb-products-cta {  .gb-products-header {
+
+    display: inline-block;
+
+    padding: 12px 32px;    text-align: center;  /* ========================================
+
+    background: #1a1a1a;
+
+    color: #ffffff;    margin-bottom: 60px;     💎 MAIN SECTION
+
+    font-size: 14px;
+
+    font-weight: 600;  }  ======================================== */
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;  .premium-master-products {
+
+    text-decoration: none;
+
+    border-radius: 4px;  .gb-products-title {    padding: var(--products-spacing) 40px;
+
+    transition: all 0.3s ease;
+
+  }    font-size: clamp(36px, 5vw, 48px);    background: #000000;
+
+
+
+  .gb-products-cta:hover {    font-weight: 900;    position: relative;
+
+    background: #d4af37;
+
+    color: #1a1a1a;    color: #1a1a1a;  }
+
+  }
+
+    margin: 0 0 16px 0;
+
+  .gb-products-grid {
+
+    display: grid;    letter-spacing: -0.02em;  .products-container {
+
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 32px;  }    max-width: 1600px;
+
+  }
+
+    margin: 0 auto;
+
+  .gb-product-card {
+
+    background: #ffffff;  .gb-products-subtitle {  }
+
+    border-radius: 8px;
+
+    overflow: hidden;    font-size: 18px;
+
+    text-decoration: none;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;    color: #6b6b6b;  /* ========================================
+
+    display: block;
+
+  }    margin: 0 0 32px 0;     📝 SECTION HEADER
+
+
+
+  .gb-product-card:hover {  }  ======================================== */
+
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);  .products-header {
+
+  }
+
+  .gb-products-cta {    text-align: center;
+
+  .gb-product-image-wrapper {
+
+    position: relative;    display: inline-block;    margin-bottom: 80px;
+
+    padding-top: 100%;
+
+    overflow: hidden;    padding: 12px 32px;    animation: fade-slide-up 0.8s ease-out;
+
+    background: #f8f8f8;
+
+  }    background: #1a1a1a;  }
+
+
+
+  .gb-product-image {    color: #ffffff;
+
+    position: absolute;
+
+    top: 0;    font-size: 14px;  .products-badge {
+
+    left: 0;
+
+    width: 100%;    font-weight: 600;    display: inline-block;
+
+    height: 100%;
+
+    object-fit: contain;    text-transform: uppercase;    padding: 10px 24px;
+
+    padding: 20px;
+
+  }    letter-spacing: 1px;    background: linear-gradient(135deg, rgba(0, 122, 255, 0.2) 0%, rgba(48, 209, 88, 0.2) 100%);
+
+
+
+  .gb-product-badge {    text-decoration: none;    border: 1px solid rgba(0, 122, 255, 0.3);
+
+    position: absolute;
+
+    top: 16px;    border-radius: 4px;    border-radius: 50px;
+
+    left: 16px;
+
+    padding: 6px 12px;    transition: all 0.3s ease;    color: #007AFF;
+
+    background: #d4af37;
+
+    color: #1a1a1a;  }    font-size: 13px;
+
+    font-size: 11px;
+
+    font-weight: 700;    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;  .gb-products-cta:hover {    text-transform: uppercase;
+
+    border-radius: 4px;
+
+  }    background: #d4af37;    letter-spacing: 0.15em;
+
+
+
+  .gb-product-info {    color: #1a1a1a;    margin-bottom: 24px;
+
+    padding: 24px;
+
+  }  }  }
+
+
+
+  .gb-product-title {
+
+    font-size: 18px;
+
+    font-weight: 700;  .gb-products-grid {  .products-heading {
+
+    color: #1a1a1a;
+
+    margin: 0 0 8px 0;    display: grid;    font-size: clamp(42px, 6vw, 72px);
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 2;    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));    font-weight: 900;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;    gap: 32px;    color: white;
+
+  }
+
+  }    margin-bottom: 20px;
+
+  .gb-product-price {
+
+    font-size: 24px;    text-transform: uppercase;
+
+    font-weight: 900;
+
+    color: #d4af37;  .gb-product-card {    letter-spacing: -0.02em;
+
+    margin: 0;
+
+  }    background: #ffffff;    line-height: 1.1;
+
+
+
+  .gb-product-price-compare {    border-radius: 8px;  }
+
+    font-size: 16px;
+
+    color: #999;    overflow: hidden;
+
+    text-decoration: line-through;
+
+    margin-left: 8px;    text-decoration: none;  .products-heading-highlight {
+
+  }
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;    background: linear-gradient(135deg, #007AFF 0%, #30D158 100%);
+
   @media (max-width: 768px) {
 
-    .gb-products {  /* Product Badges */
+    .gb-products {  }    -webkit-background-clip: text;
 
-      padding: 60px 0;  .product-badges {
+      padding: 60px 0;
+
+    }    -webkit-text-fill-color: transparent;
+
+
+
+    .gb-products-container {  .gb-product-card:hover {    background-clip: text;
+
+      padding: 0 24px;
+
+    }    transform: translateY(-4px);  }
+
+
+
+    .gb-products-header {    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+
+      margin-bottom: 40px;
+
+    }  }  .products-description {
+
+
+
+    .gb-products-grid {    font-size: 18px;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 16px;  .gb-product-image-wrapper {    font-weight: 500;
+
+    }
+
+    position: relative;    color: rgba(255, 255, 255, 0.6);
+
+    .gb-product-info {
+
+      padding: 16px;    padding-top: 100%;    max-width: 700px;
+
+    }
+
+  }    overflow: hidden;    margin: 0 auto;
+
+</style>
+
+    background: #f8f8f8;    line-height: 1.7;
+
+<section class="gb-products">
+
+  <div class="gb-products-container">  }  }
+
+    <div class="gb-products-header">
+
+      <h2 class="gb-products-title">{{ section.settings.title | default: 'Produtos em Destaque' }}</h2>
+
+      <p class="gb-products-subtitle">{{ section.settings.subtitle | default: 'Os melhores suplementos do mercado' }}</p>
+
+      {% if section.settings.button_text != blank %}  .gb-product-image {  /* ========================================
+
+        <a href="{{ section.settings.button_link }}" class="gb-products-cta">{{ section.settings.button_text }}</a>
+
+      {% endif %}    position: absolute;     🎯 PRODUCTS GRID
+
+    </div>
+
+    top: 0;  ======================================== */
+
+    <div class="gb-products-grid">
+
+      {% if section.settings.collection != blank %}    left: 0;  .products-grid {
+
+        {% for product in collections[section.settings.collection].products limit: section.settings.products_count %}
+
+          <a href="{{ product.url }}" class="gb-product-card">    width: 100%;    display: grid;
+
+            <div class="gb-product-image-wrapper">
+
+              {% if product.featured_image != blank %}    height: 100%;    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+                <img 
+
+                  src="{{ product.featured_image | image_url: width: 600 }}"     object-fit: contain;    gap: 30px;
+
+                  alt="{{ product.title }}" 
+
+                  class="gb-product-image"    padding: 20px;    margin-bottom: 60px;
+
+                  loading="lazy">
+
+              {% else %}  }  }
+
+                {% comment %}Imagem padrão - suplemento genérico{% endcomment %}
+
+                <img 
+
+                  src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&h=600&fit=crop&q=80&auto=format" 
+
+                  alt="{{ product.title }}"   .gb-product-badge {  /* Product Card */
+
+                  class="gb-product-image"
+
+                  loading="lazy">    position: absolute;  .product-card {
+
+              {% endif %}
+
+                  top: 16px;    background: rgba(255, 255, 255, 0.03);
+
+              {% if product.compare_at_price > product.price %}
+
+                <span class="gb-product-badge">Oferta</span>    left: 16px;    border: 1px solid rgba(255, 255, 255, 0.08);
+
+              {% endif %}
+
+            </div>    padding: 6px 12px;    border-radius: var(--product-card-radius);
+
+            
+
+            <div class="gb-product-info">    background: #d4af37;    overflow: hidden;
+
+              <h3 class="gb-product-title">{{ product.title }}</h3>
+
+              <p class="gb-product-price">    color: #1a1a1a;    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+                {{ product.price | money }}
+
+                {% if product.compare_at_price > product.price %}    font-size: 11px;    position: relative;
+
+                  <span class="gb-product-price-compare">{{ product.compare_at_price | money }}</span>
+
+                {% endif %}    font-weight: 700;    animation: fade-slide-up 0.8s ease-out backwards;
+
+              </p>
+
+            </div>    text-transform: uppercase;  }
+
+          </a>
+
+        {% endfor %}    letter-spacing: 0.5px;
+
+      {% else %}
+
+        {% comment %}Produtos de exemplo caso não tenha coleção{% endcomment %}    border-radius: 4px;  .product-card:nth-child(1) { animation-delay: 0.1s; }
+
+        <div class="gb-product-card" style="pointer-events: none;">
+
+          <div class="gb-product-image-wrapper">  }  .product-card:nth-child(2) { animation-delay: 0.2s; }
+
+            <img 
+
+              src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=600&h=600&fit=crop&q=80&auto=format"   .product-card:nth-child(3) { animation-delay: 0.3s; }
+
+              alt="Whey Protein" 
+
+              class="gb-product-image">  .gb-product-info {  .product-card:nth-child(4) { animation-delay: 0.4s; }
+
+            <span class="gb-product-badge">Oferta</span>
+
+          </div>    padding: 24px;  .product-card:nth-child(5) { animation-delay: 0.5s; }
+
+          <div class="gb-product-info">
+
+            <h3 class="gb-product-title">Whey Protein Isolado 1kg</h3>  }  .product-card:nth-child(6) { animation-delay: 0.6s; }
+
+            <p class="gb-product-price">R$ 189,90</p>
+
+          </div>
+
+        </div>
+
+      {% endif %}  .gb-product-title {  .product-card:hover {
+
+    </div>
+
+  </div>    font-size: 18px;    transform: translateY(-10px);
+
+</section>
+
+    font-weight: 700;    border-color: rgba(0, 122, 255, 0.3);
+
+{% schema %}
+
+{    color: #1a1a1a;    box-shadow: 0 20px 60px rgba(0, 122, 255, 0.3);
+
+  "name": "Garcia Builder Products",
+
+  "tag": "section",    margin: 0 0 8px 0;    background: rgba(255, 255, 255, 0.05);
+
+  "class": "garcia-builder-products",
+
+  "settings": [    display: -webkit-box;  }
+
+    {
+
+      "type": "text",    -webkit-line-clamp: 2;
+
+      "id": "title",
+
+      "label": "Título",    -webkit-box-orient: vertical;  /* Product Image Container */
+
+      "default": "Produtos em Destaque"
+
+    },    overflow: hidden;  .product-image-wrapper {
+
+    {
+
+      "type": "text",  }    position: relative;
+
+      "id": "subtitle",
+
+      "label": "Subtítulo",    aspect-ratio: 1 / 1;
+
+      "default": "Os melhores suplementos do mercado"
+
+    },  .gb-product-price {    overflow: hidden;
+
+    {
+
+      "type": "collection",    font-size: 24px;    background: rgba(255, 255, 255, 0.02);
+
+      "id": "collection",
+
+      "label": "Coleção"    font-weight: 900;  }
+
+    },
+
+    {    color: #d4af37;
+
+      "type": "range",
+
+      "id": "products_count",    margin: 0;  .product-image {
+
+      "label": "Número de Produtos",
+
+      "min": 3,  }    width: 100%;
+
+      "max": 12,
+
+      "step": 1,    height: 100%;
+
+      "default": 8
+
+    },  .gb-product-price-compare {    object-fit: cover;
+
+    {
+
+      "type": "text",    font-size: 16px;    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+      "id": "button_text",
+
+      "label": "Texto Botão",    color: #999;  }
+
+      "default": "Ver Todos"
+
+    },    text-decoration: line-through;
+
+    {
+
+      "type": "url",    margin-left: 8px;  .product-card:hover .product-image {
+
+      "id": "button_link",
+
+      "label": "Link Botão"  }    transform: scale(1.08);
+
+    }
+
+  ],  }
+
+  "presets": [
+
+    {  @media (max-width: 768px) {
+
+      "name": "Garcia Builder Products"
+
+    }    .gb-products {  /* Product Badges */
+
+  ]
+
+}      padding: 60px 0;  .product-badges {
+
+{% endschema %}
 
     }    position: absolute;
 

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -537,6 +546,60 @@
       "send_on_label": "Enviar em (opcional)",
       "expanded": "Formulário de destinatário do cartão-presente expandido",
       "collapsed": "Formulário de destinatário do cartão-presente recolhido"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "payment": {
+        "business_customer_with_bank_account_vaulting_payment_label": "Salve este método de pagamento no checkout e autorize a %{company} a debitar sua conta para compras futuras que você aprovar para esta localização, até que você cancele. Todos os contatos atribuídos a esta localização podem usar o método de pagamento.",
+        "new_bank_account_disclaimer": "Ao concluir seu pedido, você autoriza %{shop_name} a debitar a conta abaixo via ACH pelo valor e no momento indicados.",
+        "bank_account_disclaimer": "Os pagamentos ACH podem levar até 4 dias úteis para serem processados."
+      }
+    }
+  },
+  "customer_accounts": {
+    "payment_methods": {
+      "add_payment_method_dropdown": {
+        "bank_account_consent": "Ao adicionar um método de pagamento, você autoriza que seu cartão seja cobrado ou sua conta bancária seja debitada para compras futuras que você aprovar, até que você cancele."
+      }
+    }
+  },
+  "gempages": {
+    "Carousel": {
+      "no_slider": "Sem Slider"
+    },
+    "Newsletter": {
+      "err_msg_default": "Não foi possível enviar o e-mail. Tente novamente mais tarde.",
+      "success_msg_default": "Obrigado por se inscrever."
+    },
+    "IconListV2": {
+      "icons_not_found": "Ícones não encontrados"
+    },
+    "IconList": {
+      "icons_not_found": "Ícones não encontrados"
+    },
+    "IconListHoz": {
+      "icons_not_found": "Ícones não encontrados"
+    },
+    "Product": {
+      "product_not_found": "Produto não encontrado."
+    },
+    "ProductList": {
+      "product_not_found": "Produto não encontrado!",
+      "no_products_found": "Nenhum produto encontrado!",
+      "no_related_products": "Nenhum produto relacionado!"
+    },
+    "ProductTitle": {
+      "product_not_found": "Produto não encontrado."
+    },
+    "ProductVariants": {
+      "please_select": "Por favor, selecione uma opção."
+    },
+    "StockCounter": {
+      "let_buy_now": "<mark>PRESSA!</mark> COMPRE AGORA"
+    },
+    "Breadcrumb": {
+      "home": "Página inicial"
     }
   }
 }

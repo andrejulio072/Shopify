@@ -18,19 +18,7 @@
   }
 
   .premium-categories__title {
-                    </h3>
-
-                <h3 class="category-card__title">
-                  {%- if block.settings.title != blank -%}
-                    {{ block.settings.title }}
-                  {%- elsif block.settings.collection != blank -%}
-                    {{ collections[block.settings.collection].title }}
-                  {%- else -%}
-                    Categoria
-                  {%- endif -%}
-                </h3>
-
-                {%- if block.settings.description != blank -%}amp(2rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-weight: 800;
     color: #000000;
     margin-bottom: 15px;

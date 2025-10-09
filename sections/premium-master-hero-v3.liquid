@@ -476,7 +476,7 @@ Ultra-Premium Backgrounds | Maximum Impact
       {% endif %}
 
       {% if section.settings.secondary_button_text != blank %}
-        <a href="{{ section.settings.secondary_button_link }}" class="hero-cta-secondary">
+        <a href="{{ section.settings.secondary_button_link | default: '#' }}" class="hero-cta-secondary">
           {{ section.settings.secondary_button_text }}
         </a>
       {% endif %}

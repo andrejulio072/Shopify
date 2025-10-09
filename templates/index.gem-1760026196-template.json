@@ -1,0 +1,203 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner_XeATay": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_nK6cAT": {
+          "type": "heading",
+          "settings": {
+            "heading": "Elevate Your Fitness Experience",
+            "heading_size": "h2"
+          }
+        },
+        "buttons_rUFCbK": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NEW ARRIVALS",
+            "button_link_1": "shopify:\/\/collections\/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_nK6cAT",
+        "buttons_rUFCbK"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/exercise-and-fitness-equipment-minimal-1-middle.jpg",
+        "image_2": "shopify:\/\/shop_images\/exercise-and-fitness-equipment-minimal-2-top.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "accent-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "slideshow_ieznDB": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_k7faTJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/exercise-and-fitness-equipment-minimal-5-middle.jpg",
+            "heading": "Dynamic Performance Gear",
+            "heading_size": "h2",
+            "subheading": "",
+            "button_label": "EXPLORE",
+            "link": "shopify:\/\/collections",
+            "button_style_secondary": true,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 30,
+            "color_scheme": "accent-2",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_k7faTJ"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "counter",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
+    "multicolumn_KefN34": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_f4yjXk": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_f4yjXk"
+      ],
+      "settings": {
+        "title": "Unleash your potential with our expertly crafted gym accessories and apparel.",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "portrait",
+        "columns_desktop": 1,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 56,
+        "padding_bottom": 32
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "custom_css": [],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 40
+      }
+    },
+    "multicolumn_jt4ggm": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_KCVhg8": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_gY7Jrz": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>A vibrant sunrise beckons the day, igniting the spirit to conquer every challenge.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_KCVhg8",
+        "column_gY7Jrz"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
+    }
+  },
+  "order": [
+    "image_banner_XeATay",
+    "slideshow_ieznDB",
+    "multicolumn_KefN34",
+    "featured_collection",
+    "multicolumn_jt4ggm"
+  ]
+}
